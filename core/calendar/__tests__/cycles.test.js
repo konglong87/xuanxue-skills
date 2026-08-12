@@ -1,5 +1,6 @@
 const { parseCivilDateTime } = require('../civil-time');
-const { luckCycles, annualCycle } = require('../cycles');
+const { luckCycles, annualCycle, ganzhiYearOf } = require('../cycles');
+const { fourPillars } = require('../pillars');
 
 describe('起运、大运与流年', () => {
   test('Steve Jobs 真太阳时同时返回两种起运折算法与逆排大运', () => {
@@ -172,5 +173,24 @@ describe('起运、大运与流年', () => {
     [2026, '甲', '甲', /日支/],
   ])('拒绝非法流年输入', (year, stem, branch, message) => {
     expect(() => annualCycle(year, stem, branch)).toThrow(message);
+  });
+});
+
+describe('干支年归属（立春为界）', () => {
+  test.each([
+    ['立春前一天仍属上一干支年', '2026-02-02', '12:00', 2025],
+    ['立春当天交节前仍属上一干支年', '2026-02-03', '19:00', 2025],
+    ['立春交节后进入本干支年', '2026-02-03', '21:00', 2026],
+    ['年中属本干支年', '2026-08-12', '09:00', 2026],
+    ['元旦属上一干支年', '2026-01-01', '00:30', 2025],
+  ])('%s', (name, date, time, expected) => {
+    expect(ganzhiYearOf(parseCivilDateTime({ date, time }))).toBe(expected);
+  });
+
+  test('干支年与四柱年柱口径一致', () => {
+    const datetime = parseCivilDateTime({ date: '2026-01-20', time: '10:00' });
+    const year = ganzhiYearOf(datetime);
+    expect(annualCycle(year, '丙', '辰').干支)
+      .toBe(fourPillars({ datetime, options: { useTrueSolar: false } }).年);
   });
 });

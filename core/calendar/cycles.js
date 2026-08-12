@@ -2,7 +2,8 @@ const lunar = require('../../vendor/lunar-javascript');
 const { TIANGAN, DIZHI, JIAZI } = require('../ganzhi/constants');
 const { shiShen } = require('../ganzhi/shishen');
 const { relation } = require('../ganzhi/relation');
-const { isValidDateTime } = require('./civil-time');
+const { isValidDateTime, dateTimeValueOf } = require('./civil-time');
+const { jieList } = require('./jieqi');
 
 const GENDER_CODES = { male: 1, female: 0 };
 const SECTS = [
@@ -14,6 +15,7 @@ const MAX_CYCLE_COUNT = 12;
 const MIN_TARGET_YEAR = 1800;
 const MAX_TARGET_YEAR = 2300;
 const SECONDS_PER_DAY = 86_400;
+const LICHUN = '立春';
 const START_PRECISION = {
   sect1: '时辰级：沿用 lunar-javascript 按时辰天数折算',
   sect2: '分钟级：顺排取出生时刻至下一节、逆排取上一节至出生时刻的有向秒差，四舍五入到最近整分钟',
@@ -184,6 +186,18 @@ function luckCycles({ datetime, gender, count = DEFAULT_CYCLE_COUNT } = {}) {
   };
 }
 
+// 干支年以立春交节为界，不以公历 1 月 1 日为界。每年 1 月 1 日至立春之间，
+// 公历年已经进位而干支年尚未进位 —— 直接拿公历年当流年会整体错一位。
+function ganzhiYearOf(datetime) {
+  if (!isValidDateTime(datetime)) {
+    throw new Error(`datetime 须为合法 Date 或民用时间值对象，收到：${datetime}`);
+  }
+  const civilYear = datetime.getFullYear();
+  const lichun = jieList(civilYear).find(item => item.名 === LICHUN);
+  if (!lichun) throw new Error(`找不到 ${civilYear} 年的立春`);
+  return dateTimeValueOf(datetime) < dateTimeValueOf(lichun.时刻) ? civilYear - 1 : civilYear;
+}
+
 function annualCycle(targetYear, dayStem, dayBranch) {
   if (!Number.isInteger(targetYear)) throw new Error(`targetYear 须为整数，收到：${targetYear}`);
   if (targetYear < MIN_TARGET_YEAR || targetYear > MAX_TARGET_YEAR) {
@@ -205,4 +219,4 @@ function annualCycle(targetYear, dayStem, dayBranch) {
   };
 }
 
-module.exports = { luckCycles, annualCycle };
+module.exports = { luckCycles, annualCycle, ganzhiYearOf };

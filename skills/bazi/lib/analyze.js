@@ -1,4 +1,4 @@
-const { baziChart } = require('../../../core/calendar');
+const { baziChart, ganzhiYearOf } = require('../../../core/calendar');
 const { DISCLAIMER_BASE } = require('../../_shared/safety');
 
 function deepFreeze(value) {
@@ -145,7 +145,7 @@ function buildAnalysisContext(chart, alternateChart, targetYearInjected) {
   return {
     输入说明: {
       目标年: targetYearInjected
-        ? `目标年由技能层按调用时当前公历年 ${targetYear} 注入；core 仍收到显式 targetYear。`
+        ? `目标年由技能层按调用时的当前干支年 ${targetYear} 注入（干支年以立春为界，非公历 1 月 1 日）；core 仍收到显式 targetYear。`
         : `目标年由用户显式提供：${targetYear}。`,
       换日复算: alternateChart
         ? '本例换日口径导致日柱不同，已显式调用 core/calendar.baziChart 两次，分别保留两派完整命盘。'
@@ -174,7 +174,10 @@ function buildAnalysisContext(chart, alternateChart, targetYearInjected) {
   };
 }
 
-function analyze(input, { currentYear = new Date().getFullYear() } = {}) {
+// 默认目标年取「当前干支年」而非当前公历年：每年 1 月 1 日到立春之间两者相差一位，
+// 直接用公历年会把流年整体报错一位。用户显式给 targetYear 时原样采用，不做换算。
+function analyze(input, { now = new Date(), currentYear } = {}) {
+  const effectiveCurrentYear = currentYear ?? ganzhiYearOf(now);
   if (!isPlainObject(input)) {
     throw new Error('input 必须是非数组的普通对象');
   }
@@ -186,7 +189,7 @@ function analyze(input, { currentYear = new Date().getFullYear() } = {}) {
   const targetYearInjected = isMissing(input.targetYear);
   const effectiveInput = {
     ...input,
-    targetYear: targetYearInjected ? currentYear : input.targetYear,
+    targetYear: targetYearInjected ? effectiveCurrentYear : input.targetYear,
   };
   const calculation = baziChart(effectiveInput);
   const alternateCalculation = calculation.四柱结果.另一派.是否不同

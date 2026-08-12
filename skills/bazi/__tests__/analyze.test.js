@@ -79,7 +79,7 @@ describe('八字综合判读上下文', () => {
     expect(result.questions).toHaveLength(4);
   });
 
-  test('未提供目标年份时由技能层注入可复现的当前公历年并披露来源', () => {
+  test('未提供目标年份时由技能层注入可复现的当前干支年并披露来源', () => {
     const { targetYear, ...input } = COMPLETE_INPUT;
 
     const result = analyze(input, { currentYear: 2026 });
@@ -95,7 +95,7 @@ describe('八字综合判读上下文', () => {
       targetYear: 2026,
       targetYearSource: 'skill-current-year',
     });
-    expect(result.analysisContext.输入说明.目标年).toMatch(/技能层.*当前公历年.*2026.*注入/);
+    expect(result.analysisContext.输入说明.目标年).toMatch(/技能层.*当前干支年.*2026.*注入/);
   });
 
   test('用户显式目标年份优先于技能层当前年份', () => {
@@ -344,5 +344,33 @@ describe('八字计算脚本协议', () => {
       status: 'error',
       error: expect.stringMatching(/input.*普通对象|输入.*普通对象/),
     });
+  });
+});
+
+describe('默认目标年按干支年注入', () => {
+  const input = {
+    birthDate: '1955-02-24',
+    birthTime: '19:15',
+    longitude: -122.4194,
+    utcOffsetMinutes: -480,
+    gender: 'male',
+  };
+
+  test('立春前运行技能时注入上一干支年，不用已进位的公历年', () => {
+    const result = analyze(input, { now: new Date(2026, 0, 15, 10, 0, 0) });
+    expect(result.calculation.目标流年.年份).toBe(2025);
+    expect(result.calculation.目标流年.干支).toBe('乙巳');
+    expect(result.analysisContext.输入说明.目标年).toMatch(/干支年|立春/);
+  });
+
+  test('立春后运行技能时注入本干支年', () => {
+    const result = analyze(input, { now: new Date(2026, 7, 12, 10, 0, 0) });
+    expect(result.calculation.目标流年.年份).toBe(2026);
+    expect(result.calculation.目标流年.干支).toBe('丙午');
+  });
+
+  test('用户显式给出 targetYear 时原样采用，不做立春换算', () => {
+    const result = analyze({ ...input, targetYear: 2026 }, { now: new Date(2026, 0, 15) });
+    expect(result.calculation.目标流年.年份).toBe(2026);
   });
 });
