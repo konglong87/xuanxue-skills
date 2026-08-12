@@ -40,6 +40,18 @@ Statuses mirror the [machine-readable acceptance record](docs/agent-compatibilit
 
 ## Install
 
+### Easiest: ask your agent
+
+In WorkBuddy, Codex, Claude Code, Cursor, or Trae, say:
+
+```text
+Please install https://github.com/konglong87/xuanxue-skills
+```
+
+If the current agent can run terminal commands, it can read this repository's instructions and complete the installation. Ask it to run `verify` afterward. If it cannot run terminal commands, use the manual commands below.
+
+### Manual install
+
 Node.js 18 or newer is required. The portable path is the project's own GitHub-backed npx installer:
 
 ```bash

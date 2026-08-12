@@ -140,6 +140,17 @@ describe('bilingual open-source onboarding', () => {
     expect(readmes).not.toContain('npx skills add');
   });
 
+  test('offers a beginner-friendly install prompt before terminal commands', () => {
+    const chinese = readText('README.md');
+    const english = readText('README_EN.md');
+    const repository = 'https://github.com/konglong87/xuanxue-skills';
+
+    expect(chinese).toContain(`帮我安装 ${repository}`);
+    expect(english).toContain(`Please install ${repository}`);
+    expect(chinese.indexOf(`帮我安装 ${repository}`)).toBeLessThan(chinese.indexOf('npx --yes'));
+    expect(english.indexOf(`Please install ${repository}`)).toBeLessThan(english.indexOf('npx --yes'));
+  });
+
   test('keeps face reading future-only with the approved privacy wording', () => {
     const chinese = readText('README.md');
     const english = readText('README_EN.md');

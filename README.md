@@ -40,6 +40,18 @@
 
 ## 安装
 
+### 最简单：直接让 Agent 安装
+
+在 WorkBuddy、Codex、Claude Code、Cursor 或 Trae 里直接说：
+
+```text
+帮我安装 https://github.com/konglong87/xuanxue-skills
+```
+
+只要当前 Agent 能执行终端命令，它就可以读取本仓库说明并完成安装。安装后可继续让它运行 `verify` 检查。若当前 Agent 不能执行终端命令，请使用下面的手动命令。
+
+### 手动安装
+
 需要 Node.js 18 或更高版本。通用首选方式是直接从 GitHub 运行本项目安装器：
 
 ```bash
