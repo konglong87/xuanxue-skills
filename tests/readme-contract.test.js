@@ -151,6 +151,24 @@ describe('bilingual open-source onboarding', () => {
     expect(english.indexOf(`Please install ${repository}`)).toBeLessThan(english.indexOf('npx --yes'));
   });
 
+  test('puts the non-technical quick start and copyable questions before technical details', () => {
+    const chinese = readText('README.md');
+    const english = readText('README_EN.md');
+
+    expect(chinese).toContain('## 30 秒开始');
+    expect(chinese).toContain('## 你可以问什么');
+    expect(chinese).toContain('## 给技术用户');
+    expect(chinese).toContain('请根据我的出生资料，做一次完整的八字综合分析');
+    expect(chinese.indexOf('## 30 秒开始')).toBeLessThan(chinese.indexOf('## 你可以问什么'));
+    expect(chinese.indexOf('## 你可以问什么')).toBeLessThan(chinese.indexOf('## 给技术用户'));
+
+    expect(english).toContain('## Start in 30 seconds');
+    expect(english).toContain('## What you can ask');
+    expect(english).toContain('## For technical users');
+    expect(english.indexOf('## Start in 30 seconds')).toBeLessThan(english.indexOf('## What you can ask'));
+    expect(english.indexOf('## What you can ask')).toBeLessThan(english.indexOf('## For technical users'));
+  });
+
   test('keeps face reading future-only with the approved privacy wording', () => {
     const chinese = readText('README.md');
     const english = readText('README_EN.md');
