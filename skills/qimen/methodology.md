@@ -21,7 +21,7 @@
 
 后面三类都在审计 `chart` 保留原词 `raw`，不得按常见排盘补字。所有安全错误均包含 `path/code/message` 且不回显自由文本；未知字段名是 `untrusted-audit-only`，只留在调用方持有的原始输入。公共 safe errors 在每个父容器内只保留冻结上限内、可区分的 `$unexpected[n]`，其余以不含用户数据的固定 `$unexpected[truncated] / unexpected_fields_truncated` 收束；所有错误再由 `ERROR_LIMITS.MAX_PUBLIC_ERRORS` 封顶，溢出以固定 `$errors[truncated] / errors_truncated` 收束。只要 errors 非空，下游领域技能就降级为不使用奇门增强。
 
-宫级六害相关标记保留击刑、入墓、庚、虎、门破、门迫、空亡。资料 R3 第 4.1 节写“门破”，实施方案与第 4.4 节写“门迫”；两者来源术语有分歧，分别保留，绝不等同或互换。每条标记必须在审计 `chart` 记录外部原文 `raw`、来源 `source`、流派或口径 `school`，未知派别也应如实写“APP未标派别”，不能替 APP 归派。单宫最多标准化冻结的 `INPUT_LIMITS.MAX_MARKERS_PER_PALACE` 条标记；越界先报固定 `marker_count_exceeded`，再停止深遍历额外标记。
+宫级六害相关标记保留击刑、入墓、庚、虎、门破、门迫、空亡。来源资料一处写“门破”，另一处写“门迫”；两者来源术语有分歧，分别保留，绝不等同或互换。每条标记必须在审计 `chart` 记录外部原文 `raw`、来源 `source`、流派或口径 `school`，未知派别也应如实写“APP未标派别”，不能替 APP 归派。单宫最多标准化冻结的 `INPUT_LIMITS.MAX_MARKERS_PER_PALACE` 条标记；越界先报固定 `marker_count_exceeded`，再停止深遍历额外标记。
 
 `normalizeChart` 同时生成安全投影 `safeChart`。审计 `chart` 仅供本地核对，不进入模型或报告；只有 `safeChart` 可进入下游。安全投影保留确认枚举，并用固定信任标签、存在标志和稳定 `provenanceRef` 证明审计材料存在，不复制任何来源名称、`raw`、`source` 或 `school` 文本。
 

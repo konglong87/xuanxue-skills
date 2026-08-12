@@ -2,7 +2,7 @@
 
 中国传统术数技能包。当前交付 5 个用户技能，共享经过测试的计算内核 `core/`。
 
-接手工作前先读 [docs/ROADMAP.md](docs/ROADMAP.md)；内容来源与验收基准见 [docs/REFERENCES.md](docs/REFERENCES.md)。
+接手工作前先读 [docs/ROADMAP.md](docs/ROADMAP.md)。内容来源是第三方师承资料，不随本仓库分发；每条判据的适用范围与来源边界写在对应技能的 `methodology.md` 内。
 
 ## 架构边界
 

@@ -12,6 +12,7 @@ const PUBLIC_EXCLUSIONS = Object.freeze([
   '.workbuddy',
   'node_modules',
   'docs/xuanxue-refs',
+  'docs/REFERENCES.md',
   'docs/HANDOFF-',
   'docs/KICKOFF.md',
   'docs/superpowers/plans',

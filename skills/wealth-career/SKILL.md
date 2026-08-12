@@ -33,6 +33,6 @@ description: Use when the user supplies 出生日期 and 出生时间 and explic
 
 ## 来源与安全唯一入口
 
-职业组合来自 `docs/REFERENCES.md` 的 R3 1.5。资料中的等级化修辞不进入事实字段，命中只表示指定十神条件同时出现，不等于确定天赋或必然适职。
+职业组合来自师承资料的十神组合赛道表。资料中的等级化修辞不进入事实字段，命中只表示指定十神条件同时出现，不等于确定天赋或必然适职。
 
 财经安全文本由代码中的 `disclaimerFor('财经')`、`REPORT_CONTRACT.evidenceRules` 与 `REPORT_CONTRACT.redlines` 统一提供，技能正文不维护同义副本。`qimenEnhancement.status: ready` 时同时使用隔离的奇门共享安全快照。

@@ -6,7 +6,7 @@
 
 `alternateCalculation` 存在时，另一换日派有独立的 `alternateMarriageSignals`。两派按各自日柱、日主和目标流年完整展开，差异并列，不选一派替用户裁决。
 
-桃花、红鸾与天喜属于传统神煞查表口径；外部开源交叉验证固定为 `cantian-ai/bazi-mcp` 提交 `d5af26b0` 的 `src/lib/god.ts`。仓内无一手古籍页码，这组信号只作传统口径披露，不作为 R3/R5 裁决。
+桃花、红鸾与天喜属于传统神煞查表口径；外部开源交叉验证固定为 `cantian-ai/bazi-mcp` 提交 `d5af26b0` 的 `src/lib/god.ts`。仓内无一手古籍页码，这组信号只作传统口径披露，不作为师承资料的流派裁决。
 
 ## 奇门可选增强
 

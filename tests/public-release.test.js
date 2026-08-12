@@ -36,6 +36,7 @@ describe('clean public release tree', () => {
       'docs/KICKOFF.md',
       'docs/superpowers/plans/private.md',
       'docs/superpowers/specs/private.md',
+      'docs/REFERENCES.md',
     ].forEach(file => expect(isPublicPath(file)).toBe(false));
     [
       'README.md',
@@ -43,7 +44,7 @@ describe('clean public release tree', () => {
       'core/index.js',
       'skills/bazi/SKILL.md',
       'scripts/agent-install/cli.js',
-      'docs/REFERENCES.md',
+      'docs/ROADMAP.md',
     ].forEach(file => expect(isPublicPath(file)).toBe(true));
   });
 
@@ -96,6 +97,16 @@ describe('clean public release tree', () => {
         bytes: expect.any(Number),
       }),
     ]));
+
+    // 参考资料提炼文档不进公开树；除声明该策略的两个文件外，公开树里不得留下指向它的引用。
+    const policyFiles = ['scripts/build-public-tree.js', 'tests/public-release.test.js'];
+    expect(manifest.files.map(file => file.path)).not.toContain('docs/REFERENCES.md');
+    const dangling = manifest.files.filter(file => (
+      /\.(md|js|json)$/.test(file.path)
+      && !policyFiles.includes(file.path)
+      && fs.readFileSync(path.join(destination, file.path), 'utf8').includes('REFERENCES')
+    ));
+    expect(dangling.map(file => file.path)).toEqual([]);
 
     fs.rmSync(destination, { recursive: true, force: true });
   });

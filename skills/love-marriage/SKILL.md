@@ -37,6 +37,6 @@ description: Use when the user supplies 出生资料 and an explicit 婚恋问�
 
 ## 来源与安全唯一入口
 
-桃花、红鸾与天喜使用传统查表口径，并以 [cantian-ai/bazi-mcp 固定提交](https://github.com/cantian-ai/bazi-mcp/blob/d5af26b043ac4ca62ef832179f700148285688e3/src/lib/god.ts) 作外部开源交叉验证。仓内无一手古籍页码，因此不把该表冒充 R3/R5 的流派裁决。
+桃花、红鸾与天喜使用传统查表口径，并以 [cantian-ai/bazi-mcp 固定提交](https://github.com/cantian-ai/bazi-mcp/blob/d5af26b043ac4ca62ef832179f700148285688e3/src/lib/god.ts) 作外部开源交叉验证。仓内无一手古籍页码，因此不把该表冒充师承资料的流派裁决。
 
 安全文本来自 `lib/analyze.js` 的 `REPORT_CONTRACT`；当 `qimenEnhancement.status: ready` 时，同时来自 `qimenEnhancement.共享安全契约`。其中婚恋 `disclaimer` 由 `disclaimerFor('婚恋')` 生成，技能正文不维护同义副本。

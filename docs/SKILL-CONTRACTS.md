@@ -13,7 +13,7 @@
 |---|---|
 | `docs/SKILL-CONTRACTS.md`（本文） | 集成方 |
 | `docs/ROADMAP.md` | 集成方统一收口，各路不要改进度 |
-| `docs/REFERENCES.md`、`docs/SKILL-TAXONOMY.md` | 只读资料，不改 |
+| `docs/SKILL-TAXONOMY.md` | 只读资料，不改 |
 | `skills/_shared/safety.js` | 集成方，各路只 require |
 | `skills/bazi/**` | 已交付，Task 6/7 只读复用 |
 | `core/**`（除 Task 6 的 `core/ganzhi/domains.js`） | 只读 |
@@ -132,7 +132,7 @@ const { chart, safeChart, errors } = normalizeChart(transcribed);
 
 **缺字段不猜**，一律进 `errors` 并要求用户补录。Task 6/7 在 `safeChart` 为 `null` 或 `errors` 非空时只输出八字侧概览，不得凭空补造局盘。
 
-**并列口径（Task 5 不得静默择一）**：六害命名在资料内部不一致 —— [REFERENCES.md](REFERENCES.md) 4.1 写「**门破**」，本方案 Task 5 与 4.4 写「**门迫**」。两个名称分别保留；原始术语和来源只进入审计 `chart`，`safeChart` 与报告只保留各自确认枚举和安全溯源引用。
+**并列口径（Task 5 不得静默择一）**：六害命名在师承资料内部不一致 —— 六害清单一处写「**门破**」，事业七要害与本方案 Task 5 写「**门迫**」。两个名称分别保留；原始术语和来源只进入审计 `chart`，`safeChart` 与报告只保留各自确认枚举和安全溯源引用。
 
 ## 六 · 各路的提交约定
 
