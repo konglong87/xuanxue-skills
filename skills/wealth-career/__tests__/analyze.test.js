@@ -575,3 +575,46 @@ describe('事业财运奇门可选增强', () => {
     expect(Object.isFrozen(enhancement.共享安全契约.redlines)).toBe(true);
   });
 });
+
+describe('行业取象种子表进入判读上下文', () => {
+  const { INDUSTRY_SYMBOL_SEEDS, OPEN_MAPPING_NOTE } = require('../lib/industry');
+
+  function enhancement() {
+    return analyze({ ...BIRTH_INPUT, qimen: qimenChart() }).qimenEnhancement;
+  }
+
+  test('四条有出处的种子映射与开放映射说明随增强一起交付', () => {
+    const result = enhancement();
+    expect(result.行业取象种子).toEqual(INDUSTRY_SYMBOL_SEEDS);
+    expect(result.行业取象种子).toHaveLength(4);
+    expect(result.行业取象说明).toBe(OPEN_MAPPING_NOTE);
+  });
+
+  test('种子表与七项表并列，不破坏七项统一 DTO', () => {
+    const result = enhancement();
+    [...result.财富七项, ...result.事业七项].forEach(item => {
+      expect(item).not.toHaveProperty('取象种子');
+    });
+    const industry = [...result.财富七项, ...result.事业七项]
+      .filter(item => item.名称 === '行业');
+    expect(industry).toHaveLength(2);
+    industry.forEach(item => {
+      expect(item.status).toBe('needs_context');
+      expect(item.requiredContext.length).toBeGreaterThan(0);
+    });
+  });
+
+  test('种子表深冻结，判读层不得改写资料原文', () => {
+    const [seed] = enhancement().行业取象种子;
+    expect(Object.isFrozen(seed)).toBe(true);
+    expect(Object.isFrozen(seed.符号)).toBe(true);
+    expect(Object.isFrozen(seed.符号[0])).toBe(true);
+    const original = seed.符号原文;
+    seed.符号原文 = '改写';                                   // 冻结对象上静默失败
+    expect(() => seed.符号.push({ 类别: '八门', 值: '伪造' })).toThrow();
+    expect(seed.符号原文).toBe(original);
+    expect(seed.符号).toHaveLength(1);
+    // 两次取用必须是同一份冻结引用，判读层拿不到可变副本
+    expect(enhancement().行业取象种子[0].符号原文).toBe(original);
+  });
+});

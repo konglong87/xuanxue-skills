@@ -5,6 +5,7 @@ const {
   REPORT_CONTRACT: QIMEN_REPORT_CONTRACT,
 } = require('../../qimen/lib/chart');
 const { EVIDENCE_RULES, REDLINES, disclaimerFor } = require('../../_shared/safety');
+const { INDUSTRY_SYMBOL_SEEDS, OPEN_MAPPING_NOTE } = require('./industry');
 
 const REPORT_SECTIONS = Object.freeze([
   '输入与口径',
@@ -304,6 +305,7 @@ function requiredItem(id, name, contexts, limitation) {
   });
 }
 
+
 function unsupportedItem(id, name, limitation) {
   return observationItem(id, name, 'unsupported', { limitation });
 }
@@ -404,6 +406,9 @@ function qimenContext(transcribed) {
       名称: { ...chart.来源.名称 },
     },
     同宫标记摘要表: context.同宫标记摘要表,
+    // 行业取象种子与七项表并列，不挂进单个 item —— 七项必须保持统一 DTO。
+    行业取象种子: INDUSTRY_SYMBOL_SEEDS,
+    行业取象说明: OPEN_MAPPING_NOTE,
     财富七项: wealthItems(context),
     事业七项: careerItems(context),
     共享安全契约: QIMEN_SHARED_CONTRACT,

@@ -37,6 +37,7 @@ describe('clean public release tree', () => {
       'docs/superpowers/plans/private.md',
       'docs/superpowers/specs/private.md',
       'docs/REFERENCES.md',
+      'tests/references-fidelity.test.js',
     ].forEach(file => expect(isPublicPath(file)).toBe(false));
     [
       'README.md',

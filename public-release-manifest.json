@@ -338,11 +338,6 @@
       "bytes": 1048
     },
     {
-      "path": "public-release-manifest.json",
-      "sha256": "aaa769a56ef4645a43163a73256b3cebcb1c37836a7fd7a792ea1af5578795cb",
-      "bytes": 20249
-    },
-    {
       "path": "scripts/agent-install/__tests__/install.test.js",
       "sha256": "c1b2ffb966ce648aa7c24df01e30b4491dbc3f8a4dc6683066f0cfd28634ab32",
       "bytes": 5751
@@ -394,8 +389,8 @@
     },
     {
       "path": "scripts/build-public-tree.js",
-      "sha256": "7299e6e3233410e6a1a9b356170cb00166f61215401fcc3b12953fb6e33ce8c8",
-      "bytes": 4582
+      "sha256": "00d8dc10317ac2fe008af6e1a9db1e42fde6c5ca5b4c3db34bd7481deaaa7845",
+      "bytes": 4621
     },
     {
       "path": "scripts/e2e-smoke.js",
@@ -469,8 +464,8 @@
     },
     {
       "path": "skills/love-marriage/methodology.md",
-      "sha256": "42ada9606e9b49f94596eaef384dc0bf3863090295bdf7a836cdf4ed7cb28807",
-      "bytes": 2553
+      "sha256": "e2659e3aab3308c098f9f3ea94af5b2d2e47a49ea6664ba84c6361c1d7ccaf28",
+      "bytes": 3488
     },
     {
       "path": "skills/love-marriage/templates/report.md",
@@ -534,13 +529,18 @@
     },
     {
       "path": "skills/wealth-career/__tests__/analyze.test.js",
-      "sha256": "b534ccbf6acb0bedb3786ff7caa1df1f402e02888a94531f05fd8cd5a497cb64",
-      "bytes": 26690
+      "sha256": "b44872f6271422d0e78bd1bfd8f19abb6ed918acdd7d454c86e859e7bb97b460",
+      "bytes": 28584
     },
     {
       "path": "skills/wealth-career/lib/analyze.js",
-      "sha256": "3a1d615953649ae597d5aa4deec2546aba2d69f96417479b0ec9e9b5db76bba4",
-      "bytes": 16377
+      "sha256": "7d1ddd170dcace775c043fb16e2607b695ad5168befc4b76ad84eb13464c0270",
+      "bytes": 16650
+    },
+    {
+      "path": "skills/wealth-career/lib/industry.js",
+      "sha256": "21b77fb7af89774697ffaa103d92d583d472d0e4e2971e70761a6bbb79bc2e4e",
+      "bytes": 2853
     },
     {
       "path": "skills/wealth-career/methodology.md",
@@ -589,8 +589,8 @@
     },
     {
       "path": "tests/public-release.test.js",
-      "sha256": "8eb650b108c84437009b1a2f5ca775ca566fc50666e96736064637306bfd9758",
-      "bytes": 4821
+      "sha256": "44c3e94b5887f1f2c2713d1075257837ca54ebb92ace27427b56bbf6ce2d1285",
+      "bytes": 4864
     },
     {
       "path": "tests/qimen-untrusted-keys.test.js",

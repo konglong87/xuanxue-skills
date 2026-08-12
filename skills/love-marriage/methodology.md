@@ -23,3 +23,13 @@
 每一节逐项采用 `REPORT_CONTRACT.evidenceRules`。行动与安全边界逐项采用 `REPORT_CONTRACT.redlines`，免责声明逐项采用 `REPORT_CONTRACT.disclaimer`；本方法论不另建同义规则。
 
 `qimenEnhancement.status: ready` 时，另须原样应用 `qimenEnhancement.共享安全契约.evidenceRules` 和 `qimenEnhancement.共享安全契约.redlines`。两边免责声明可以去重，但不能只应用 `REPORT_CONTRACT`。
+
+## 本期未覆盖的资料条目（有意留白，不是遗漏）
+
+以下条目在师承资料里存在，本期**不实现**，报告里也不得假装覆盖：
+
+- **方位红线的处方约束** —— 资料把击刑方位定为「绝对禁止做情感布局」，入墓定为能量封锁位。本期只把六害**抄录为盘面事实**，不输出方位布局处方，因此这条红线没有落点。等 `_shared/miexiang`（灭相 / 造相 / 方位迁移）交付后再一并实现，届时红线必须先于处方生效。
+- **凶局辨析（伏吟局 / 反吟局 / 空亡局）** —— 需要局级判定。本仓库不自行起局，外部局盘也未必带局级标注，故不实现；不得由天盘地盘自行反推局名。
+- **造相技术与空间布阵成功率阶梯** —— 属处方层，同样等 `_shared/miexiang`。
+
+用户问到这些时如实说明「本期不支持」，不用相邻能力凑答案。

@@ -13,6 +13,7 @@ const PUBLIC_EXCLUSIONS = Object.freeze([
   'node_modules',
   'docs/xuanxue-refs',
   'docs/REFERENCES.md',
+  'tests/references-fidelity.test.js',
   'docs/HANDOFF-',
   'docs/KICKOFF.md',
   'docs/superpowers/plans',
