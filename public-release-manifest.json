@@ -54,8 +54,8 @@
     },
     {
       "path": "core/calendar/__tests__/cycles.test.js",
-      "sha256": "ecf2842563e35296a229d55133d0d0003eb90d1ba0e19a13aa13b127112c4946",
-      "bytes": 6028
+      "sha256": "5e7085a203b11c56c52cfe9998155e4aefb24b131514387c9297d001c99c04c1",
+      "bytes": 6953
     },
     {
       "path": "core/calendar/__tests__/fixtures/bazigo-golden.json",
@@ -63,9 +63,19 @@
       "bytes": 19511
     },
     {
+      "path": "core/calendar/__tests__/fixtures/dayun-crosscheck.json",
+      "sha256": "f5764df510db55eef8975d693028ab36f2da461eb92e464d4b9559edf3ef85bc",
+      "bytes": 46078
+    },
+    {
       "path": "core/calendar/__tests__/golden-bazigo.test.js",
       "sha256": "794b201fbea84301c5293a5be3602eef3a2be07e4207a86ae3cef1801f37583e",
       "bytes": 3286
+    },
+    {
+      "path": "core/calendar/__tests__/golden-dayun.test.js",
+      "sha256": "b0a6d2364c0607ba6d02b30f7a615fb587fe30cfaf64d55cff2fa80f4758f01d",
+      "bytes": 3170
     },
     {
       "path": "core/calendar/__tests__/jieqi.test.js",
@@ -99,8 +109,8 @@
     },
     {
       "path": "core/calendar/cycles.js",
-      "sha256": "c080e5e8ffb19e13aa5ac2a4f6b4e2477a3565897bb52dadd7f543251596e66b",
-      "bytes": 7059
+      "sha256": "569c21d54de918194112634badc9c0b8c226ce4ae907f90d39ab91562d8588c5",
+      "bytes": 7825
     },
     {
       "path": "core/calendar/index.js",
@@ -328,6 +338,11 @@
       "bytes": 1048
     },
     {
+      "path": "public-release-manifest.json",
+      "sha256": "aaa769a56ef4645a43163a73256b3cebcb1c37836a7fd7a792ea1af5578795cb",
+      "bytes": 20249
+    },
+    {
       "path": "scripts/agent-install/__tests__/install.test.js",
       "sha256": "c1b2ffb966ce648aa7c24df01e30b4491dbc3f8a4dc6683066f0cfd28634ab32",
       "bytes": 5751
@@ -393,6 +408,11 @@
       "bytes": 3901
     },
     {
+      "path": "scripts/gen-dayun-crosscheck.md",
+      "sha256": "a3343d7da09d92855cf742410e332f23b2df57cfd1da84bfbf19aa73985bc418",
+      "bytes": 3410
+    },
+    {
       "path": "skills/_shared/__tests__/safety.test.js",
       "sha256": "5e7692a228f5c45e1efdabb4550ed2557eb62dc976d129159f919426c6f6faeb",
       "bytes": 4652
@@ -409,13 +429,13 @@
     },
     {
       "path": "skills/bazi/__tests__/analyze.test.js",
-      "sha256": "25455b144cbcf25ffaacea7a9cd76a22d60ca1c4db5445d3464e01e71a6f47ba",
-      "bytes": 12734
+      "sha256": "59c3708cfa162504be28453a170e9135bce16ee436b16e4148d1979f5c38575a",
+      "bytes": 13860
     },
     {
       "path": "skills/bazi/lib/analyze.js",
-      "sha256": "e80d5f73d50b00c71cb2b3fd76d5c53db4a4a78cdef51d8ba8890f43f0e4ae2b",
-      "bytes": 9605
+      "sha256": "55186ed6336607ea33561f3e6a5fb5d1a8e01ede577aba36dfa7bf69c216fbc9",
+      "bytes": 9977
     },
     {
       "path": "skills/bazi/methodology.md",
