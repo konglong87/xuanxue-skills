@@ -1,0 +1,11 @@
+node_modules/
+coverage/
+.DS_Store
+*.log
+.idea/
+.vscode/
+.claude/settings.local.json
+.claude/worktrees/
+docs/xuanxue-refs
+.workbuddy/
+public-release/

@@ -1,0 +1,180 @@
+{
+  "schemaVersion": 1,
+  "projectVersion": "0.1.0",
+  "currentSkills": [
+    "bazi",
+    "palm",
+    "qimen",
+    "love-marriage",
+    "wealth-career"
+  ],
+  "supportStates": [
+    "verified",
+    "experimental",
+    "unverified"
+  ],
+  "hosts": [
+    {
+      "id": "claude-code",
+      "status": "verified",
+      "installRoots": {
+        "user": "~/.claude/skills",
+        "project": ".claude/skills"
+      },
+      "sources": [
+        "https://docs.anthropic.com/en/docs/claude-code/slash-commands"
+      ],
+      "evidence": [
+        {
+          "type": "install",
+          "status": "passed",
+          "checkedAt": "2026-08-12",
+          "detail": "npx 安装器在 user/project 两种隔离范围完成完整运行时、五个入口、固定八字探针及卸载生命周期。"
+        },
+        {
+          "type": "discovery",
+          "status": "passed",
+          "checkedAt": "2026-08-12",
+          "detail": "Claude Code 2.1.228 在 npx project-scope 隔离安装后发现 bazi、love-marriage、palm、qimen、wealth-career 五技能。"
+        },
+        {
+          "type": "runtime",
+          "status": "passed",
+          "checkedAt": "2026-08-12",
+          "detail": "ccsd 真机从安装后的 bazi 脚本返回 ready 与乙未、戊寅、丙辰、丁酉；同日独立归档验收已覆盖婚恋、事业财运和修复后的双领域路由。"
+        }
+      ]
+    },
+    {
+      "id": "codex",
+      "status": "experimental",
+      "installRoots": {
+        "user": "~/.agents/skills",
+        "project": ".agents/skills"
+      },
+      "sources": [
+        "https://developers.openai.com/codex/skills"
+      ],
+      "evidence": [
+        {
+          "type": "install",
+          "status": "passed",
+          "checkedAt": "2026-08-12",
+          "detail": "npx 安装器在隔离 HOME 与项目目录中完成生命周期，路径按 OpenAI 官方 Agent Skills 文档纠正。"
+        },
+        {
+          "type": "discovery",
+          "status": "blocked",
+          "checkedAt": "2026-08-12",
+          "detail": "本机 Codex CLI 指向 @openai/codex，但 --version、--help 与 exec 均在输出前退出 137，未取得宿主发现证据。"
+        },
+        {
+          "type": "runtime",
+          "status": "passed",
+          "checkedAt": "2026-08-12",
+          "detail": "安装器 verify 已从稳定运行时执行固定八字探针，四柱为乙未、戊寅、丙辰、丁酉。"
+        }
+      ]
+    },
+    {
+      "id": "cursor",
+      "status": "experimental",
+      "installRoots": {
+        "user": "~/.cursor/skills",
+        "project": ".agents/skills"
+      },
+      "sources": [
+        "https://docs.cursor.com/context/skills"
+      ],
+      "evidence": [
+        {
+          "type": "install",
+          "status": "passed",
+          "checkedAt": "2026-08-12",
+          "detail": "npx 安装器在隔离 HOME 与项目目录中完成完整生命周期。"
+        },
+        {
+          "type": "discovery",
+          "status": "blocked",
+          "checkedAt": "2026-08-12",
+          "detail": "Cursor Agent 3.13.21 真机启动后明确返回 Authentication required，未进入技能发现。"
+        },
+        {
+          "type": "runtime",
+          "status": "passed",
+          "checkedAt": "2026-08-12",
+          "detail": "安装器 verify 已从稳定运行时完成固定八字探针。"
+        }
+      ]
+    },
+    {
+      "id": "trae",
+      "status": "experimental",
+      "installRoots": {
+        "user": "~/.trae/skills",
+        "project": ".trae/skills"
+      },
+      "sources": [
+        "https://docs.trae.ai/ide/skills"
+      ],
+      "evidence": [
+        {
+          "type": "install",
+          "status": "passed",
+          "checkedAt": "2026-08-12",
+          "detail": "npx 安装器与 gh skill install 隔离探针均确认 .trae/skills 路径映射。"
+        },
+        {
+          "type": "discovery",
+          "status": "not-run",
+          "checkedAt": "2026-08-12",
+          "detail": "本机未发现 Trae CLI 或应用，未进行真实宿主发现。"
+        },
+        {
+          "type": "runtime",
+          "status": "passed",
+          "checkedAt": "2026-08-12",
+          "detail": "安装器 verify 已从稳定运行时完成固定八字探针；这不等于 Trae 真机调用。"
+        }
+      ]
+    },
+    {
+      "id": "workbuddy",
+      "status": "experimental",
+      "installRoots": {
+        "user": "~/.workbuddy/skills",
+        "project": ".workbuddy/skills"
+      },
+      "sources": [
+        "https://www.tencentcloud.com/act/pro/workbuddy",
+        "WorkBuddy.app v5.3.8 应用包内置路径与本地技能导入逻辑"
+      ],
+      "evidence": [
+        {
+          "type": "install",
+          "status": "passed",
+          "checkedAt": "2026-08-12",
+          "detail": "安装器在 user/project 两种隔离范围完成 .workbuddy/skills 生命周期；本机 WorkBuddy v5.3.8 应用包包含 .workbuddy/skills/ 路径常量。"
+        },
+        {
+          "type": "discovery",
+          "status": "not-run",
+          "checkedAt": "2026-08-12",
+          "detail": "WorkBuddy v5.3.8 真机可进入专家·技能·连接器管理页；Computer Use 未能稳定切入技能子页，未向真实用户目录写入测试技能。"
+        },
+        {
+          "type": "runtime",
+          "status": "not-run",
+          "checkedAt": "2026-08-12",
+          "detail": "尚无 WorkBuddy 宿主内的 xuanxue-skills 调用证据；安装器自身 probe 不等于桌面端调用。"
+        },
+        {
+          "type": "limitation",
+          "status": "blocked",
+          "checkedAt": "2026-08-12",
+          "detail": "在真实技能页完成发现与调用前保持 experimental，不标 verified。"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "name": "xuanxue-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "五个传统术数技能：八字综合、婚恋、事业财运、手相与外部奇门局盘判读。",
+  "license": "MIT",
+  "author": {
+    "name": "恐龙创新部",
+    "url": "https://github.com/konglong87"
+  },
+  "homepage": "https://github.com/konglong87/xuanxue-skills",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/konglong87/xuanxue-skills.git"
+  },
+  "bin": {
+    "xuanxue-skills": "scripts/agent-install/cli.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "jest",
+    "test:core": "jest core/",
+    "test:watch": "jest --watch"
+  },
+  "devDependencies": {
+    "jest": "^30.3.0"
+  }
+}

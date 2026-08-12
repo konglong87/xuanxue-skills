@@ -1,0 +1,57 @@
+[
+  {
+    "name": "Barack Obama",
+    "sourceUrl": "https://www.astro.com/astro-databank/Obama,_Barack",
+    "oracleUrl": "https://bazi-calculator.com/?licz=1&n=Obama%2C+Barack&h=19%3A24&d=4&m=08&y=1961&l=-157.52&src=1&g=-10&ds=&s=&rr=AA",
+    "reliability": "Rodden AA；出生证明/出生记录在手",
+    "birthDate": "1961-08-04",
+    "birthTime": "19:24",
+    "longitude": -157.8667,
+    "latitude": 21.3,
+    "utcOffsetMinutes": -600,
+    "expectedPillars": {
+      "年": "辛丑",
+      "月": "乙未",
+      "日": "己巳",
+      "时": "癸酉"
+    },
+    "notes": "Astro-Databank 记为 AHST（UTC-10）标准时；夏威夷当时不采用 DST。"
+  },
+  {
+    "name": "Steve Jobs",
+    "sourceUrl": "https://www.astro.com/astro-databank/Jobs,_Steve",
+    "oracleUrl": "https://bazi-calculator.com/?licz=1&n=Jobs%2C+Steve&h=19%3A15&d=24&m=02&y=1955&l=-122.25&src=1&g=-8&ds=&s=&rr=AA",
+    "reliability": "Rodden AA；出生证明",
+    "birthDate": "1955-02-24",
+    "birthTime": "19:15",
+    "longitude": -122.4194,
+    "latitude": 37.7749,
+    "utcOffsetMinutes": -480,
+    "expectedPillars": {
+      "年": "乙未",
+      "月": "戊寅",
+      "日": "丙辰",
+      "时": "丁酉"
+    },
+    "notes": "旧金山出生地墙钟为 PST（UTC-8）；2 月不在 DST。独立排盘页需手工输入地点并启用真太阳时。"
+  },
+  {
+    "name": "Albert Einstein",
+    "sourceUrl": "https://www.astro.com/astro-databank/Einstein,_Albert",
+    "oracleUrl": "https://www.cantian.ai/cases/detail/en/albert_einstein.html",
+    "reliability": "Rodden AA；出生证明/出生记录在手",
+    "birthDate": "1879-03-14",
+    "birthTime": "11:30",
+    "longitude": 10,
+    "latitude": 48.4,
+    "utcOffsetMinutes": null,
+    "standardMeridian": 10,
+    "expectedPillars": {
+      "年": "己卯",
+      "月": "丁卯",
+      "日": "丙申",
+      "时": "甲午"
+    },
+    "notes": "原始时间制为 Ulm LMT（地方平太阳时），不是现代法定 UTC offset；复算时显式使用东经 10 度标准经线，仅再叠加均时差。"
+  }
+]

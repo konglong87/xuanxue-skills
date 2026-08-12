@@ -1,0 +1,858 @@
+[
+  {
+    "date": "1984-01-06",
+    "time": "11:39",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "癸亥",
+    "月": "甲子",
+    "日": "己亥",
+    "时": "庚午",
+    "comment": "1984 小寒（节） 前 1 分钟"
+  },
+  {
+    "date": "1984-01-06",
+    "time": "11:41",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "癸亥",
+    "月": "乙丑",
+    "日": "己亥",
+    "时": "庚午",
+    "comment": "1984 小寒（节） 后 1 分钟"
+  },
+  {
+    "date": "1984-02-04",
+    "time": "23:17",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "癸亥",
+    "月": "乙丑",
+    "日": "戊辰",
+    "时": "甲子",
+    "comment": "1984 立春（年柱与月柱同时切换） 前 1 分钟",
+    "差异": {
+      "字段": "时",
+      "本仓库": "壬子",
+      "原因": "BaziGo 的日柱取公历日（等价子夜换日），但时干按子时进位取次日日干，两者口径混用。本仓库在 dayBoundary=00:00 下保持自洽：日柱与时干都取同一日。此差异只出现在 23:00 之后。"
+    }
+  },
+  {
+    "date": "1984-02-04",
+    "time": "23:19",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "丙寅",
+    "日": "戊辰",
+    "时": "甲子",
+    "comment": "1984 立春（年柱与月柱同时切换） 后 1 分钟",
+    "差异": {
+      "字段": "时",
+      "本仓库": "壬子",
+      "原因": "BaziGo 的日柱取公历日（等价子夜换日），但时干按子时进位取次日日干，两者口径混用。本仓库在 dayBoundary=00:00 下保持自洽：日柱与时干都取同一日。此差异只出现在 23:00 之后。"
+    }
+  },
+  {
+    "date": "1984-03-05",
+    "time": "17:23",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "丙寅",
+    "日": "戊戌",
+    "时": "辛酉",
+    "comment": "1984 惊蛰（节） 前 1 分钟"
+  },
+  {
+    "date": "1984-03-05",
+    "time": "17:25",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "丁卯",
+    "日": "戊戌",
+    "时": "辛酉",
+    "comment": "1984 惊蛰（节） 后 1 分钟"
+  },
+  {
+    "date": "1984-04-04",
+    "time": "22:21",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "丁卯",
+    "日": "戊辰",
+    "时": "癸亥",
+    "comment": "1984 清明（节） 前 1 分钟"
+  },
+  {
+    "date": "1984-04-04",
+    "time": "22:23",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "戊辰",
+    "日": "戊辰",
+    "时": "癸亥",
+    "comment": "1984 清明（节） 后 1 分钟"
+  },
+  {
+    "date": "1984-05-05",
+    "time": "15:49",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "戊辰",
+    "日": "己亥",
+    "时": "壬申",
+    "comment": "1984 立夏（节） 前 1 分钟"
+  },
+  {
+    "date": "1984-05-05",
+    "time": "15:51",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "己巳",
+    "日": "己亥",
+    "时": "壬申",
+    "comment": "1984 立夏（节） 后 1 分钟"
+  },
+  {
+    "date": "1984-06-05",
+    "time": "20:07",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "己巳",
+    "日": "庚午",
+    "时": "丙戌",
+    "comment": "1984 芒种（节） 前 1 分钟"
+  },
+  {
+    "date": "1984-06-05",
+    "time": "20:09",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "庚午",
+    "日": "庚午",
+    "时": "丙戌",
+    "comment": "1984 芒种（节） 后 1 分钟"
+  },
+  {
+    "date": "1984-07-07",
+    "time": "06:28",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "庚午",
+    "日": "壬寅",
+    "时": "癸卯",
+    "comment": "1984 小暑（节） 前 1 分钟"
+  },
+  {
+    "date": "1984-07-07",
+    "time": "06:30",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "辛未",
+    "日": "壬寅",
+    "时": "癸卯",
+    "comment": "1984 小暑（节） 后 1 分钟"
+  },
+  {
+    "date": "1984-08-07",
+    "time": "16:16",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "辛未",
+    "日": "癸酉",
+    "时": "庚申",
+    "comment": "1984 立秋（节） 前 1 分钟"
+  },
+  {
+    "date": "1984-08-07",
+    "time": "16:18",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "壬申",
+    "日": "癸酉",
+    "时": "庚申",
+    "comment": "1984 立秋（节） 后 1 分钟"
+  },
+  {
+    "date": "1984-09-07",
+    "time": "19:08",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "壬申",
+    "日": "甲辰",
+    "时": "甲戌",
+    "comment": "1984 白露（节） 前 1 分钟"
+  },
+  {
+    "date": "1984-09-07",
+    "time": "19:10",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "癸酉",
+    "日": "甲辰",
+    "时": "甲戌",
+    "comment": "1984 白露（节） 后 1 分钟"
+  },
+  {
+    "date": "1984-10-08",
+    "time": "10:41",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "癸酉",
+    "日": "乙亥",
+    "时": "辛巳",
+    "comment": "1984 寒露（节） 前 1 分钟"
+  },
+  {
+    "date": "1984-10-08",
+    "time": "10:43",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "甲戌",
+    "日": "乙亥",
+    "时": "辛巳",
+    "comment": "1984 寒露（节） 后 1 分钟"
+  },
+  {
+    "date": "1984-11-07",
+    "time": "13:44",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "甲戌",
+    "日": "乙巳",
+    "时": "癸未",
+    "comment": "1984 立冬（节） 前 1 分钟"
+  },
+  {
+    "date": "1984-11-07",
+    "time": "13:46",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "乙亥",
+    "日": "乙巳",
+    "时": "癸未",
+    "comment": "1984 立冬（节） 后 1 分钟"
+  },
+  {
+    "date": "1984-12-07",
+    "time": "06:27",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "乙亥",
+    "日": "乙亥",
+    "时": "己卯",
+    "comment": "1984 大雪（节） 前 1 分钟"
+  },
+  {
+    "date": "1984-12-07",
+    "time": "06:29",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲子",
+    "月": "丙子",
+    "日": "乙亥",
+    "时": "己卯",
+    "comment": "1984 大雪（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-01-06",
+    "time": "04:48",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "癸卯",
+    "月": "甲子",
+    "日": "己巳",
+    "时": "丙寅",
+    "comment": "2024 小寒（节） 前 1 分钟"
+  },
+  {
+    "date": "2024-01-06",
+    "time": "04:50",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "癸卯",
+    "月": "乙丑",
+    "日": "己巳",
+    "时": "丙寅",
+    "comment": "2024 小寒（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-02-04",
+    "time": "16:26",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "癸卯",
+    "月": "乙丑",
+    "日": "戊戌",
+    "时": "庚申",
+    "comment": "2024 立春（节） 前 1 分钟"
+  },
+  {
+    "date": "2024-02-04",
+    "time": "16:28",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "丙寅",
+    "日": "戊戌",
+    "时": "庚申",
+    "comment": "2024 立春（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-03-05",
+    "time": "10:21",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "丙寅",
+    "日": "戊辰",
+    "时": "丁巳",
+    "comment": "2024 惊蛰（节） 前 1 分钟"
+  },
+  {
+    "date": "2024-03-05",
+    "time": "10:23",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "丁卯",
+    "日": "戊辰",
+    "时": "丁巳",
+    "comment": "2024 惊蛰（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-04-04",
+    "time": "15:01",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "丁卯",
+    "日": "戊戌",
+    "时": "庚申",
+    "comment": "2024 清明（节） 前 1 分钟"
+  },
+  {
+    "date": "2024-04-04",
+    "time": "15:03",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "戊辰",
+    "日": "戊戌",
+    "时": "庚申",
+    "comment": "2024 清明（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-05-05",
+    "time": "08:09",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "戊辰",
+    "日": "己巳",
+    "时": "戊辰",
+    "comment": "2024 立夏（节） 前 1 分钟"
+  },
+  {
+    "date": "2024-05-05",
+    "time": "08:11",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "己巳",
+    "日": "己巳",
+    "时": "戊辰",
+    "comment": "2024 立夏（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-06-05",
+    "time": "12:08",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "己巳",
+    "日": "庚子",
+    "时": "壬午",
+    "comment": "2024 芒种（节） 前 1 分钟"
+  },
+  {
+    "date": "2024-06-05",
+    "time": "12:10",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "庚午",
+    "日": "庚子",
+    "时": "壬午",
+    "comment": "2024 芒种（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-07-06",
+    "time": "22:19",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "庚午",
+    "日": "辛未",
+    "时": "己亥",
+    "comment": "2024 小暑（节） 前 1 分钟"
+  },
+  {
+    "date": "2024-07-06",
+    "time": "22:21",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "辛未",
+    "日": "辛未",
+    "时": "己亥",
+    "comment": "2024 小暑（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-08-07",
+    "time": "08:08",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "辛未",
+    "日": "癸卯",
+    "时": "丙辰",
+    "comment": "2024 立秋（节） 前 1 分钟"
+  },
+  {
+    "date": "2024-08-07",
+    "time": "08:10",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "壬申",
+    "日": "癸卯",
+    "时": "丙辰",
+    "comment": "2024 立秋（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-09-07",
+    "time": "11:10",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "壬申",
+    "日": "甲戌",
+    "时": "庚午",
+    "comment": "2024 白露（节） 前 1 分钟"
+  },
+  {
+    "date": "2024-09-07",
+    "time": "11:12",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "癸酉",
+    "日": "甲戌",
+    "时": "庚午",
+    "comment": "2024 白露（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-10-08",
+    "time": "02:58",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "癸酉",
+    "日": "乙巳",
+    "时": "丁丑",
+    "comment": "2024 寒露（节） 前 1 分钟"
+  },
+  {
+    "date": "2024-10-08",
+    "time": "03:00",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "甲戌",
+    "日": "乙巳",
+    "时": "戊寅",
+    "comment": "2024 寒露（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-11-07",
+    "time": "06:19",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "甲戌",
+    "日": "乙亥",
+    "时": "己卯",
+    "comment": "2024 立冬（节） 前 1 分钟"
+  },
+  {
+    "date": "2024-11-07",
+    "time": "06:21",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "乙亥",
+    "日": "乙亥",
+    "时": "己卯",
+    "comment": "2024 立冬（节） 后 1 分钟"
+  },
+  {
+    "date": "2024-12-06",
+    "time": "23:16",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "乙亥",
+    "日": "甲辰",
+    "时": "丙子",
+    "comment": "2024 大雪（节） 前 1 分钟",
+    "差异": {
+      "字段": "时",
+      "本仓库": "甲子",
+      "原因": "BaziGo 的日柱取公历日（等价子夜换日），但时干按子时进位取次日日干，两者口径混用。本仓库在 dayBoundary=00:00 下保持自洽：日柱与时干都取同一日。此差异只出现在 23:00 之后。"
+    }
+  },
+  {
+    "date": "2024-12-06",
+    "time": "23:18",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "甲辰",
+    "月": "丙子",
+    "日": "甲辰",
+    "时": "丙子",
+    "comment": "2024 大雪（节） 后 1 分钟",
+    "差异": {
+      "字段": "时",
+      "本仓库": "甲子",
+      "原因": "BaziGo 的日柱取公历日（等价子夜换日），但时干按子时进位取次日日干，两者口径混用。本仓库在 dayBoundary=00:00 下保持自洽：日柱与时干都取同一日。此差异只出现在 23:00 之后。"
+    }
+  },
+  {
+    "date": "2000-02-04",
+    "time": "20:39",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "己卯",
+    "月": "丁丑",
+    "日": "壬辰",
+    "时": "庚戌",
+    "comment": "2000 立春前 1 分钟，年柱应仍属上一年"
+  },
+  {
+    "date": "2000-02-04",
+    "time": "20:41",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "庚辰",
+    "月": "戊寅",
+    "日": "壬辰",
+    "时": "庚戌",
+    "comment": "2000 立春后 1 分钟，年柱应已切换"
+  },
+  {
+    "date": "2023-02-04",
+    "time": "10:41",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "壬寅",
+    "月": "癸丑",
+    "日": "癸巳",
+    "时": "丁巳",
+    "comment": "2023 立春前 1 分钟，年柱应仍属上一年"
+  },
+  {
+    "date": "2023-02-04",
+    "time": "10:43",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "癸卯",
+    "月": "甲寅",
+    "日": "癸巳",
+    "时": "丁巳",
+    "comment": "2023 立春后 1 分钟，年柱应已切换"
+  },
+  {
+    "date": "1990-06-15",
+    "time": "22:59",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "庚午",
+    "月": "壬午",
+    "日": "辛亥",
+    "时": "己亥",
+    "comment": "换日区间：子时前一分钟"
+  },
+  {
+    "date": "1990-06-15",
+    "time": "23:00",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "庚午",
+    "月": "壬午",
+    "日": "辛亥",
+    "时": "庚子",
+    "comment": "换日区间：子时起点，子夜换日下日柱不进位",
+    "差异": {
+      "字段": "时",
+      "本仓库": "戊子",
+      "原因": "BaziGo 的日柱取公历日（等价子夜换日），但时干按子时进位取次日日干，两者口径混用。本仓库在 dayBoundary=00:00 下保持自洽：日柱与时干都取同一日。此差异只出现在 23:00 之后。"
+    }
+  },
+  {
+    "date": "1990-06-15",
+    "time": "23:30",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "庚午",
+    "月": "壬午",
+    "日": "辛亥",
+    "时": "庚子",
+    "comment": "换日区间：子时中段",
+    "差异": {
+      "字段": "时",
+      "本仓库": "戊子",
+      "原因": "BaziGo 的日柱取公历日（等价子夜换日），但时干按子时进位取次日日干，两者口径混用。本仓库在 dayBoundary=00:00 下保持自洽：日柱与时干都取同一日。此差异只出现在 23:00 之后。"
+    }
+  },
+  {
+    "date": "1990-06-16",
+    "time": "00:00",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "庚午",
+    "月": "壬午",
+    "日": "壬子",
+    "时": "庚子",
+    "comment": "换日区间：午夜整点，日柱已进位"
+  },
+  {
+    "date": "1990-06-16",
+    "time": "00:30",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "庚午",
+    "月": "壬午",
+    "日": "壬子",
+    "时": "庚子",
+    "comment": "换日区间：子时后段"
+  },
+  {
+    "date": "2023-03-22",
+    "time": "10:00",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "癸卯",
+    "月": "乙卯",
+    "日": "己卯",
+    "时": "己巳",
+    "comment": "2023 闰二月首日附近"
+  },
+  {
+    "date": "2020-05-23",
+    "time": "10:00",
+    "longitude": 120,
+    "options": {
+      "dayBoundary": "00:00",
+      "useTrueSolar": false
+    },
+    "年": "庚子",
+    "月": "辛巳",
+    "日": "丙寅",
+    "时": "癸巳",
+    "comment": "2020 闰四月首日附近"
+  }
+]

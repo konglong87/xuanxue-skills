@@ -1,0 +1,26 @@
+{
+  "_说明": "中国城市磁偏角简表。东偏为正，西偏为负，单位度。",
+  "_历元": 2025.0,
+  "_模型有效期": [2025.0, 2029.999],
+  "_年变化率说明": "secularChange 为每年变化量（度/年）",
+  "_来源": "NOAA/NCEI WMM2025 官方系数包：https://www.ncei.noaa.gov/sites/default/files/2024-12/WMM2025COF.zip",
+  "_查询日期": "2026-08-11",
+  "_计算条件": "WMM-2025，历元 2025.0，WGS84 椭球高 0 km；年变化率按模型原生 0.1 年时间步计算",
+  "_系数包SHA256": "2e76569370d081f2cd7919490218bd094ca9afde347b198eff5621e0af460d03",
+  "_系数文件SHA256": "dfa8597825af4e0b87ff4198a5b4fb661b3c49f4cd090cd0164e0259b075582f",
+  "_验证": "与系数包 WMM2025_TestValues 的 12 条官方向量交叉校验：偏角最大误差 0.004615 度，年变化率最大误差 0.004700 度/年",
+  "cities": {
+    "北京": { "lat": 39.90, "lng": 116.41, "declination": -7.492919, "secularChange": -0.037328 },
+    "上海": { "lat": 31.23, "lng": 121.47, "declination": -6.489403, "secularChange": -0.037169 },
+    "广州": { "lat": 23.13, "lng": 113.26, "declination": -3.264295, "secularChange": -0.012041 },
+    "深圳": { "lat": 22.54, "lng": 114.06, "declination": -3.299924, "secularChange": -0.014193 },
+    "乌鲁木齐": { "lat": 43.83, "lng": 87.62, "declination": 2.520350, "secularChange": -0.013968 },
+    "哈尔滨": { "lat": 45.80, "lng": 126.53, "declination": -11.309493, "secularChange": -0.033194 },
+    "成都": { "lat": 30.57, "lng": 104.07, "declination": -2.431218, "secularChange": -0.000264 },
+    "西安": { "lat": 34.34, "lng": 108.94, "declination": -4.155988, "secularChange": -0.017532 },
+    "拉萨": { "lat": 29.65, "lng": 91.14, "declination": -0.093430, "secularChange": 0.013974 },
+    "昆明": { "lat": 25.04, "lng": 102.71, "declination": -1.699859, "secularChange": 0.012242 },
+    "武汉": { "lat": 30.59, "lng": 114.30, "declination": -4.875330, "secularChange": -0.022345 },
+    "沈阳": { "lat": 41.80, "lng": 123.43, "declination": -9.681227, "secularChange": -0.038025 }
+  }
+}

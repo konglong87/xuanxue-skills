@@ -1,0 +1,626 @@
+{
+  "schemaVersion": 1,
+  "version": "0.1.0",
+  "files": [
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "sha256": "d6241d7d33816976b70b4fbccccf620ce7f94a723ccf463051d29008ed0f8b34",
+      "bytes": 745
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "be077b87854d3a30d131b315bf70eca39f0b7002bbc91d14731e3d52ba4ac054",
+      "bytes": 149
+    },
+    {
+      "path": "CLAUDE.md",
+      "sha256": "295caf6b35dddb30fe5813ca89882c1e334f267654322ffa299717f1db07eb13",
+      "bytes": 5437
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "8f4532d6895e5bd1850a69be8c91b46bb665440b9c212cea4b24f380f6d80c32",
+      "bytes": 1072
+    },
+    {
+      "path": "README.md",
+      "sha256": "563abca35c4f2506e86a4518c6d49bfe29d7c1e11c7aa02cb628e602db70db02",
+      "bytes": 6260
+    },
+    {
+      "path": "README_EN.md",
+      "sha256": "77466eeff2dd782a8d3b0c7d1f8e76be9e87f2786503453eecdeb0bb1416ca7b",
+      "bytes": 6366
+    },
+    {
+      "path": "VERSION",
+      "sha256": "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67",
+      "bytes": 6
+    },
+    {
+      "path": "core/__tests__/index.test.js",
+      "sha256": "42f0150a1064b8e5d11ec1ec1e571b3add2ee17cdb12dcb2689e9713b128407f",
+      "bytes": 2082
+    },
+    {
+      "path": "core/calendar/__tests__/bazi.test.js",
+      "sha256": "15a495ccdeb4bbfb5a51eca348aa7c10095fd020beb561c85d12888b31a9d2ee",
+      "bytes": 4731
+    },
+    {
+      "path": "core/calendar/__tests__/civil-time.test.js",
+      "sha256": "c5c602f07022ab47f180b0215dab3af218174147400135abe04c92754e56ce67",
+      "bytes": 8499
+    },
+    {
+      "path": "core/calendar/__tests__/cycles.test.js",
+      "sha256": "ecf2842563e35296a229d55133d0d0003eb90d1ba0e19a13aa13b127112c4946",
+      "bytes": 6028
+    },
+    {
+      "path": "core/calendar/__tests__/fixtures/bazigo-golden.json",
+      "sha256": "f5e6239e07e30283727bfa4252e5f690bf0fad9fcb9d61589af662b3acb481c8",
+      "bytes": 19511
+    },
+    {
+      "path": "core/calendar/__tests__/golden-bazigo.test.js",
+      "sha256": "794b201fbea84301c5293a5be3602eef3a2be07e4207a86ae3cef1801f37583e",
+      "bytes": 3286
+    },
+    {
+      "path": "core/calendar/__tests__/jieqi.test.js",
+      "sha256": "ff5d1383e6bda9ecc52f1b7ea8a85721920aa4f157a28a6a712822a3183c5a2b",
+      "bytes": 1531
+    },
+    {
+      "path": "core/calendar/__tests__/lunar.test.js",
+      "sha256": "cf3bf2d61c6e40325a368d112ae0b458e49cbcc04751acac456a8e515cd9ed82",
+      "bytes": 926
+    },
+    {
+      "path": "core/calendar/__tests__/pillars.test.js",
+      "sha256": "ae8fcc0207789a118a21e6aa8c637578d1ec97278e86b0fb8a74644795a764d4",
+      "bytes": 6027
+    },
+    {
+      "path": "core/calendar/__tests__/truesolar.test.js",
+      "sha256": "2671d9a99658bb4c08ad3c33cd0d3dec82a72766d95ad67b8988db144f00f6d6",
+      "bytes": 1459
+    },
+    {
+      "path": "core/calendar/bazi.js",
+      "sha256": "8ab1d5934dbe52d72fa14afc61b0cecf4e6d6f2d5148f3fd6797903bacac5e8f",
+      "bytes": 2813
+    },
+    {
+      "path": "core/calendar/civil-time.js",
+      "sha256": "d7330f7a45edad7425fac4557155f713f92f6c313eef6e5bcd5d18ace634434a",
+      "bytes": 3745
+    },
+    {
+      "path": "core/calendar/cycles.js",
+      "sha256": "c080e5e8ffb19e13aa5ac2a4f6b4e2477a3565897bb52dadd7f543251596e66b",
+      "bytes": 7059
+    },
+    {
+      "path": "core/calendar/index.js",
+      "sha256": "65082c9e32475f8ca1d7a8e2b46f17fd4bba657307dd9229edbe87efb4b6a9dd",
+      "bytes": 1500
+    },
+    {
+      "path": "core/calendar/jieqi.js",
+      "sha256": "e6f09b97fdbd4dbd0f3afb88e0ad682fa20f341b62b1b012ef691fd6660b18af",
+      "bytes": 2507
+    },
+    {
+      "path": "core/calendar/lunar.js",
+      "sha256": "65b5ba740fd4207697d1bdd5d5a3004ae5197d7aae0a0d98ebc3366844eca03a",
+      "bytes": 1152
+    },
+    {
+      "path": "core/calendar/pillars.js",
+      "sha256": "58414817e5f6aa786173415cb77d960574973409e8f6dfdf7a8b592ca03af562",
+      "bytes": 5332
+    },
+    {
+      "path": "core/calendar/truesolar.js",
+      "sha256": "2c3cc1000224154ad9ee6066439c967750928fd17d6ebc58d9ef0153bd22eb17",
+      "bytes": 2687
+    },
+    {
+      "path": "core/direction/__tests__/declination.test.js",
+      "sha256": "a81453fb816f208f3a0d1e0032b63aa0e7a72e63d0ce817bc0c87c1e25f0460c",
+      "bytes": 3179
+    },
+    {
+      "path": "core/direction/__tests__/jiugong.test.js",
+      "sha256": "9e80c979d9dd0a5f231d5a0a39236dc1abbcaa40a428f8734eb56d5b129fcfe1",
+      "bytes": 1999
+    },
+    {
+      "path": "core/direction/__tests__/shan24.test.js",
+      "sha256": "413df46d3d30cef561379652f54c24aecb84c6d53c496ab21d7e7c2883f010d0",
+      "bytes": 1985
+    },
+    {
+      "path": "core/direction/data/declination-cn.json",
+      "sha256": "17892e53bb641c1ea8b98ab05f85935c28719e51068fe22c1cb045db701f397c",
+      "bytes": 2085
+    },
+    {
+      "path": "core/direction/declination.js",
+      "sha256": "169fa53962a09754936b690d2cee4b2c79b67ecc76e8ad22bc3570d3104e2439",
+      "bytes": 2935
+    },
+    {
+      "path": "core/direction/index.js",
+      "sha256": "9d47055229674044310a8f3d1520f68b04c5cd687844c2898f376dfa6e3b400f",
+      "bytes": 892
+    },
+    {
+      "path": "core/direction/jiugong.js",
+      "sha256": "6e440aef21ca18d0bf20223f3a117d44b99448899f4962a96260c3549f8bc97d",
+      "bytes": 2319
+    },
+    {
+      "path": "core/direction/shan24.js",
+      "sha256": "133f4569b4427586e6ce97041d2705ee84704dce3725f9b2ee1daa093c4e0207",
+      "bytes": 2449
+    },
+    {
+      "path": "core/ganzhi/__tests__/basic.test.js",
+      "sha256": "742457235ecad42c320a90a790fba79b6c7190deaf41c599fb49e38214ecfbee",
+      "bytes": 1708
+    },
+    {
+      "path": "core/ganzhi/__tests__/chart.test.js",
+      "sha256": "1065e10c5c3fa533edd8739e57dfc3ad88fd440952e75a993c9a3dad06012891",
+      "bytes": 2710
+    },
+    {
+      "path": "core/ganzhi/__tests__/constants.test.js",
+      "sha256": "891787ff7813793808ff78411af80c4fc873082820ddbb3fbfb5d1208e29a65c",
+      "bytes": 2152
+    },
+    {
+      "path": "core/ganzhi/__tests__/domains.test.js",
+      "sha256": "735a868492ca0b719c9e45904f71ba8fc00af79c15dc81b74c8891ff94cef93a",
+      "bytes": 5779
+    },
+    {
+      "path": "core/ganzhi/__tests__/marriage.test.js",
+      "sha256": "fb50ca7d1806d9bb6c2d07de8bc4af455dd2a0a5c558fa5b6adb768c2a7df401",
+      "bytes": 1360
+    },
+    {
+      "path": "core/ganzhi/__tests__/relation.test.js",
+      "sha256": "25a071dc76d26ea8fa354f241cf7e232de4187c5a1f2545cd81098c3d80c256c",
+      "bytes": 2669
+    },
+    {
+      "path": "core/ganzhi/__tests__/shishen.test.js",
+      "sha256": "b408338a56491ac8c5465d00ea8806d913dae385569abce10b8193fe1508878c",
+      "bytes": 1173
+    },
+    {
+      "path": "core/ganzhi/basic.js",
+      "sha256": "ac468536d2d623af4b6512e8fe7f663dcaab3189b6ee8c05b43cfe55c5a04832",
+      "bytes": 1299
+    },
+    {
+      "path": "core/ganzhi/chart.js",
+      "sha256": "e5a3526cecd198e2663eb89032ee1432305b95c737885d7d0f3e26b21008c825",
+      "bytes": 3386
+    },
+    {
+      "path": "core/ganzhi/constants.js",
+      "sha256": "cd8d580259a76515d717b8d404de04b9bda16cc46f37d6fcfa7dff8b9f1680ed",
+      "bytes": 2561
+    },
+    {
+      "path": "core/ganzhi/domains.js",
+      "sha256": "944272e0c8ca7103311b62028b4de0916b3afe60350353e04f86c0fc6439958f",
+      "bytes": 7205
+    },
+    {
+      "path": "core/ganzhi/index.js",
+      "sha256": "dce607a5ef619eeb6dab0d1bb73b0eb5a1bbbff965efb4c49b713aff76f651f8",
+      "bytes": 597
+    },
+    {
+      "path": "core/ganzhi/marriage.js",
+      "sha256": "637dd9f12ba117d773948e7ba52733b2a2bbce9ed6dccd1f8072b4df7116e9b7",
+      "bytes": 1842
+    },
+    {
+      "path": "core/ganzhi/relation.js",
+      "sha256": "bc5e5ecda0747a3240767d58d15fb8aba931c1b7e291a74ed31a29843dccbd34",
+      "bytes": 3210
+    },
+    {
+      "path": "core/ganzhi/shishen.js",
+      "sha256": "9c43f7513c8ae367a1746b1dca2f929d9ee26702be889e6a02323e70855dcb65",
+      "bytes": 650
+    },
+    {
+      "path": "core/index.js",
+      "sha256": "a8b1ac71b751a588a15d718fdc95701386fe4d242126bb02fe0339e94818525c",
+      "bytes": 152
+    },
+    {
+      "path": "core/naqi/__tests__/center.test.js",
+      "sha256": "84070f470677d94557b32a0571b0db7589b82a8fdc7389e8aedd99c05420bdba",
+      "bytes": 1710
+    },
+    {
+      "path": "core/naqi/__tests__/patterns.test.js",
+      "sha256": "4521a48ad8c75e3dc31d9f235162c66a5bcb8543623609402eefd6c90310bbdf",
+      "bytes": 1692
+    },
+    {
+      "path": "core/naqi/__tests__/zones.test.js",
+      "sha256": "181314a75c14c0b8e5afbcb749a53c3a05045030107df712509da10effbbf1f7",
+      "bytes": 1837
+    },
+    {
+      "path": "core/naqi/center.js",
+      "sha256": "e37e93be718f25e1afe1e2d304798432b5e2e65ad7701e1106cbad69cfe95832",
+      "bytes": 4225
+    },
+    {
+      "path": "core/naqi/index.js",
+      "sha256": "e67732b7a87bd18a298ff212ef51137807218bdd59b31e5223c8e1d058f152f9",
+      "bytes": 1236
+    },
+    {
+      "path": "core/naqi/patterns.js",
+      "sha256": "45217624199d449cb4c06e858770750844aa41c5e12378e0ac75aa205f1ae7e7",
+      "bytes": 3865
+    },
+    {
+      "path": "core/naqi/zones.js",
+      "sha256": "ca8d268bfdff60f36828410cf6aa2e8ae1e6d9bdb2f221f5da7c67810bcf7b94",
+      "bytes": 2384
+    },
+    {
+      "path": "docs/REFERENCES.md",
+      "sha256": "27365ec624b1f7bb4716956596ff8e529e19fdcdf7bbc91a7e9bd19c6fa85f88",
+      "bytes": 30672
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "sha256": "8ccd56be1c7ba61cee409597fef497ce50b7f82b05727eb0fce311b82a8774d4",
+      "bytes": 30546
+    },
+    {
+      "path": "docs/SKILL-CONTRACTS.md",
+      "sha256": "9ff1490e814483159934e1088d52fb94413a1f26ead792941107e2750e156495",
+      "bytes": 8965
+    },
+    {
+      "path": "docs/SKILL-TAXONOMY.md",
+      "sha256": "e30743ddd8f59e79d78553cd85cf6b54a60a6624fd9805c4cfce86d5b9f935d3",
+      "bytes": 11253
+    },
+    {
+      "path": "docs/TEST-CASES.md",
+      "sha256": "2a6f40a6ad6ff2003705910df2f74f54f230191d8b42785ed15f8e3e35ca2468",
+      "bytes": 10936
+    },
+    {
+      "path": "docs/agent-compatibility.json",
+      "sha256": "7f0e968eee665bb1b579436276870c98110c17f5da4674c49dd3a6f7eaa004e5",
+      "bytes": 5793
+    },
+    {
+      "path": "jest.config.js",
+      "sha256": "ea498937b1d98118e58252185d7aa9e221c184e473369d23d592007e99db8b0a",
+      "bytes": 606
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "e188d59f43b7c1f1071a58905b39129dd1991da15e02abdf9f6bcbeb0fe79d15",
+      "bytes": 161627
+    },
+    {
+      "path": "package.json",
+      "sha256": "57feb2326a4c3e55493ba0b916f0eecce857e6cf4b7cd8ef992c6aff48ee6b05",
+      "bytes": 740
+    },
+    {
+      "path": "plugin.json",
+      "sha256": "0b1a65339a39f60c7b1fbe24cd58923728877262dab1dde61a499e7c710d7897",
+      "bytes": 1048
+    },
+    {
+      "path": "scripts/agent-install/__tests__/install.test.js",
+      "sha256": "c1b2ffb966ce648aa7c24df01e30b4491dbc3f8a4dc6683066f0cfd28634ab32",
+      "bytes": 5751
+    },
+    {
+      "path": "scripts/agent-install/__tests__/lifecycle.test.js",
+      "sha256": "56852f45c07b89b1a410a45aebf2a39d19890d60ad0b91a6e96957104b5087c6",
+      "bytes": 7594
+    },
+    {
+      "path": "scripts/agent-install/__tests__/paths.test.js",
+      "sha256": "ada8688a5bf074c2f886346a6c9318dc78ac7c1f36c3427ce7acbaeacc8d2a43",
+      "bytes": 4038
+    },
+    {
+      "path": "scripts/agent-install/cli.js",
+      "sha256": "813bf2979a2f65d2fb33156fcb1b8cedafbdf7e4a6fe5595a8a15d2e0974f32f",
+      "bytes": 1701
+    },
+    {
+      "path": "scripts/agent-install/constants.js",
+      "sha256": "85fc33a5dae116f07c6834783aba4b82d6ff2e44ebd3f99d4d064a11759ed887",
+      "bytes": 1642
+    },
+    {
+      "path": "scripts/agent-install/install.js",
+      "sha256": "bbfe0fe2b5ac25db2813670a1373ca28809dcf0e52161fc8a7199e97843f2caa",
+      "bytes": 5550
+    },
+    {
+      "path": "scripts/agent-install/manifest.js",
+      "sha256": "c3638f66f880e19bcf7638280cf9f8294a19e2e495c1690220a74a4ff4d7c4d8",
+      "bytes": 4500
+    },
+    {
+      "path": "scripts/agent-install/paths.js",
+      "sha256": "09ea81503b0cb98c594ee66b2ec8d1735d56180d0524743fe940b2d462f822cf",
+      "bytes": 2683
+    },
+    {
+      "path": "scripts/agent-install/uninstall.js",
+      "sha256": "445b3a06ae90ae8b5c3a2b88e983daf2c81e5647b76c39aedd34ada2fbbc8ce4",
+      "bytes": 2492
+    },
+    {
+      "path": "scripts/agent-install/verify.js",
+      "sha256": "7712e0cf21a3f16ffa1bf6e6dd102e2f9440c6174be61798624e2439c8898bca",
+      "bytes": 2967
+    },
+    {
+      "path": "scripts/build-public-tree.js",
+      "sha256": "a82ce6920f811d9a0f580afc76a231a100e79a016c585bc94a273469c72783b0",
+      "bytes": 4558
+    },
+    {
+      "path": "scripts/e2e-smoke.js",
+      "sha256": "66b26f837ca034f5485d6c5965f90f30d43cd743963f5be2a857f4a2dd66755c",
+      "bytes": 13266
+    },
+    {
+      "path": "scripts/gen-bazigo-golden.md",
+      "sha256": "988e3b902f4f875d8cf835ff5963d13fca59c2fd891421a85e3b33e40fa28641",
+      "bytes": 3901
+    },
+    {
+      "path": "skills/_shared/__tests__/safety.test.js",
+      "sha256": "5e7692a228f5c45e1efdabb4550ed2557eb62dc976d129159f919426c6f6faeb",
+      "bytes": 4652
+    },
+    {
+      "path": "skills/_shared/safety.js",
+      "sha256": "3bbaff4bb50c324a1bcb9356530ef31037a30b4bc4ee01542a8df61c9122c4b5",
+      "bytes": 4096
+    },
+    {
+      "path": "skills/bazi/SKILL.md",
+      "sha256": "f60eb4e6a4937990c771654f9524138e4f9e52fa3cbf7611ad7099e20fc21ba6",
+      "bytes": 3424
+    },
+    {
+      "path": "skills/bazi/__tests__/analyze.test.js",
+      "sha256": "25455b144cbcf25ffaacea7a9cd76a22d60ca1c4db5445d3464e01e71a6f47ba",
+      "bytes": 12734
+    },
+    {
+      "path": "skills/bazi/lib/analyze.js",
+      "sha256": "e80d5f73d50b00c71cb2b3fd76d5c53db4a4a78cdef51d8ba8890f43f0e4ae2b",
+      "bytes": 9605
+    },
+    {
+      "path": "skills/bazi/methodology.md",
+      "sha256": "b1d8320c9e50d0823754a017475523d43f8e7dbc6755132bee7264f8be3360fc",
+      "bytes": 3992
+    },
+    {
+      "path": "skills/bazi/scripts/calculate.js",
+      "sha256": "b210d2d09f5c57b92421d707167274527aebd52381fce07e693cb9127ee886cd",
+      "bytes": 890
+    },
+    {
+      "path": "skills/bazi/templates/report.md",
+      "sha256": "e40ca55c83635926460f3422229de893009563ac07bcd303457636546292d69e",
+      "bytes": 1731
+    },
+    {
+      "path": "skills/love-marriage/SKILL.md",
+      "sha256": "e37d17a28f1c9caa6378813a4928809b182f55e1caedc99ca59e65b054eafa27",
+      "bytes": 3949
+    },
+    {
+      "path": "skills/love-marriage/__tests__/analyze.test.js",
+      "sha256": "8aa761e3028babfd8d7c1687273d00c33df652dfe017d187df0699b5200a7352",
+      "bytes": 9455
+    },
+    {
+      "path": "skills/love-marriage/lib/analyze.js",
+      "sha256": "477a0e6928a6298cd745453cd4837c57d29feb72a79b3f44a970393f6a4b7a1d",
+      "bytes": 6955
+    },
+    {
+      "path": "skills/love-marriage/methodology.md",
+      "sha256": "349866ca43e0828287041a48b9d8696cf8e41ba874f4257f95e302dc53f53b8f",
+      "bytes": 2539
+    },
+    {
+      "path": "skills/love-marriage/templates/report.md",
+      "sha256": "2a13febf953b9d6e15667467ea6c8465d58e3044fade2e39b7d2a3d81abae530",
+      "bytes": 1939
+    },
+    {
+      "path": "skills/palm/SKILL.md",
+      "sha256": "c1cdb822e7015688ed494c79155a465d255d8e46b2a1850dcd4d8aa52d69cbd4",
+      "bytes": 4089
+    },
+    {
+      "path": "skills/palm/__tests__/contract.test.js",
+      "sha256": "026a9c23a6b2012a9b0c1303aca81461685e040e09c2b34b0f667419b3444bf3",
+      "bytes": 29407
+    },
+    {
+      "path": "skills/palm/lib/contract.js",
+      "sha256": "4c52651f12d85e4feee59eb9aa196d5b262b626ca13492d9f955acfa156f4ef8",
+      "bytes": 41074
+    },
+    {
+      "path": "skills/palm/methodology.md",
+      "sha256": "601cc22f72edd8c251db5fa3877e6968b71286bfb90920cfc0a69399dae143d5",
+      "bytes": 9799
+    },
+    {
+      "path": "skills/palm/templates/report.md",
+      "sha256": "f2ede15886e2f07e2735d3aa47e70d1d88ec6a75a88ffffd5f28e31b0564dfd2",
+      "bytes": 2616
+    },
+    {
+      "path": "skills/qimen/SKILL.md",
+      "sha256": "edb67e589b539592918ce3cdebf8d2abb3e405b31dd82be40a962f54ffdb89a5",
+      "bytes": 3332
+    },
+    {
+      "path": "skills/qimen/__tests__/chart.test.js",
+      "sha256": "9e50bba9a075631b1d7a456555ff3347f3d3be0ee098c5860c6f0d7dec13f5b2",
+      "bytes": 20033
+    },
+    {
+      "path": "skills/qimen/lib/chart.js",
+      "sha256": "6b0227b8b54422c4b757f2a3127b273b705ae49b88e660bb4eb65b1478074fdd",
+      "bytes": 16404
+    },
+    {
+      "path": "skills/qimen/methodology.md",
+      "sha256": "3765b76127fede933a69a89c488e6fbcc9f11d0785201002a1a527511afbc478",
+      "bytes": 3875
+    },
+    {
+      "path": "skills/qimen/templates/report.md",
+      "sha256": "e921501ca5d6caf26dc19894223c127c652ca01a6b8f4df82f8e47e819b7fa4c",
+      "bytes": 1944
+    },
+    {
+      "path": "skills/wealth-career/SKILL.md",
+      "sha256": "5caac55a873a37bd254b201c2d2a2776bd45fb0363951b8bd2a3542173922fa1",
+      "bytes": 3978
+    },
+    {
+      "path": "skills/wealth-career/__tests__/analyze.test.js",
+      "sha256": "b534ccbf6acb0bedb3786ff7caa1df1f402e02888a94531f05fd8cd5a497cb64",
+      "bytes": 26690
+    },
+    {
+      "path": "skills/wealth-career/lib/analyze.js",
+      "sha256": "3a1d615953649ae597d5aa4deec2546aba2d69f96417479b0ec9e9b5db76bba4",
+      "bytes": 16377
+    },
+    {
+      "path": "skills/wealth-career/methodology.md",
+      "sha256": "d4999eaea4bde8f52fc192ea4ad5ca6d810e2e017ca8eec491735752efdf7c03",
+      "bytes": 5399
+    },
+    {
+      "path": "skills/wealth-career/templates/report.md",
+      "sha256": "94f4d460005bcbc2059f61e798122afdc43cde6aa497b359838ac57555323e0e",
+      "bytes": 3488
+    },
+    {
+      "path": "tests/contracts/bazi.test.js",
+      "sha256": "a7311dda2555d1b6a1caa26152d9589cb50331209cdec0755eb553f119f34548",
+      "bytes": 6856
+    },
+    {
+      "path": "tests/contracts/love-marriage.test.js",
+      "sha256": "7565b7103f5863625a7920ad0d74f1b91d7d3e886c979f839d08d520aff13d82",
+      "bytes": 5465
+    },
+    {
+      "path": "tests/contracts/qimen.test.js",
+      "sha256": "a930f5b73616562f8f1eb47fb45674c1cb447afd0fda5fed5edb658013d018ea",
+      "bytes": 4645
+    },
+    {
+      "path": "tests/contracts/wealth-career.test.js",
+      "sha256": "8ebb4405ed92d5ca370e50d362926a49430549271d22f73da85d0dfee9166d61",
+      "bytes": 9224
+    },
+    {
+      "path": "tests/e2e-smoke.test.js",
+      "sha256": "8d15f9cd40c96e0cce75dc1ea057bfe89bfac5f72c56d61d09601505cefc6d1e",
+      "bytes": 3033
+    },
+    {
+      "path": "tests/fixtures/celebrity-bazi.json",
+      "sha256": "cda69b7511e0e3d0d11cfe9d9ad9bd8a775dc757f9cb2b49eb0b11a4c79344e5",
+      "bytes": 2070
+    },
+    {
+      "path": "tests/fixtures/palm/README.md",
+      "sha256": "daf308876bdf5b7238ffc107fc317c1938f295d2e0cef2b0f0502801d4da2157",
+      "bytes": 5097
+    },
+    {
+      "path": "tests/public-release.test.js",
+      "sha256": "50fffbe77cc945073c66177c36006e2562cb1a55c0efc7ab64cac3c020d5f707",
+      "bytes": 4193
+    },
+    {
+      "path": "tests/qimen-untrusted-keys.test.js",
+      "sha256": "a56bc14cd618e3322790acbe79c97b4eb9c25437b8a7117d51dfab6f8818d819",
+      "bytes": 10559
+    },
+    {
+      "path": "tests/readme-contract.test.js",
+      "sha256": "de198bd6b8fa4ca017bf73f2157ff927948b156cab081980d9101add5a7400ce",
+      "bytes": 5366
+    },
+    {
+      "path": "tests/routing-contract.test.js",
+      "sha256": "a37fb54414ae0d9a492acbcdb28b8de46913409cd78b6b65665dcb6c594518a0",
+      "bytes": 11466
+    },
+    {
+      "path": "tests/vendor-provenance.test.js",
+      "sha256": "65c2f2ef2e99e0465a1a93d2f70a7162a1780a709f5238eee1a749dfc903c6bd",
+      "bytes": 5414
+    },
+    {
+      "path": "vendor/lunar-javascript/LICENSE",
+      "sha256": "d9210caf1844dcf410095cea464b79800aad30dbd49df092076b9f0ddc015404",
+      "bytes": 1061
+    },
+    {
+      "path": "vendor/lunar-javascript/README.md",
+      "sha256": "41a18f4c4db88cedc6f6528db4b3f142a7062a90801af9c1cd0b1984c18ceae3",
+      "bytes": 3541
+    },
+    {
+      "path": "vendor/lunar-javascript/index.js",
+      "sha256": "93301dca7b1ba04a96ae8a8410cf02a11016be4b17614d63d298325e976abc35",
+      "bytes": 786
+    },
+    {
+      "path": "vendor/lunar-javascript/lunar.js",
+      "sha256": "9750324bfe1aa63c146f8c72b1143df924466c11c8a5277d7d9225c541a18aaa",
+      "bytes": 435942
+    },
+    {
+      "path": "vendor/lunar-javascript/package.json",
+      "sha256": "39b062864077ca2980683db5f209cb78339f74e4d5c1dea77b4a6263da116c02",
+      "bytes": 1510
+    }
+  ]
+}

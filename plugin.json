@@ -1,0 +1,38 @@
+{
+  "name": "xuanxue-skills",
+  "version": "0.1.0",
+  "description": "五个当前可用的传统术数技能：bazi 用完整出生资料做综合命理，love-marriage 深入婚恋，wealth-career 深入事业财运，palm 接收双手照片并验证宿主多模态观察，qimen 只判读外部 APP 已起局盘、不自行起局。确定性八字计算由仓库内核完成，流派差异并列呈现。",
+  "author": {
+    "name": "恐龙创新部",
+    "url": "https://github.com/konglong87"
+  },
+  "homepage": "https://github.com/konglong87/xuanxue-skills",
+  "repository": "https://github.com/konglong87/xuanxue-skills",
+  "license": "MIT",
+  "keywords": [
+    "玄学",
+    "传统文化",
+    "bazi",
+    "八字",
+    "四柱",
+    "生辰八字",
+    "大运流年",
+    "五行",
+    "十神",
+    "love-marriage",
+    "婚恋",
+    "姻缘",
+    "感情",
+    "wealth-career",
+    "事业",
+    "财运",
+    "工作",
+    "palm",
+    "手相",
+    "掌纹",
+    "qimen",
+    "奇门遁甲",
+    "外部局盘",
+    "九宫盘"
+  ]
+}
