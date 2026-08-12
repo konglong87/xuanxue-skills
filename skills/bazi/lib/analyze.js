@@ -1,5 +1,5 @@
 const { baziChart, ganzhiYearOf } = require('../../../core/calendar');
-const { DISCLAIMER_BASE } = require('../../_shared/safety');
+const { DISCLAIMER_BASE, FORBIDDEN_CLAIMS } = require('../../_shared/safety');
 
 function deepFreeze(value) {
   if (!value || typeof value !== 'object' || Object.isFrozen(value)) return value;
@@ -164,6 +164,8 @@ function buildAnalysisContext(chart, alternateChart, targetYearInjected) {
         免责声明: '原样保留文化娱乐、医疗与投资职业边界。',
       },
       免责声明: [...DISCLAIMER],
+      // 禁止断语清单必须随契约交付给模型 —— 只在 safety 里定义等于没人读。
+      禁止断语: FORBIDDEN_CLAIMS,
     },
     流派方法: cloneSchoolMethods(),
     表达规则: [

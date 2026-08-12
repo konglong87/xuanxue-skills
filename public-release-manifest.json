@@ -394,8 +394,8 @@
     },
     {
       "path": "scripts/e2e-smoke.js",
-      "sha256": "66b26f837ca034f5485d6c5965f90f30d43cd743963f5be2a857f4a2dd66755c",
-      "bytes": 13266
+      "sha256": "44ec4353ec25173d7b85021857ab899bb455819b0452ff6636d5b0cdf0e7ca33",
+      "bytes": 8421
     },
     {
       "path": "scripts/gen-bazigo-golden.md",
@@ -429,8 +429,8 @@
     },
     {
       "path": "skills/bazi/lib/analyze.js",
-      "sha256": "55186ed6336607ea33561f3e6a5fb5d1a8e01ede577aba36dfa7bf69c216fbc9",
-      "bytes": 9977
+      "sha256": "d49941d99d06e21557dd3e878368bcb597929626c863e2df36719080be2d0a3a",
+      "bytes": 10140
     },
     {
       "path": "skills/bazi/methodology.md",
@@ -459,8 +459,8 @@
     },
     {
       "path": "skills/love-marriage/lib/analyze.js",
-      "sha256": "477a0e6928a6298cd745453cd4837c57d29feb72a79b3f44a970393f6a4b7a1d",
-      "bytes": 6955
+      "sha256": "c7d5af6499913703f2cabbcfe7e8594d91478641924b336dc2ed1de31e253f8c",
+      "bytes": 7165
     },
     {
       "path": "skills/love-marriage/methodology.md",
@@ -509,8 +509,8 @@
     },
     {
       "path": "skills/qimen/lib/chart.js",
-      "sha256": "6b0227b8b54422c4b757f2a3127b273b705ae49b88e660bb4eb65b1478074fdd",
-      "bytes": 16404
+      "sha256": "4fa350674f33f2b13c24c260bd70ded4c46d0878b1eb52f540b7e6bac15c691b",
+      "bytes": 16456
     },
     {
       "path": "skills/qimen/methodology.md",
@@ -534,8 +534,8 @@
     },
     {
       "path": "skills/wealth-career/lib/analyze.js",
-      "sha256": "7d1ddd170dcace775c043fb16e2607b695ad5168befc4b76ad84eb13464c0270",
-      "bytes": 16650
+      "sha256": "1db914979cfa0dcfcf62d7593f967b21da8e2f9361642c3fb227d2968ac2c572",
+      "bytes": 16860
     },
     {
       "path": "skills/wealth-career/lib/industry.js",
@@ -574,8 +574,8 @@
     },
     {
       "path": "tests/e2e-smoke.test.js",
-      "sha256": "8d15f9cd40c96e0cce75dc1ea057bfe89bfac5f72c56d61d09601505cefc6d1e",
-      "bytes": 3033
+      "sha256": "031a438f243ebe691898c208dd7fd6dc5997fafda3d76f93e09aec23994254d7",
+      "bytes": 3059
     },
     {
       "path": "tests/fixtures/celebrity-bazi.json",
@@ -586,6 +586,16 @@
       "path": "tests/fixtures/palm/README.md",
       "sha256": "daf308876bdf5b7238ffc107fc317c1938f295d2e0cef2b0f0502801d4da2157",
       "bytes": 5097
+    },
+    {
+      "path": "tests/fixtures/skill-inputs.js",
+      "sha256": "e2250eacd9459e9df5a508969946f31ac6eb299420720f0997937cf5c169ca63",
+      "bytes": 5153
+    },
+    {
+      "path": "tests/interpretation-boundaries.test.js",
+      "sha256": "3b819f3f53e2ef4955b6ab1f35a99f33090feff6b4c4db248d0d797ea1ca00f2",
+      "bytes": 9128
     },
     {
       "path": "tests/public-release.test.js",

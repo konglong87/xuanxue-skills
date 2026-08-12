@@ -52,8 +52,8 @@ describe('仓库外 cwd E2E smoke', () => {
   });
 
   test('palm fixture 与 safe DTO 预期不读取被测 contract 常量', () => {
-    const source = fs.readFileSync(SCRIPT, 'utf8');
-    const fixture = source.match(/function palmInput\([\s\S]*?\n}\n\nfunction verifyCore/);
+    const source = fs.readFileSync(path.join(ROOT, 'tests', 'fixtures', 'skill-inputs.js'), 'utf8');
+    const fixture = source.match(/function palmInput\([\s\S]*?\n}/);
     expect(fixture).not.toBeNull();
     [
       'HAND_SHAPE_TRAITS',

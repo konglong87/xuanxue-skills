@@ -1,6 +1,6 @@
 const { TIANGAN, DIZHI } = require('../../../core/ganzhi');
 const { fangweiOf, luoshuOf } = require('../../../core/direction');
-const { EVIDENCE_RULES, REDLINES, disclaimerFor } = require('../../_shared/safety');
+const { EVIDENCE_RULES, REDLINES, disclaimerFor, FORBIDDEN_CLAIMS } = require('../../_shared/safety');
 
 const 天干 = Object.freeze([...TIANGAN]);
 const 地支 = Object.freeze([...DIZHI]);
@@ -39,6 +39,7 @@ const REPORT_CONTRACT = deepFreeze({
   disclaimer: [...disclaimerFor('奇门')],
   evidenceRules: [...EVIDENCE_RULES],
   redlines: [...REDLINES.奇门],
+  禁止断语: FORBIDDEN_CLAIMS,
 });
 
 function deepFreeze(value) {

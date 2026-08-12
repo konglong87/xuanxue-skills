@@ -5,7 +5,7 @@ const {
   normalizeChart,
   REPORT_CONTRACT: QIMEN_REPORT_CONTRACT,
 } = require('../../qimen/lib/chart');
-const { EVIDENCE_RULES, REDLINES, disclaimerFor } = require('../../_shared/safety');
+const { EVIDENCE_RULES, REDLINES, disclaimerFor, FORBIDDEN_CLAIMS } = require('../../_shared/safety');
 
 const REPORT_SECTIONS = Object.freeze([
   '输入与口径',
@@ -27,11 +27,14 @@ const REPORT_CONTRACT = deepFreeze({
   disclaimer: [...disclaimerFor('婚恋')],
   evidenceRules: [...EVIDENCE_RULES],
   redlines: [...REDLINES.婚恋],
+  禁止断语: FORBIDDEN_CLAIMS,
 });
 const QIMEN_SHARED_CONTRACT = deepFreeze({
   disclaimer: [...QIMEN_REPORT_CONTRACT.disclaimer],
   evidenceRules: [...QIMEN_REPORT_CONTRACT.evidenceRules],
   redlines: [...QIMEN_REPORT_CONTRACT.redlines],
+  // 逐项浅拷贝：快照必须与 qimen 模块的常量互不共享引用
+  禁止断语: QIMEN_REPORT_CONTRACT.禁止断语.map(item => ({ ...item })),
 });
 
 function isPlainObject(value) {
