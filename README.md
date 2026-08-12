@@ -1,6 +1,6 @@
 # xuanxue-skills
 
-[English](README_EN.md) | 当前版本 `v0.1.0` | [MIT 许可证](LICENSE)
+[English](README_EN.md) | 当前版本 `v0.2.0` | [MIT 许可证](LICENSE)
 
 > 给你的 AI Agent 增加八字、婚恋、事业财运、手相和奇门局盘判读能力。
 

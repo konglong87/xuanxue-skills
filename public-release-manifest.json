@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "files": [
     {
       "path": ".claude-plugin/marketplace.json",
-      "sha256": "d6241d7d33816976b70b4fbccccf620ce7f94a723ccf463051d29008ed0f8b34",
+      "sha256": "272233f58578990a26256666585aba1f7a362d599292653d0b88e688f7954eca",
       "bytes": 745
     },
     {
@@ -24,17 +24,17 @@
     },
     {
       "path": "README.md",
-      "sha256": "0febb69f80cf54d26a3f78fdf537d6631e3395e5f96178d4dfb3918e6ca58282",
+      "sha256": "10c7d74878de802d7e8206dbd330453415af16d14af47a8001d394e812a20a5c",
       "bytes": 7732
     },
     {
       "path": "README_EN.md",
-      "sha256": "2fa9efe0406ad14beb746ca5ed9c10721c949eda537265d3179de0e833b6e9c2",
+      "sha256": "397940506b649edd6bf2ca74cc0945baca8399438c13752b397466ae52a6d841",
       "bytes": 8355
     },
     {
       "path": "VERSION",
-      "sha256": "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67",
+      "sha256": "1f930dd1f133c1f97a94fe3acb8db34372cf4c01ffdb2b3ff4ca72f9494121e9",
       "bytes": 6
     },
     {
@@ -269,8 +269,8 @@
     },
     {
       "path": "core/naqi/__tests__/zones.test.js",
-      "sha256": "181314a75c14c0b8e5afbcb749a53c3a05045030107df712509da10effbbf1f7",
-      "bytes": 1837
+      "sha256": "b19ac907ec9ce7e360c9735d7346ee6aac1944b021c27dd80298158f43e63eb2",
+      "bytes": 4080
     },
     {
       "path": "core/naqi/center.js",
@@ -289,13 +289,13 @@
     },
     {
       "path": "core/naqi/zones.js",
-      "sha256": "ca8d268bfdff60f36828410cf6aa2e8ae1e6d9bdb2f221f5da7c67810bcf7b94",
-      "bytes": 2384
+      "sha256": "1d2ea8ce7c0072c1c482cda656121232f2cdce54be10c0c1b3293dcfb1589eef",
+      "bytes": 4264
     },
     {
       "path": "docs/ROADMAP.md",
-      "sha256": "224c3e8b89544ffb56173de0b1feee27e55569e96612536a8d72323e94cd2dfd",
-      "bytes": 32983
+      "sha256": "777d6119e6aeda6477a3ada0467eebb00c5a0b0ae2663a7c5d09d3d75fd65155",
+      "bytes": 33284
     },
     {
       "path": "docs/SKILL-CONTRACTS.md",
@@ -314,7 +314,7 @@
     },
     {
       "path": "docs/agent-compatibility.json",
-      "sha256": "7f0e968eee665bb1b579436276870c98110c17f5da4674c49dd3a6f7eaa004e5",
+      "sha256": "e8a87a418152b68d1d32a2891812b360f4fe1291bbc72d53abeec5903d760262",
       "bytes": 5793
     },
     {
@@ -324,17 +324,17 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "e188d59f43b7c1f1071a58905b39129dd1991da15e02abdf9f6bcbeb0fe79d15",
+      "sha256": "a565cdeaabc6ee2dc144a79b8edc5f207d9795c423e0841e185b82cd5964224b",
       "bytes": 161627
     },
     {
       "path": "package.json",
-      "sha256": "57feb2326a4c3e55493ba0b916f0eecce857e6cf4b7cd8ef992c6aff48ee6b05",
+      "sha256": "951db3a2606432eef5461c286b8c5cb00116aa0f46d081c6ad918cebd3756b0d",
       "bytes": 740
     },
     {
       "path": "plugin.json",
-      "sha256": "0b1a65339a39f60c7b1fbe24cd58923728877262dab1dde61a499e7c710d7897",
+      "sha256": "20f5c826e08e30b34b277d9caebbfbd866856c3a457dc7a296429208dd65f55f",
       "bytes": 1048
     },
     {
@@ -599,7 +599,7 @@
     },
     {
       "path": "tests/public-release.test.js",
-      "sha256": "44c3e94b5887f1f2c2713d1075257837ca54ebb92ace27427b56bbf6ce2d1285",
+      "sha256": "60302222955f1ecbdb75b89403e1fa961d05b89a6ac82dcc0c23c8c270d44785",
       "bytes": 4864
     },
     {

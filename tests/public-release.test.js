@@ -88,7 +88,7 @@ describe('clean public release tree', () => {
       path.join(destination, 'public-release-manifest.json'),
       'utf8',
     ));
-    expect(manifest).toMatchObject({ schemaVersion: 1, version: '0.1.0' });
+    expect(manifest).toMatchObject({ schemaVersion: 1, version: '0.2.0' });
     expect(manifest).not.toHaveProperty('sourceCommit');
     expect(manifest.files).toHaveLength(result.fileCount);
     expect(manifest.files).toEqual(expect.arrayContaining([

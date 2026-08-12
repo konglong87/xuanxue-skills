@@ -1,6 +1,6 @@
 # xuanxue-skills
 
-[中文](README.md) | Current version `v0.1.0` | [MIT License](LICENSE)
+[中文](README.md) | Current version `v0.2.0` | [MIT License](LICENSE)
 
 > Add Bazi, relationships, career and wealth, palm reading, and external Qimen chart reading to your AI agent.
 
