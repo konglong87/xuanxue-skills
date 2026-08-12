@@ -160,6 +160,8 @@ const NO_EVIDENCE_RULES = deepFreeze(Object.fromEntries(REPORT_DOMAINS.map(domai
     action: '保留观察并结合后续清晰图片与现实变化复核。',
   },
 }])));
+const SINGLE_EVIDENCE_NOTICE = '本切面结论只落在一条观察上，属于单点判断；'
+  + '单一特征最容易被读过头，请结合其余切面与现实情况一并核验。';
 const ACTION_RULES = Object.freeze({
   'career-build-on-strength': Object.freeze({
     domain: 'career', polarity: 'strengths', text: '结合近期项目复盘，确认并持续使用已有优势。',
@@ -924,6 +926,17 @@ function validateReport(report, observations, {
         polarity,
       ))];
     }));
+    // 单点判断是判读里最常见的误判来源：同一条观察不得在一个切面里被拆成两条结论；
+    // 整个切面只落在一条观察上时，必须把这一点显式告诉用户，而不是让它读起来像多重印证。
+    const citedIds = ['strengths', 'risks']
+      .flatMap(polarity => renderedSection[polarity])
+      .map(item => item.observationId)
+      .filter(Boolean);
+    const distinctIds = new Set(citedIds);
+    if (distinctIds.size !== citedIds.length) {
+      throw new Error(`${path} 同一切面内不得重复引用同一条 observation 作为多条结论`);
+    }
+    if (distinctIds.size === 1) renderedSection.evidenceNotice = SINGLE_EVIDENCE_NOTICE;
     return [domain, renderedSection];
   }));
   const renderedReport = {
@@ -1026,6 +1039,7 @@ module.exports = deepFreeze({
   REPORT_DOMAINS,
   REQUIRED_DISCLAIMER,
   SAFE_HEALTH_TEXT,
+  SINGLE_EVIDENCE_NOTICE,
   SPECIAL_MARK_LOCATION_TYPES,
   SPECIAL_MARKS,
   VISUAL_TRAITS,

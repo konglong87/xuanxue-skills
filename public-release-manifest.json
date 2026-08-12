@@ -459,23 +459,23 @@
     },
     {
       "path": "skills/palm/SKILL.md",
-      "sha256": "c1cdb822e7015688ed494c79155a465d255d8e46b2a1850dcd4d8aa52d69cbd4",
-      "bytes": 4089
+      "sha256": "3ba97b82bfafc82a0a32d8fcd7e588e8b40ec071a50d0fcce0d0e5181a8b823d",
+      "bytes": 4664
     },
     {
       "path": "skills/palm/__tests__/contract.test.js",
-      "sha256": "026a9c23a6b2012a9b0c1303aca81461685e040e09c2b34b0f667419b3444bf3",
-      "bytes": 29407
+      "sha256": "728ee49ecfbb0a2ccb569139e9c9e5bd101059ea6c41bb6678e84ae14f31c8dc",
+      "bytes": 30520
     },
     {
       "path": "skills/palm/lib/contract.js",
-      "sha256": "4c52651f12d85e4feee59eb9aa196d5b262b626ca13492d9f955acfa156f4ef8",
-      "bytes": 41074
+      "sha256": "8c9201264919e427d4a6317a3bc62b882acf6b6d929ab7f16a7a55c71d8b3aac",
+      "bytes": 42000
     },
     {
       "path": "skills/palm/methodology.md",
-      "sha256": "ce3a9707a5ebff735a9824798c6e332f117fb5f407b62310d3b1224de9cb3ac7",
-      "bytes": 9788
+      "sha256": "5763004efa29deaf52924fe24e612cffa5fcf16dfced7171588e606ffcd47882",
+      "bytes": 11531
     },
     {
       "path": "skills/palm/templates/report.md",

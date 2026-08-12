@@ -690,3 +690,26 @@ describe('受控报告渲染', () => {
     expect(JSON.stringify(result)).toBe(snapshot);
   });
 });
+
+describe('单点判断防线', () => {
+  test('同一切面内不得把同一条 observation 重复引用为两条结论', () => {
+    const input = validInput(['left']);
+    const career = input.report.domains.career.strengths[0];
+    input.report.domains.career.strengths = [career, { ...career }];
+    expect(() => validatePalmContract(input)).toThrow(/同一切面.*重复引用|重复引用.*observation/);
+  });
+
+  test('切面只落在一条观察上时渲染出单点判断提示，落在两条上时不提示', () => {
+    const single = validatePalmContract(validInput(['left']));
+    expect(single.renderedReport.domains.career.evidenceNotice)
+      .toMatch(/单点判断|只落在一条/);
+
+    const input = validInput(['left', 'right']);
+    const rightCareer = input.observations.find(item => (
+      item.hand === 'right' && item.subject === '事业线'
+    ));
+    input.report.domains.career.strengths.push(reportItem(rightCareer, 'career', 'strengths'));
+    const broad = validatePalmContract(input);
+    expect(broad.renderedReport.domains.career.evidenceNotice).toBeUndefined();
+  });
+});

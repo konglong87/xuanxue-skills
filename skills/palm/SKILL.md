@@ -5,6 +5,10 @@ description: Use when the user uploads a 手掌、掌心、掌纹照片 or 图�
 
 # 手相判读
 
+## 用途
+
+识人与自省，落点在自己：先看清长处与短板，再决定力气往哪里放。不是让人变得多疑冷漠，而是在保持善意的同时拥有清醒的判断力。手相是概率不是铁律，结论一律写成倾向与线索，交给用户结合现实核验。
+
 ## 核心原则
 
 宿主多模态模型负责视觉观察，契约代码只验证声明式观察。必须先看图、再把质量与观察记录交给 `lib/contract.js` 校验；代码不能看图，也不得声称从图片中识别了任何特征。
@@ -15,7 +19,7 @@ description: Use when the user uploads a 手掌、掌心、掌纹照片 or 图�
 2. 按 [methodology.md](methodology.md) 的“饱满度 -> 纹路 -> 气色”顺序检查每只图片声明为可用的手。填写 `coverageManifest`，逐项标记 `inspected`、`absent` 或 `not-visible`；再把实际发现记录为 `id`、`hand`、`stage`、`featureType`、`subject`、`visualTraits`、`visibility` 和 `confidence`。`visualTraits` 必须取自对应 `featureType` 的专属词表；五行手型必须满足 `HAND_SHAPE_TRAITS` 的完整形态组合。
 3. `visibility: not-visible` 时 `confidence` 必须为 `low`。不可见、被遮挡、模糊或画面外的特征不得补造，也不得在报告中引用。
 4. 特殊纹路必须额外填写受控 `locationType + locationSubject`，位置只允许掌丘、主线、辅助线或掌心；扩展纹路的 HTTPS 来源和流派短标签仍只作元数据。
-5. 按 [templates/report.md](templates/report.md) 组装事业、感情、健康、财与人际四个切面的代码引用，天赋优势与短板风险分列且均不得为空。普通项只填写 `observationId`、`interpretationCode` 和 `actionCode`；解释码必须满足其指定的 `featureType + subject + visualTraits`。优势或风险确无匹配证据时只填写一项 `{ "interpretationCode": "no-confirmed-evidence" }`，契约会按当前分组扫描全部 observation，已有匹配证据时拒绝该码。
+5. 按 [templates/report.md](templates/report.md) 组装事业、感情、健康、财与人际四个切面的代码引用，天赋优势与短板风险分列且均不得为空。普通项只填写 `observationId`、`interpretationCode` 和 `actionCode`；解释码必须满足其指定的 `featureType + subject + visualTraits`。优势或风险确无匹配证据时只填写一项 `{ "interpretationCode": "no-confirmed-evidence" }`，契约会按当前分组扫描全部 observation，已有匹配证据时拒绝该码。**同一切面内不得把同一条 observation 拆成两条结论**，重复引用会被拒绝；整个切面只落在一条观察上时，渲染输出会自动带 `evidenceNotice` 标明这是单点判断 —— 想让结论更可靠就补证据，不是把同一条说两遍。
 6. 双手对照每项只填写左右 observation ID 与 `comparisonCode`，左右必须指向同一对象。把图片质量声明、`coverageManifest`、observations 与 report **一次性传给 `validatePalmContract`**。这是唯一公开函数和唯一校验入口，不得自行实现或拆开校验来绕过交叉检查。
 7. `needs_input` 时按 `quality.guidance` 一次性请用户重拍，停止判读；其中所有观察和报告均未验证、不得使用。校验通过后，**只允许向用户输出 `validatePalmContract(...).renderedReport`**：其中先给出 safe DTO 客观 observations 与 coverage manifest，再给四切面引用解读。扩展特殊纹路在 safe DTO 中统一命名为“扩展特殊纹路”，`source`、`school` 只留在内部 normalized observations，绝不输出。不得在前后另写、补写或改写任何结论。
 
