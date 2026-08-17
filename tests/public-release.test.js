@@ -48,6 +48,7 @@ describe('clean public release tree', () => {
     expect(Object.isFrozen(PUBLIC_EXCLUSIONS)).toBe(true);
     [
       '.git/config',
+      'CLAUDE.md',
       '.workbuddy/memory/note.md',
       'node_modules/jest/package.json',
       'docs/xuanxue-refs/source.pdf',

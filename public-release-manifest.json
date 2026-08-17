@@ -9,13 +9,8 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "be077b87854d3a30d131b315bf70eca39f0b7002bbc91d14731e3d52ba4ac054",
-      "bytes": 149
-    },
-    {
-      "path": "CLAUDE.md",
-      "sha256": "1063e4a22b818e08635828cffd69ca162d55e31ca2b8939601b1d42dbae7fa83",
-      "bytes": 5513
+      "sha256": "6113ab20615c934dc0ae0a57713a8db1d768c6bd15f3c03bcd8852a21fc021e6",
+      "bytes": 160
     },
     {
       "path": "LICENSE",
@@ -24,13 +19,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "5d14af0be356bf330b07dd0feb37c468cd0a3a064a6395ace609b4af8819a254",
-      "bytes": 8527
+      "sha256": "97b636244a1d28339215f16ee76e6f8d022c0f723b25f6b27aaee762efd97d7c",
+      "bytes": 8522
     },
     {
       "path": "README_EN.md",
-      "sha256": "79c432b1bd96f643ed086a4d72d4e1671facbb2d3a4b7bdf57ee291175ae1bee",
-      "bytes": 9170
+      "sha256": "9fccea72c15b24ae9d4b0b06194cc12b34f331ef8d28bde024fcaec925be5e10",
+      "bytes": 9174
     },
     {
       "path": "VERSION",
@@ -294,8 +289,8 @@
     },
     {
       "path": "docs/ROADMAP.md",
-      "sha256": "777d6119e6aeda6477a3ada0467eebb00c5a0b0ae2663a7c5d09d3d75fd65155",
-      "bytes": 33284
+      "sha256": "6f0f83fedcf22a15539b198d0d29b52e1893ccce599ad9a50516a0ffd35b7a9f",
+      "bytes": 33261
     },
     {
       "path": "docs/SKILL-CONTRACTS.md",
@@ -389,8 +384,8 @@
     },
     {
       "path": "scripts/build-public-tree.js",
-      "sha256": "00d8dc10317ac2fe008af6e1a9db1e42fde6c5ca5b4c3db34bd7481deaaa7845",
-      "bytes": 4621
+      "sha256": "776b11bdbf44399eff5a2b0cdb1f7c1c4dbde635a05e4388636194ee1f959973",
+      "bytes": 4636
     },
     {
       "path": "scripts/e2e-smoke.js",
@@ -599,8 +594,8 @@
     },
     {
       "path": "tests/public-release.test.js",
-      "sha256": "502c6fb091bdc7eb63d18040fcc5d9ff06ee1c934c46482d181e43f5a299e85e",
-      "bytes": 5751
+      "sha256": "c1c88a7671b170b46d1a92f84eb0285187e41ad7c123c3104b6a9202adc2a567",
+      "bytes": 5770
     },
     {
       "path": "tests/qimen-untrusted-keys.test.js",
@@ -614,8 +609,8 @@
     },
     {
       "path": "tests/routing-contract.test.js",
-      "sha256": "a37fb54414ae0d9a492acbcdb28b8de46913409cd78b6b65665dcb6c594518a0",
-      "bytes": 11466
+      "sha256": "97e05a8d072e3a65422827ac59da34d435b9943141caa1dcffb5d20ef934d4dc",
+      "bytes": 11683
     },
     {
       "path": "tests/vendor-provenance.test.js",

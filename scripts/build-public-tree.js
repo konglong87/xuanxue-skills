@@ -9,6 +9,7 @@ const { execFileSync } = require('child_process');
 
 const PUBLIC_EXCLUSIONS = Object.freeze([
   '.git',
+  'CLAUDE.md',
   '.workbuddy',
   'node_modules',
   'docs/xuanxue-refs',

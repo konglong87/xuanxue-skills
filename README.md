@@ -171,7 +171,7 @@ npm test -- --runInBand
 node scripts/e2e-smoke.js
 ```
 
-可复算案例、历史时区和对照口径见 [测试案例](docs/TEST-CASES.md)；后续能力见 [路线图](docs/ROADMAP.md)；架构约束见 [CLAUDE.md](CLAUDE.md)。规则来源为第三方师承资料，不随本仓库分发；每条判据的适用范围写在对应技能的 `methodology.md` 内。
+可复算案例、历史时区和对照口径见 [测试案例](docs/TEST-CASES.md)；后续能力见 [路线图](docs/ROADMAP.md)；架构约束见本节上方说明。规则来源为第三方师承资料，不随本仓库分发；每条判据的适用范围写在对应技能的 `methodology.md` 内。
 
 ## 许可证
 

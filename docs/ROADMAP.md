@@ -3,7 +3,7 @@
 > 这份文档的目标：**换台电脑、换个人，读完这一篇就能接着做。**
 > 每完成一项就勾掉复选框并更新"当前状态"。
 
-**当前状态（2026-08-12）**：`core` 首轮计算内核 14 项任务和用户判读技能 Task 1~8 已实现、复审并推送。Task 4 `palm` 以受控视觉枚举和 safe DTO 渲染完整观察事实层，固定健康文本与免责声明由共享安全模块唯一维护。Task 5 `qimen` 只标准化外部局盘，不自行起局；原始 `chart` 仅供本地审计，只有不含用户自由文本的 `safeChart` 可进入判读与报告。Task 6 `love-marriage` 分别保留换日两派的婚恋信号和奇门干合宫位。Task 7 `wealth-career` 复用八字与外部奇门契约，透明并列显干与全位置两种十神口径、六类职业组合及财富/事业各七项状态；同宫标记按宫预计算一次共享安全枚举摘要表，observation 只持常量大小的查表引用，未知算法和现实语境明确标为 `unsupported` / `needs_context`，不输出收益、裁员或跳槽断语。Task 8 的五技能路由契约、README / CLAUDE / taxonomy / manifest 对齐、固定年份离线 E2E smoke、未知键与规模攻击防护均已完成；当前为 36 suites / 570 tests，离线及归档 smoke 各 49/49。规格、代码质量、依赖/许可证、安全四类最终独立审查均已通过，Critical / Important / Minor 均无剩余项；三项严格插件校验、8 个 JSON、全部运行时 JS、零运行时依赖与归档无 `node_modules` 均通过。Task 8 已 rebase 并 push 到 `origin/main`，push 后实测本地 HEAD 与远端相等、工作区干净。`ccsd`（实际为 `ccr code --dangerously-skip-permissions`）已在独立归档临时目录完成真实模型探针、Steve Jobs 八字、婚恋、事业财运和修复后的双领域路由：五项均成功生成正文并命中对应安全边界；仅 `palm` 图片场景仍待真机正文验收。59 条 BaziGo 黄金 fixture 已入库。参考资料 8 份已全部导入并提炼为内部判据文档；该文档与第三方原件同属师承资料，均已迁出本开源仓库，不随发布包分发。
+**当前状态（2026-08-12）**：`core` 首轮计算内核 14 项任务和用户判读技能 Task 1~8 已实现、复审并推送。Task 4 `palm` 以受控视觉枚举和 safe DTO 渲染完整观察事实层，固定健康文本与免责声明由共享安全模块唯一维护。Task 5 `qimen` 只标准化外部局盘，不自行起局；原始 `chart` 仅供本地审计，只有不含用户自由文本的 `safeChart` 可进入判读与报告。Task 6 `love-marriage` 分别保留换日两派的婚恋信号和奇门干合宫位。Task 7 `wealth-career` 复用八字与外部奇门契约，透明并列显干与全位置两种十神口径、六类职业组合及财富/事业各七项状态；同宫标记按宫预计算一次共享安全枚举摘要表，observation 只持常量大小的查表引用，未知算法和现实语境明确标为 `unsupported` / `needs_context`，不输出收益、裁员或跳槽断语。Task 8 的五技能路由契约、README / taxonomy / manifest 对齐、固定年份离线 E2E smoke、未知键与规模攻击防护均已完成；当前为 36 suites / 570 tests，离线及归档 smoke 各 49/49。规格、代码质量、依赖/许可证、安全四类最终独立审查均已通过，Critical / Important / Minor 均无剩余项；三项严格插件校验、8 个 JSON、全部运行时 JS、零运行时依赖与归档无 `node_modules` 均通过。Task 8 已 rebase 并 push 到 `origin/main`，push 后实测本地 HEAD 与远端相等、工作区干净。`ccsd`（实际为 `ccr code --dangerously-skip-permissions`）已在独立归档临时目录完成真实模型探针、Steve Jobs 八字、婚恋、事业财运和修复后的双领域路由：五项均成功生成正文并命中对应安全边界；仅 `palm` 图片场景仍待真机正文验收。59 条 BaziGo 黄金 fixture 已入库。参考资料 8 份已全部导入并提炼为内部判据文档；该文档与第三方原件同属师承资料，均已迁出本开源仓库，不随发布包分发。
 
 **开源发布进度（2026-08-12）**：正在实施 GitHub `npx` 多 Agent 安装器、中英文 README、兼容证据与清洁公开根历史。面相 `face-reading` 列入 future/TODO，**因人脸隐私暂不开放**；当前不实现 skill、不进入路由与 manifest，也不增加额外隐私门禁。
 
@@ -38,7 +38,7 @@ npm install
 npm test
 ```
 
-架构约束见 [CLAUDE.md](../CLAUDE.md)，三条硬约定不可绕过：确定性计算必须走 `core/`；`core/` 改动必须先写失败的测试；拿不准就全部呈现、禁止替用户做决定。
+三条架构硬约定不可绕过：确定性计算必须走 `core/`；`core/` 改动必须先写失败的测试；拿不准就全部呈现、禁止替用户做决定。
 
 ---
 
@@ -54,7 +54,7 @@ npm test
 
 - [x] 单一 `package.json`（仅 devDependencies: jest），不用 npm workspaces；运行时零依赖，lunar-javascript 内联进 `vendor/`
 - [x] `plugin.json` / `.claude-plugin/marketplace.json`
-- [x] `CLAUDE.md` 固化硬约定
+- [x] 仓库开发约定固化三条架构硬约定
 - [x] `README.md` / `VERSION`
 
 ### Phase 1 — `core/ganzhi/` 干支符号代数 ✅ 已完成
@@ -332,7 +332,7 @@ R1 CSV 把「**八寸罗盘测向**」与「卫星地图分析」**并列**为�
 - [ ] `face-reading` 面相技能：因人脸隐私暂不开放；当前仅保留 future 状态，不实现技能或额外隐私门禁
 - [x] `plugin.json` / `.claude-plugin/marketplace.json` 只发布五个当前已交付技能；future 两技能不进入 manifest
 - [x] `README.md` 第一屏对齐五个当前能力、真实输入、限制和路由
-- [x] `CLAUDE.md` 对齐“当前目录职责”的逐项依赖表：`bazi -> calendar`，`love-marriage / wealth-career -> bazi + ganzhi`，`qimen -> ganzhi + direction`，`palm` 不依赖 `core`，`naqi -> direction`；future 组件明确未交付
+- [x] 公开架构文档对齐“当前目录职责”的逐项依赖表：`bazi -> calendar`，`love-marriage / wealth-career -> bazi + ganzhi`，`qimen -> ganzhi + direction`，`palm` 不依赖 `core`，`naqi -> direction`；future 组件明确未交付
 - [x] 为 `qimen` / `wealth-career` / `love-marriage` 补实施任务（见用户判读技能方案 Task 5~7）
 - [ ] `core/wanwu/` 万物类象表（十天干 / 地支 / 八卦 → 颜色、材质、功能、物品）—— 灭相与造相都依赖它，另立方案
 - [ ] `skills/_shared/miexiang.md` 灭相 · 造相 · 方位迁移，被所有技能引用

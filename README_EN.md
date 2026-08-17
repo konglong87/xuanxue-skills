@@ -172,7 +172,7 @@ npm test -- --runInBand
 node scripts/e2e-smoke.js
 ```
 
-See [test cases](docs/TEST-CASES.md) for reproducible fixtures and historical time-zone rules, the [roadmap](docs/ROADMAP.md) for future work, and [CLAUDE.md](CLAUDE.md) for architecture constraints. Source material is third-party lineage teaching and is not distributed with this repository; the scope of each rule is stated in the owning skill's `methodology.md`.
+See [test cases](docs/TEST-CASES.md) for reproducible fixtures and historical time-zone rules, the [roadmap](docs/ROADMAP.md) for future work, and the architecture notes above for dependency constraints. Source material is third-party lineage teaching and is not distributed with this repository; the scope of each rule is stated in the owning skill's `methodology.md`.
 
 ## License
 

@@ -123,11 +123,9 @@ describe('README、路线图与发布元数据', () => {
   const marketplace = json('.claude-plugin/marketplace.json');
   const readme = read('README.md');
   const taxonomy = read('docs/SKILL-TAXONOMY.md');
-  const claude = read('CLAUDE.md');
   const roadmap = read('docs/ROADMAP.md');
   const publishedSurface = [
     readme,
-    claude,
     JSON.stringify(plugin),
     JSON.stringify(marketplace),
   ].join('\n');
@@ -188,7 +186,7 @@ describe('README、路线图与发布元数据', () => {
   });
 
   test('架构文档逐项写清当前真实依赖且不再称领域以奇门为单一底座', () => {
-    const docs = [readme, claude, taxonomy].join('\n');
+    const docs = [readme, taxonomy].join('\n');
     expect(docs).toMatch(/bazi.*(?:必需|依赖).*qimen.*(?:可选|增强)/i);
     expect(docs).toMatch(/palm.*不依赖.*core/i);
     expect(docs).toMatch(/qimen.*ganzhi.*direction/i);
@@ -210,9 +208,14 @@ describe('README、路线图与发布元数据', () => {
     expect(section).toMatch(/风水/);
   });
 
-  test('ROADMAP 收尾项引用 CLAUDE 逐项依赖表而非泛化 skills 通配依赖', () => {
+  test('ROADMAP 收尾项保留逐项依赖表而非泛化 skills 通配依赖', () => {
     const section = roadmap.match(/## 收尾 todo[\s\S]*$/)[0];
-    expect(section).toMatch(/CLAUDE\.md[\s\S]{0,160}逐项依赖表/);
+    expect(section).toContain('逐项依赖表');
+    expect(section).toContain('bazi -> calendar');
+    expect(section).toContain('love-marriage / wealth-career -> bazi + ganzhi');
+    expect(section).toContain('qimen -> ganzhi + direction');
+    expect(section).toContain('palm` 不依赖 `core');
+    expect(section).toContain('naqi -> direction');
     expect(section).not.toContain('core/ganzhi <- core/calendar <- skills/*/lib');
   });
 
