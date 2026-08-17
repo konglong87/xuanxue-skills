@@ -25,6 +25,25 @@ function trackedFiles() {
 }
 
 describe('clean public release tree', () => {
+  test('checked-in manifest matches the current public tree', () => {
+    const destination = fs.mkdtempSync(path.join(os.tmpdir(), 'xuanxue manifest '));
+    const expected = buildPublicTree(destination, {
+      repositoryRoot: ROOT,
+      files: trackedFiles().filter(file => file !== 'public-release-manifest.json'),
+      readFile: relative => fs.readFileSync(path.join(ROOT, relative)),
+      modeOf: relative => (
+        fs.statSync(path.join(ROOT, relative)).mode & 0o111 ? '100755' : '100644'
+      ),
+    }).manifest;
+    const actual = JSON.parse(fs.readFileSync(
+      path.join(ROOT, 'public-release-manifest.json'),
+      'utf8',
+    ));
+
+    expect(actual).toEqual(expected);
+    fs.rmSync(destination, { recursive: true, force: true });
+  });
+
   test('uses a frozen exclusion policy for private and generated paths', () => {
     expect(Object.isFrozen(PUBLIC_EXCLUSIONS)).toBe(true);
     [
@@ -51,6 +70,9 @@ describe('clean public release tree', () => {
 
   test('builds required runtime, tests, public docs and installer with hashes', () => {
     const destination = fs.mkdtempSync(path.join(os.tmpdir(), 'xuanxue public '));
+    const expectedVersion = JSON.parse(
+      fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'),
+    ).version;
     const result = buildPublicTree(destination, {
       repositoryRoot: ROOT,
       files: trackedFiles(),
@@ -88,7 +110,7 @@ describe('clean public release tree', () => {
       path.join(destination, 'public-release-manifest.json'),
       'utf8',
     ));
-    expect(manifest).toMatchObject({ schemaVersion: 1, version: '0.2.0' });
+    expect(manifest).toMatchObject({ schemaVersion: 1, version: expectedVersion });
     expect(manifest).not.toHaveProperty('sourceCommit');
     expect(manifest.files).toHaveLength(result.fileCount);
     expect(manifest.files).toEqual(expect.arrayContaining([

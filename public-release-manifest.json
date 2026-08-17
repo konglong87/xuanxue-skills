@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "version": "0.2.0",
+  "version": "0.2.1",
   "files": [
     {
       "path": ".claude-plugin/marketplace.json",
-      "sha256": "272233f58578990a26256666585aba1f7a362d599292653d0b88e688f7954eca",
+      "sha256": "3ab6b62a88eb622128f665ce64a09ce927a570d7353912034dccf412dc39857a",
       "bytes": 745
     },
     {
@@ -24,17 +24,17 @@
     },
     {
       "path": "README.md",
-      "sha256": "10c7d74878de802d7e8206dbd330453415af16d14af47a8001d394e812a20a5c",
-      "bytes": 7732
+      "sha256": "5d14af0be356bf330b07dd0feb37c468cd0a3a064a6395ace609b4af8819a254",
+      "bytes": 8527
     },
     {
       "path": "README_EN.md",
-      "sha256": "397940506b649edd6bf2ca74cc0945baca8399438c13752b397466ae52a6d841",
-      "bytes": 8355
+      "sha256": "79c432b1bd96f643ed086a4d72d4e1671facbb2d3a4b7bdf57ee291175ae1bee",
+      "bytes": 9170
     },
     {
       "path": "VERSION",
-      "sha256": "1f930dd1f133c1f97a94fe3acb8db34372cf4c01ffdb2b3ff4ca72f9494121e9",
+      "sha256": "71015c979ccb0fc8a0be7ca0ae83046ab045cdc2c8faa09fb2f0f7e440f9b4a6",
       "bytes": 6
     },
     {
@@ -314,7 +314,7 @@
     },
     {
       "path": "docs/agent-compatibility.json",
-      "sha256": "e8a87a418152b68d1d32a2891812b360f4fe1291bbc72d53abeec5903d760262",
+      "sha256": "294affccb0aa730eb0e4f6cb23efeac3840eeea3cd1482c20258ef276f3b4216",
       "bytes": 5793
     },
     {
@@ -324,17 +324,17 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "a565cdeaabc6ee2dc144a79b8edc5f207d9795c423e0841e185b82cd5964224b",
+      "sha256": "ed78b1bd44f4c68cb2c1043498abfdecc77bb3c79490b4f226092c3c35d6cb3a",
       "bytes": 161627
     },
     {
       "path": "package.json",
-      "sha256": "951db3a2606432eef5461c286b8c5cb00116aa0f46d081c6ad918cebd3756b0d",
+      "sha256": "0f329379ba02c306d161c407d89bdedaa8a03259d4a11e0286990005687e12da",
       "bytes": 740
     },
     {
       "path": "plugin.json",
-      "sha256": "20f5c826e08e30b34b277d9caebbfbd866856c3a457dc7a296429208dd65f55f",
+      "sha256": "013537ade5ac58e4223ba6fbf7993b56a5674740c469bff4b2ca16e5f2cb8f95",
       "bytes": 1048
     },
     {
@@ -599,8 +599,8 @@
     },
     {
       "path": "tests/public-release.test.js",
-      "sha256": "60302222955f1ecbdb75b89403e1fa961d05b89a6ac82dcc0c23c8c270d44785",
-      "bytes": 4864
+      "sha256": "502c6fb091bdc7eb63d18040fcc5d9ff06ee1c934c46482d181e43f5a299e85e",
+      "bytes": 5751
     },
     {
       "path": "tests/qimen-untrusted-keys.test.js",
@@ -609,8 +609,8 @@
     },
     {
       "path": "tests/readme-contract.test.js",
-      "sha256": "73500c6a5d81126bf06c105598da0ef591318115df765a05391d4185a6dd40cb",
-      "bytes": 7001
+      "sha256": "30dbf1ca88feb40d77796dc867a74f3a291df6b94daf1d54d2bc623ab8cd1666",
+      "bytes": 7401
     },
     {
       "path": "tests/routing-contract.test.js",

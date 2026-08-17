@@ -9,7 +9,7 @@
     {
       "name": "xuanxue-skills",
       "description": "包含 bazi、love-marriage、wealth-career、palm 和 qimen。八字确定性计算走仓库内核；手相由宿主多模态观察后交代码验证；奇门只接受外部 APP 已起局盘，不自行起局。",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "source": "./",
       "author": {
         "name": "恐龙创新部",
