@@ -91,15 +91,22 @@ describe('bilingual open-source onboarding', () => {
     'divination',
   ];
 
-  test('Chinese and English READMEs cross-link and expose the current version', () => {
+  test('Chinese and English READMEs expose the centered release header', () => {
     const chinese = readText('README.md');
     const english = readText('README_EN.md');
     const version = readText('VERSION').trim();
 
-    expect(chinese).toContain('[English](README_EN.md)');
-    expect(english).toContain('[中文](README.md)');
-    expect(chinese).toContain(`v${version}`);
-    expect(english).toContain(`v${version}`);
+    expect(chinese).toMatch(/(?:\[English\]\(README_EN\.md\)|<a href="README_EN\.md">English<\/a>)/);
+    expect(english).toMatch(/(?:\[中文\]\(README\.md\)|<a href="README\.md">简体中文<\/a>)/);
+
+    [chinese, english].forEach(readme => {
+      expect(readme).toContain('<div align="center">');
+      expect(readme).toContain('<h1>xuanxue-skills</h1>');
+      expect(readme).toContain(`alt="Version v${version}"`);
+      expect(readme).toContain('alt="MIT License"');
+      expect(readme).toContain('alt="Node.js 18 or newer"');
+      expect(readme).toContain('alt="Zero runtime dependencies"');
+    });
   });
 
   test('both READMEs state four differentiators and all eight capability rows', () => {

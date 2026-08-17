@@ -1,8 +1,25 @@
-# xuanxue-skills
+<div align="center">
 
-[English](README_EN.md) | 当前版本 `v0.2.0` | [MIT 许可证](LICENSE)
+<h1>xuanxue-skills</h1>
 
-> 给你的 AI Agent 增加八字、婚恋、事业财运、手相和奇门局盘判读能力。
+<p><strong>让你的 AI Agent 读懂八字、婚恋、事业财运、手相与奇门局盘</strong></p>
+
+<p>
+  简体中文 · <a href="README_EN.md">English</a> ·
+  <a href="#30-秒开始">快速开始</a> ·
+  <a href="#当前能力">能力清单</a>
+</p>
+
+<p>
+  <a href="https://github.com/konglong87/xuanxue-skills/tree/v0.2.0"><img alt="Version v0.2.0" src="https://img.shields.io/badge/version-v0.2.0-2563eb?style=flat-square"></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-16a34a?style=flat-square"></a>
+  <a href="package.json"><img alt="Node.js 18 or newer" src="https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white"></a>
+  <img alt="Zero runtime dependencies" src="https://img.shields.io/badge/runtime_dependencies-0-7c3aed?style=flat-square">
+</p>
+
+<p><sub>支持 Claude Code · Codex · Cursor · Trae · WorkBuddy</sub></p>
+
+</div>
 
 不需要记技能名称，也不需要懂命理术语。安装后，直接用日常语言提问即可。
 

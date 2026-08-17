@@ -1,8 +1,25 @@
-# xuanxue-skills
+<div align="center">
 
-[中文](README.md) | Current version `v0.2.0` | [MIT License](LICENSE)
+<h1>xuanxue-skills</h1>
 
-> Add Bazi, relationships, career and wealth, palm reading, and external Qimen chart reading to your AI agent.
+<p><strong>Bazi, relationships, career and wealth, palm reading, and Qimen chart reading for your AI agent</strong></p>
+
+<p>
+  <a href="README.md">简体中文</a> · English ·
+  <a href="#start-in-30-seconds">Quick start</a> ·
+  <a href="#current-capabilities">Capabilities</a>
+</p>
+
+<p>
+  <a href="https://github.com/konglong87/xuanxue-skills/tree/v0.2.0"><img alt="Version v0.2.0" src="https://img.shields.io/badge/version-v0.2.0-2563eb?style=flat-square"></a>
+  <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-16a34a?style=flat-square"></a>
+  <a href="package.json"><img alt="Node.js 18 or newer" src="https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white"></a>
+  <img alt="Zero runtime dependencies" src="https://img.shields.io/badge/runtime_dependencies-0-7c3aed?style=flat-square">
+</p>
+
+<p><sub>Works with Claude Code · Codex · Cursor · Trae · WorkBuddy</sub></p>
+
+</div>
 
 You do not need to know skill names or metaphysics terminology. Install the project, then ask questions in everyday language.
 
