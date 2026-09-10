@@ -447,8 +447,25 @@ function normalizeChart(transcribed) {
   return { chart, safeChart: projectSafeChart(chart), errors };
 }
 
+function summarizeErrors(errors = []) {
+  if (!Array.isArray(errors)) throw new TypeError('errors 必须是数组');
+  const items = errors.map(error => ({
+    path: error.path,
+    code: error.code,
+    message: error.message,
+  }));
+  return {
+    status: items.length === 0 ? 'ready' : 'needs_input',
+    errors: items,
+    request: items.length === 0
+      ? null
+      : '请按 path 一次性补录或确认全部问题；错误未清零前停止奇门判读。',
+  };
+}
+
 module.exports = {
   normalizeChart,
+  summarizeErrors,
   REPORT_CONTRACT,
   天干,
   地支,

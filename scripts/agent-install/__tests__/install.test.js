@@ -162,4 +162,21 @@ describe('owned multi-agent installation', () => {
 
     fs.rmSync(roots.base, { recursive: true, force: true });
   });
+
+  test('拒绝两个进程同时创建同一运行时', () => {
+    const roots = temporaryRoots();
+    const options = installOptions(roots);
+    const runtimeRoot = path.join(
+      roots.homeDir,
+      '.xuanxue-skills',
+      'runtime',
+      `v${VERSION}`,
+    );
+    fs.mkdirSync(path.dirname(runtimeRoot), { recursive: true });
+    fs.writeFileSync(`${runtimeRoot}.lock`, 'other-process\n', 'utf8');
+
+    expect(() => installSkills(options)).toThrow(/其他安装进程/);
+
+    fs.rmSync(roots.base, { recursive: true, force: true });
+  });
 });

@@ -966,6 +966,17 @@ function validatePalmContract(input = {}) {
       coverageManifest: validatedCoverage,
     });
   }
+  const review = quality.status === 'complete'
+    ? {
+      status: 'complete',
+      message: '左右手图片均通过质量门禁，可以进行双手对照。',
+      missingHands: [],
+    }
+    : {
+      status: 'partial',
+      message: quality.notice,
+      missingHands: [...quality.missingHands],
+    };
   return deepFreeze({
     status: quality.status,
     quality,
@@ -974,6 +985,7 @@ function validatePalmContract(input = {}) {
     observationsValidated: true,
     coverageValidated: true,
     reportValidated: report !== undefined,
+    review,
     ...(renderedReport ? { renderedReport } : {}),
   });
 }

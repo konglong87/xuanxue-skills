@@ -35,9 +35,9 @@ describe('仓库外 cwd E2E smoke', () => {
     expect(summary.total).toBe(Object.values(summary.checks)
       .reduce((total, count) => total + count, 0));
     expect(summary.checks.core).toBeGreaterThanOrEqual(6);
-    expect(summary.checks.baziCli).toBeGreaterThanOrEqual(7);
+    expect(summary.checks.baziCli).toBeGreaterThanOrEqual(9);
     expect(summary.checks.domains).toBeGreaterThanOrEqual(12);
-    expect(summary.checks.qimen).toBeGreaterThanOrEqual(5);
+    expect(summary.checks.qimen).toBeGreaterThanOrEqual(7);
     expect(summary.checks.palm).toBeGreaterThanOrEqual(9);
     expect(summary.checks.safety).toBeGreaterThanOrEqual(7);
   });

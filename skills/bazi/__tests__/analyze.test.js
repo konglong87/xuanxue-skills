@@ -3,6 +3,7 @@ const path = require('path');
 const { baziChart } = require('../../../core/calendar');
 const {
   analyze,
+  buildReport,
   REQUIRED_FIELDS,
   REPORT_SECTIONS,
   SCHOOL_METHODS,
@@ -18,6 +19,18 @@ const COMPLETE_INPUT = {
 };
 
 describe('八字综合判读上下文', () => {
+  test('buildReport 生成可复核的结构化报告骨架', () => {
+    const report = buildReport(analyze(COMPLETE_INPUT));
+    expect(report.status).toBe('ready');
+    expect(report.综合).toMatchObject({
+      算出: expect.stringContaining('四柱为'),
+      依据: expect.any(String),
+      可供判读: expect.any(String),
+    });
+    expect(report.阶段趋势.建议行动).toEqual(expect.any(String));
+    expect(Object.isFrozen(report)).toBe(true);
+  });
+
   test.each([null, [], 'not-an-object', new Date()])('顶层输入必须是普通对象：%p', input => {
     expect(() => analyze(input)).toThrow(/input.*普通对象|输入.*普通对象/);
   });

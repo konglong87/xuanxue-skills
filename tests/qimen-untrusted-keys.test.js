@@ -2,6 +2,7 @@ const {
   ERROR_LIMITS,
   INPUT_LIMITS,
   normalizeChart,
+  summarizeErrors,
 } = require('../skills/qimen/lib/chart');
 const { analyze: analyzeLove } = require('../skills/love-marriage/lib/analyze');
 const { analyze: analyzeWealth } = require('../skills/wealth-career/lib/analyze');
@@ -74,6 +75,15 @@ const PAYLOADS = Object.freeze([
 ]);
 
 describe('奇门未知 key 的公共错误隔离', () => {
+  test('summarizeErrors 输出一次性补录反馈', () => {
+    expect(summarizeErrors([
+      { path: '九宫', code: 'palace_count', message: '九宫不完整', extra: 'discard' },
+    ])).toEqual({
+      status: 'needs_input',
+      errors: [{ path: '九宫', code: 'palace_count', message: '九宫不完整' }],
+      request: expect.stringContaining('一次性'),
+    });
+  });
   test.each(LAYERS.flatMap(([layer, mutate]) => (
     PAYLOADS.map(([payloadName, payload]) => [layer, payloadName, mutate, payload])
   )))('%s 的 %s 不进入 qimen/love/wealth 公共错误', (_layer, _payloadName, mutate, payload) => {

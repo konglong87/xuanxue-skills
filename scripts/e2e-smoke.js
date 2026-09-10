@@ -53,6 +53,7 @@ function verifyCore() {
 }
 
 function verifyBaziCli() {
+  const { buildReport } = require('../skills/bazi/lib/analyze');
   const fixtures = JSON.parse(fs.readFileSync(path.join(ROOT, 'tests/fixtures/celebrity-bazi.json'), 'utf8'));
   const person = fixtures.find(item => item.name === 'Steve Jobs');
   assert.ok(person, '名人 fixture 缺少 Steve Jobs');
@@ -74,6 +75,9 @@ function verifyBaziCli() {
     日: result.calculation.四柱结果.日,
     时: result.calculation.四柱结果.时,
   }, person.expectedPillars));
+  const report = buildReport(result);
+  check('baziCli', () => assert.equal(report.status, 'ready'));
+  check('baziCli', () => assert.match(report.综合.算出, /四柱为/));
 
   const needsInput = runBaziCli(JSON.stringify({ birthDate: person.birthDate, targetYear: TARGET_YEAR }));
   check('baziCli', () => assert.equal(needsInput.status, 0));
@@ -127,7 +131,7 @@ function verifyDomains() {
 }
 
 function verifyQimen() {
-  const { normalizeChart } = require('../skills/qimen/lib/chart');
+  const { normalizeChart, summarizeErrors } = require('../skills/qimen/lib/chart');
   const valid = normalizeChart(qimenInput());
   check('qimen', () => assert.equal(valid.errors.length, 0));
   check('qimen', () => assert.equal(valid.chart.九宫.length, 9));
@@ -138,6 +142,9 @@ function verifyQimen() {
   const rejected = normalizeChart(incomplete);
   check('qimen', () => assert.ok(rejected.errors.some(error => error.code === 'palace_count')));
   check('qimen', () => assert.ok(rejected.errors.some(error => error.code === 'uncertain_value')));
+  const feedback = summarizeErrors(rejected.errors);
+  check('qimen', () => assert.equal(feedback.status, 'needs_input'));
+  check('qimen', () => assert.ok(feedback.request.includes('一次性')));
 
   const selfStarted = qimenInput();
   selfStarted.来源 = { 类型: '自行起局', 名称: '未验证推算' };
@@ -155,6 +162,7 @@ function verifyPalm() {
   const before = clone(input);
   const result = contract.validatePalmContract(input);
   check('palm', () => assert.equal(result.status, 'complete'));
+  check('palm', () => assert.equal(result.review.status, 'complete'));
   check('palm', () => assert.equal(result.reportValidated, true));
   check('palm', () => assert.equal(result.renderedReport.observations.length, input.observations.length));
   check('palm', () => assert.ok(result.renderedReport.handComparison.pairs.length > 0));

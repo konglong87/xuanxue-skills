@@ -51,6 +51,19 @@ function createRuntime(sourceRoot, runtimeRoot) {
   }
 
   fs.mkdirSync(path.dirname(runtimeRoot), { recursive: true });
+  const lockPath = `${runtimeRoot}.lock`;
+  try {
+    fs.writeFileSync(lockPath, `${process.pid}\n`, {
+      encoding: 'utf8',
+      flag: 'wx',
+      mode: 0o600,
+    });
+  } catch (error) {
+    if (error.code === 'EEXIST') {
+      throw new Error(`运行时正在被其他安装进程创建: ${runtimeRoot}`);
+    }
+    throw error;
+  }
   const temporary = `${runtimeRoot}.tmp-${process.pid}-${Date.now()}`;
   try {
     fs.mkdirSync(temporary, { recursive: false });
@@ -65,6 +78,7 @@ function createRuntime(sourceRoot, runtimeRoot) {
     return true;
   } finally {
     fs.rmSync(temporary, { recursive: true, force: true });
+    fs.rmSync(lockPath, { force: true });
   }
 }
 

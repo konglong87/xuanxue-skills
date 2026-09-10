@@ -48,6 +48,11 @@
       "bytes": 4731
     },
     {
+      "path": "core/calendar/__tests__/boundary-regression.test.js",
+      "sha256": "80e53c9a33ddaeabe818baefdaef4756c7f648bf494a8ed2ba0b391c43756e27",
+      "bytes": 893
+    },
+    {
       "path": "core/calendar/__tests__/civil-time.test.js",
       "sha256": "c5c602f07022ab47f180b0215dab3af218174147400135abe04c92754e56ce67",
       "bytes": 8499
@@ -339,8 +344,8 @@
     },
     {
       "path": "scripts/agent-install/__tests__/install.test.js",
-      "sha256": "c1b2ffb966ce648aa7c24df01e30b4491dbc3f8a4dc6683066f0cfd28634ab32",
-      "bytes": 5751
+      "sha256": "d7634405c78e3c78f637525791ef0fd0838f5f412f3e27537365a2d5bdfd73d7",
+      "bytes": 6300
     },
     {
       "path": "scripts/agent-install/__tests__/lifecycle.test.js",
@@ -364,8 +369,8 @@
     },
     {
       "path": "scripts/agent-install/install.js",
-      "sha256": "bbfe0fe2b5ac25db2813670a1373ca28809dcf0e52161fc8a7199e97843f2caa",
-      "bytes": 5550
+      "sha256": "ce2cc895704e19a1c40658098ecdb9b4fb741583e49ec58a949d4de22623726f",
+      "bytes": 5931
     },
     {
       "path": "scripts/agent-install/manifest.js",
@@ -394,8 +399,8 @@
     },
     {
       "path": "scripts/e2e-smoke.js",
-      "sha256": "44ec4353ec25173d7b85021857ab899bb455819b0452ff6636d5b0cdf0e7ca33",
-      "bytes": 8421
+      "sha256": "d081f9d6ca790a19aa85cfb916f4b12b807c96fa59f4c890866a41e4b6bae940",
+      "bytes": 8949
     },
     {
       "path": "scripts/gen-bazigo-golden.md",
@@ -429,13 +434,18 @@
     },
     {
       "path": "skills/bazi/__tests__/analyze.test.js",
-      "sha256": "59c3708cfa162504be28453a170e9135bce16ee436b16e4148d1979f5c38575a",
-      "bytes": 13860
+      "sha256": "23af6b3ae81bf50281c7c0ba5705486a89afd79a121bbbf741206f5b3901d8d8",
+      "bytes": 14348
     },
     {
       "path": "skills/bazi/lib/analyze.js",
-      "sha256": "b18233ccd3ae5ba9c6b9009020f1c92f4a524f6c400b85c1eadd677a18d016d9",
-      "bytes": 9789
+      "sha256": "6899d729185d045880925652e65bddbbb835e97b1e0f6dc6b0569e41000f2902",
+      "bytes": 9849
+    },
+    {
+      "path": "skills/bazi/lib/report.js",
+      "sha256": "d382e8436c911f919924e84dd4a30a1e0dc8e7b511936d49d11d56e9e50a7c5c",
+      "bytes": 2690
     },
     {
       "path": "skills/bazi/methodology.md",
@@ -489,8 +499,8 @@
     },
     {
       "path": "skills/palm/lib/contract.js",
-      "sha256": "5c9b2cf13c2ae20c06482b385c90641574976dba95158177d2dd0c0477dc7b09",
-      "bytes": 40667
+      "sha256": "3a25abab83fbfe03050d4a43d6e16f9a61d4283b80c394187a001baf6d52eff6",
+      "bytes": 40993
     },
     {
       "path": "skills/palm/lib/validators.js",
@@ -519,8 +529,8 @@
     },
     {
       "path": "skills/qimen/lib/chart.js",
-      "sha256": "8b71b629ad4837bb6cc45cc635ebaf302e063d4b1d0d1b842d165c1bac286499",
-      "bytes": 16105
+      "sha256": "34f484ccc173399971e369109bd3a5b75c4a0de1b3e434070e902e7b39991c38",
+      "bytes": 16602
     },
     {
       "path": "skills/qimen/methodology.md",
@@ -584,7 +594,7 @@
     },
     {
       "path": "tests/e2e-smoke.test.js",
-      "sha256": "031a438f243ebe691898c208dd7fd6dc5997fafda3d76f93e09aec23994254d7",
+      "sha256": "5b49eb05cb645ae39d089e116f6d642ba5492ca993b4b4e82384124d07c6949a",
       "bytes": 3059
     },
     {
@@ -614,8 +624,8 @@
     },
     {
       "path": "tests/qimen-untrusted-keys.test.js",
-      "sha256": "a56bc14cd618e3322790acbe79c97b4eb9c25437b8a7117d51dfab6f8818d819",
-      "bytes": 10559
+      "sha256": "894c0114fd291aed78299f8e9f66a02cd74e986f5ff0ff19e9506759e49387f5",
+      "bytes": 10963
     },
     {
       "path": "tests/readme-contract.test.js",

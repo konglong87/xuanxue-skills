@@ -1,6 +1,7 @@
 const { baziChart, ganzhiYearOf } = require('../../../core/calendar');
 const { DISCLAIMER_BASE, FORBIDDEN_CLAIMS } = require('../../_shared/safety');
 const { deepFreeze, isPlainObject } = require('../../_shared/lib/objects');
+const { buildReport } = require('./report');
 
 const REQUIRED_FIELDS = Object.freeze([
   'birthDate',
@@ -215,5 +216,6 @@ module.exports = {
   REQUIRED_FIELDS,
   SCHOOL_METHODS,
   analyze,
+  buildReport,
   missingFields,
 };
