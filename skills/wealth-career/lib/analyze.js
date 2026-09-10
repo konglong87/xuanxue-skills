@@ -6,6 +6,7 @@ const {
 } = require('../../qimen/lib/chart');
 const { EVIDENCE_RULES, REDLINES, disclaimerFor, FORBIDDEN_CLAIMS } = require('../../_shared/safety');
 const { INDUSTRY_SYMBOL_SEEDS, OPEN_MAPPING_NOTE } = require('./industry');
+const { deepFreeze, isPlainObject } = require('../../_shared/lib/objects');
 
 const REPORT_SECTIONS = Object.freeze([
   '输入与口径',
@@ -16,12 +17,6 @@ const REPORT_SECTIONS = Object.freeze([
   '流派与限制',
   '免责声明',
 ]);
-
-function deepFreeze(value) {
-  if (!value || typeof value !== 'object' || Object.isFrozen(value)) return value;
-  Object.values(value).forEach(deepFreeze);
-  return Object.freeze(value);
-}
 
 const REPORT_CONTRACT = deepFreeze({
   章节: [...REPORT_SECTIONS],
@@ -122,12 +117,6 @@ const CAREER_COMBINATIONS = deepFreeze([
     条件组: [['正印', '偏印']],
   },
 ]);
-
-function isPlainObject(value) {
-  if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
-  const prototype = Object.getPrototypeOf(value);
-  return prototype === Object.prototype || prototype === null;
-}
 
 function pillarsOf(calculation) {
   const source = calculation.四柱结果;

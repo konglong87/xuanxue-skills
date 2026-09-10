@@ -6,7 +6,7 @@ const {
   REPORT_CONTRACT: QIMEN_REPORT_CONTRACT,
 } = require('../../qimen/lib/chart');
 const { EVIDENCE_RULES, REDLINES, disclaimerFor, FORBIDDEN_CLAIMS } = require('../../_shared/safety');
-
+const { deepFreeze, isPlainObject } = require('../../_shared/lib/objects');
 const REPORT_SECTIONS = Object.freeze([
   '输入与口径',
   '八字婚恋信号',
@@ -15,12 +15,6 @@ const REPORT_SECTIONS = Object.freeze([
   '流派与限制',
   '免责声明',
 ]);
-
-function deepFreeze(value) {
-  if (!value || typeof value !== 'object' || Object.isFrozen(value)) return value;
-  Object.values(value).forEach(deepFreeze);
-  return Object.freeze(value);
-}
 
 const REPORT_CONTRACT = deepFreeze({
   章节: [...REPORT_SECTIONS],
@@ -36,12 +30,6 @@ const QIMEN_SHARED_CONTRACT = deepFreeze({
   // 逐项浅拷贝：快照必须与 qimen 模块的常量互不共享引用
   禁止断语: QIMEN_REPORT_CONTRACT.禁止断语.map(item => ({ ...item })),
 });
-
-function isPlainObject(value) {
-  if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
-  const prototype = Object.getPrototypeOf(value);
-  return prototype === Object.prototype || prototype === null;
-}
 
 function pillarsOf(calculation) {
   const source = calculation.四柱结果;

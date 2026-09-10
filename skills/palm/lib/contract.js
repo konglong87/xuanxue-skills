@@ -2,6 +2,7 @@ const {
   PALM_REQUIRED_DISCLAIMER: REQUIRED_DISCLAIMER,
   PALM_SAFE_HEALTH_TEXT: SAFE_HEALTH_TEXT,
 } = require('../../_shared/safety');
+const { deepFreeze, isPlainObject } = require('../../_shared/lib/objects');
 
 const HANDS = Object.freeze(['left', 'right']);
 const OBSERVATION_STAGES = Object.freeze(['fullness', 'lines', 'complexion']);
@@ -224,19 +225,6 @@ const QUALITY_GUIDANCE = Object.freeze([
   '使用均匀自然光，避免过暗、过曝、反光和阴影。',
   '相机对焦掌纹，确保主线和细纹可辨。',
 ]);
-
-function deepFreeze(value, seen = new WeakSet()) {
-  if (value === null || typeof value !== 'object' || seen.has(value)) return value;
-  seen.add(value);
-  Object.values(value).forEach(item => deepFreeze(item, seen));
-  return Object.freeze(value);
-}
-
-function isPlainObject(value) {
-  if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
-  const prototype = Object.getPrototypeOf(value);
-  return prototype === Object.prototype || prototype === null;
-}
 
 function assertPlainObject(value, label) {
   if (!isPlainObject(value)) throw new TypeError(`${label} 必须是普通对象`);

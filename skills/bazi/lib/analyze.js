@@ -1,11 +1,6 @@
 const { baziChart, ganzhiYearOf } = require('../../../core/calendar');
 const { DISCLAIMER_BASE, FORBIDDEN_CLAIMS } = require('../../_shared/safety');
-
-function deepFreeze(value) {
-  if (!value || typeof value !== 'object' || Object.isFrozen(value)) return value;
-  Object.values(value).forEach(deepFreeze);
-  return Object.freeze(value);
-}
+const { deepFreeze, isPlainObject } = require('../../_shared/lib/objects');
 
 const REQUIRED_FIELDS = Object.freeze([
   'birthDate',
@@ -54,12 +49,6 @@ function isMissing(value) {
   return value === undefined
     || value === null
     || (typeof value === 'string' && value.trim() === '');
-}
-
-function isPlainObject(value) {
-  if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
-  const prototype = Object.getPrototypeOf(value);
-  return prototype === Object.prototype || prototype === null;
 }
 
 function cloneSchoolMethods() {

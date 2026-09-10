@@ -1,6 +1,7 @@
 const { TIANGAN, DIZHI } = require('../../../core/ganzhi');
 const { fangweiOf, luoshuOf } = require('../../../core/direction');
 const { EVIDENCE_RULES, REDLINES, disclaimerFor, FORBIDDEN_CLAIMS } = require('../../_shared/safety');
+const { deepFreeze, isPlainObject } = require('../../_shared/lib/objects');
 
 const 天干 = Object.freeze([...TIANGAN]);
 const 地支 = Object.freeze([...DIZHI]);
@@ -41,18 +42,6 @@ const REPORT_CONTRACT = deepFreeze({
   redlines: [...REDLINES.奇门],
   禁止断语: FORBIDDEN_CLAIMS,
 });
-
-function deepFreeze(value) {
-  if (!value || typeof value !== 'object' || Object.isFrozen(value)) return value;
-  Object.values(value).forEach(deepFreeze);
-  return Object.freeze(value);
-}
-
-function isPlainObject(value) {
-  if (value === null || typeof value !== 'object' || Array.isArray(value)) return false;
-  const prototype = Object.getPrototypeOf(value);
-  return prototype === Object.prototype || prototype === null;
-}
 
 function createErrorCollector() {
   const values = [];
