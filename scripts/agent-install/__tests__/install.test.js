@@ -119,7 +119,7 @@ describe('owned multi-agent installation', () => {
       expect(fs.realpathSync(link.path)).toBe(fs.realpathSync(link.target));
       expect(link.target).toContain(`${path.sep}v0.1.1${path.sep}`);
     });
-    expect(fs.statSync(original.runtimeRoot).isDirectory()).toBe(true);
+    expect(fs.existsSync(original.runtimeRoot)).toBe(false);
     expect(readManifest(manifestPath(installOptions(roots))).version).toBe('0.1.1');
 
     fs.rmSync(roots.base, { recursive: true, force: true });
@@ -175,7 +175,29 @@ describe('owned multi-agent installation', () => {
     fs.mkdirSync(path.dirname(runtimeRoot), { recursive: true });
     fs.writeFileSync(`${runtimeRoot}.lock`, 'other-process\n', 'utf8');
 
-    expect(() => installSkills(options)).toThrow(/其他安装进程/);
+    expect(() => installSkills({ ...options, lockTimeoutMs: 0 }))
+      .toThrow(/安装锁超时/);
+
+    fs.rmSync(roots.base, { recursive: true, force: true });
+  });
+
+  test('回收过期 lock 和临时目录后可以恢复安装', () => {
+    const roots = temporaryRoots();
+    const options = installOptions(roots, { staleArtifactMs: 1 });
+    const runtimeRoot = path.join(
+      roots.homeDir,
+      '.xuanxue-skills',
+      'runtime',
+      `v${VERSION}`,
+    );
+    fs.mkdirSync(path.dirname(runtimeRoot), { recursive: true });
+    fs.writeFileSync(`${runtimeRoot}.lock`, 'stale\n', 'utf8');
+    fs.mkdirSync(`${runtimeRoot}.tmp-old`, { recursive: true });
+
+    const result = installSkills(options);
+    expect(result.status).toBe('installed');
+    expect(fs.existsSync(`${runtimeRoot}.lock`)).toBe(false);
+    expect(fs.existsSync(`${runtimeRoot}.tmp-old`)).toBe(false);
 
     fs.rmSync(roots.base, { recursive: true, force: true });
   });

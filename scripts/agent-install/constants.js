@@ -30,6 +30,8 @@ const SKILLS_ROOTS = Object.freeze({
 const COMMANDS = Object.freeze(['install', 'verify', 'uninstall']);
 const MANIFEST_SCHEMA_VERSION = 1;
 const PROJECT_NAME = 'xuanxue-skills';
+const INSTALL_LOCK_TIMEOUT_MS = 2000;
+const STALE_INSTALL_ARTIFACT_MS = 10 * 60 * 1000;
 const RUNTIME_ENTRIES = Object.freeze([
   'core',
   'vendor',
@@ -58,11 +60,13 @@ module.exports = {
   BAZI_PROBE_PILLARS,
   COMMANDS,
   MANIFEST_SCHEMA_VERSION,
+  INSTALL_LOCK_TIMEOUT_MS,
   PUBLISHED_SKILLS,
   PROJECT_NAME,
   RUNTIME_ENTRIES,
   SCOPES,
   SKILLS_ROOTS,
   SUPPORT_STATES,
+  STALE_INSTALL_ARTIFACT_MS,
   TARGETS,
 };

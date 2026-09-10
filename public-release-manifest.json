@@ -344,8 +344,8 @@
     },
     {
       "path": "scripts/agent-install/__tests__/install.test.js",
-      "sha256": "d7634405c78e3c78f637525791ef0fd0838f5f412f3e27537365a2d5bdfd73d7",
-      "bytes": 6300
+      "sha256": "55f750aecabce73c1948c4c42a5ac5b1bee424b42ed23d052ba6fddac420175d",
+      "bytes": 7100
     },
     {
       "path": "scripts/agent-install/__tests__/lifecycle.test.js",
@@ -364,13 +364,13 @@
     },
     {
       "path": "scripts/agent-install/constants.js",
-      "sha256": "85fc33a5dae116f07c6834783aba4b82d6ff2e44ebd3f99d4d064a11759ed887",
-      "bytes": 1642
+      "sha256": "04bf2804fa9ee7cdd3eae328a7500d9a5921c3ae2bb69e861194927e60e71973",
+      "bytes": 1786
     },
     {
       "path": "scripts/agent-install/install.js",
-      "sha256": "ce2cc895704e19a1c40658098ecdb9b4fb741583e49ec58a949d4de22623726f",
-      "bytes": 5931
+      "sha256": "a72b700cde5b2483334ec372e3b182e189574a36fba9485dd1c289c429e98698",
+      "bytes": 8496
     },
     {
       "path": "scripts/agent-install/manifest.js",
