@@ -489,8 +489,13 @@
     },
     {
       "path": "skills/palm/lib/contract.js",
-      "sha256": "290e438f986d30088a757345820abe747d083c6585107b0c61ff739141dd2f9d",
-      "bytes": 41587
+      "sha256": "5c9b2cf13c2ae20c06482b385c90641574976dba95158177d2dd0c0477dc7b09",
+      "bytes": 40667
+    },
+    {
+      "path": "skills/palm/lib/validators.js",
+      "sha256": "2c6636fab20a8022c95acee98c828fac0b0ec0d525ee3ec2103b9a079a830728",
+      "bytes": 1250
     },
     {
       "path": "skills/palm/methodology.md",

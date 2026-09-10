@@ -2,7 +2,15 @@ const {
   PALM_REQUIRED_DISCLAIMER: REQUIRED_DISCLAIMER,
   PALM_SAFE_HEALTH_TEXT: SAFE_HEALTH_TEXT,
 } = require('../../_shared/safety');
-const { deepFreeze, isPlainObject } = require('../../_shared/lib/objects');
+const { deepFreeze } = require('../../_shared/lib/objects');
+const {
+  assertAllowedKeys,
+  assertBoolean,
+  assertEnum,
+  assertPlainObject,
+  assertSafeId,
+  assertText,
+} = require('./validators');
 
 const HANDS = Object.freeze(['left', 'right']);
 const OBSERVATION_STAGES = Object.freeze(['fullness', 'lines', 'complexion']);
@@ -225,38 +233,6 @@ const QUALITY_GUIDANCE = Object.freeze([
   '使用均匀自然光，避免过暗、过曝、反光和阴影。',
   '相机对焦掌纹，确保主线和细纹可辨。',
 ]);
-
-function assertPlainObject(value, label) {
-  if (!isPlainObject(value)) throw new TypeError(`${label} 必须是普通对象`);
-}
-
-function assertEnum(value, allowed, label) {
-  if (!allowed.includes(value)) {
-    throw new RangeError(`${label} 必须是 ${allowed.join(' 或 ')}`);
-  }
-}
-
-function assertBoolean(value, label) {
-  if (typeof value !== 'boolean') throw new TypeError(`${label} 必须是 boolean`);
-}
-
-function assertText(value, label) {
-  if (typeof value !== 'string' || value.trim() === '') {
-    throw new TypeError(`${label} 必须是非空字符串`);
-  }
-}
-
-function assertAllowedKeys(value, allowed, label) {
-  const unknown = Object.keys(value).find(key => !allowed.includes(key));
-  if (unknown) throw new TypeError(`${label} 包含未知字段 ${unknown}，该字段不允许`);
-}
-
-function assertSafeId(value, label) {
-  assertText(value, label);
-  if (!/^[a-z0-9](?:[a-z0-9_-]{0,63})$/.test(value)) {
-    throw new TypeError(`${label} 格式不合法，只允许小写字母、数字、连字符和下划线`);
-  }
-}
 
 function imageIssues(image, index) {
   const id = image.id ?? `image-${index + 1}`;
