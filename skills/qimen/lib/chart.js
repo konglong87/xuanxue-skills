@@ -2,6 +2,7 @@ const { TIANGAN, DIZHI } = require('../../../core/ganzhi');
 const { fangweiOf, luoshuOf } = require('../../../core/direction');
 const { EVIDENCE_RULES, REDLINES, disclaimerFor, FORBIDDEN_CLAIMS } = require('../../_shared/safety');
 const { deepFreeze, isPlainObject } = require('../../_shared/lib/objects');
+const { standardReport } = require('../../_shared/report');
 
 const 天干 = Object.freeze([...TIANGAN]);
 const 地支 = Object.freeze([...DIZHI]);
@@ -463,9 +464,68 @@ function summarizeErrors(errors = []) {
   };
 }
 
+function supplementPlan(errors = []) {
+  const summary = summarizeErrors(errors);
+  const fields = [...new Set(summary.errors
+    .filter(error => !error.code.endsWith('_truncated'))
+    .map(error => error.path))];
+  return {
+    status: summary.status,
+    fields,
+    request: summary.request,
+  };
+}
+
+function mergeTranscription(base, patch) {
+  if (!isPlainObject(base) || !isPlainObject(patch)) {
+    throw new TypeError('base 和 patch 必须是普通对象');
+  }
+  const merged = { ...base, ...patch };
+  if (Array.isArray(base.九宫) || Array.isArray(patch.九宫)) {
+    const left = Array.isArray(base.九宫) ? base.九宫 : [];
+    const right = Array.isArray(patch.九宫) ? patch.九宫 : [];
+    merged.九宫 = Array.from({ length: Math.max(left.length, right.length) }, (_, index) => ({
+      ...(isPlainObject(left[index]) ? left[index] : {}),
+      ...(isPlainObject(right[index]) ? right[index] : {}),
+    }));
+  }
+  return merged;
+}
+
+function revalidateChart(previous, patch) {
+  const input = mergeTranscription(previous, patch);
+  const result = normalizeChart(input);
+  return { ...result, input, supplement: supplementPlan(result.errors) };
+}
+
+function toStandardReport(result) {
+  if (!result || result.errors?.length) {
+    return standardReport({
+      status: 'needs_input',
+      input: result?.input,
+      calculated: result?.errors || [],
+      boundaries: ['错误未清零前停止奇门判读。'],
+      extra: { supplement: supplementPlan(result?.errors || []) },
+    });
+  }
+  return standardReport({
+    input: result.input,
+    calculated: [result.safeChart],
+    evidence: ['只引用 safeChart 中 status=confirmed 的字段。'],
+    interpretation: ['外部局盘只提供结构化证据，不自行起局或补造现实事件。'],
+    actions: ['将确认字段与具体问题逐项核验。'],
+    boundaries: REPORT_CONTRACT.redlines,
+    extra: { legacy: result },
+  });
+}
+
 module.exports = {
   normalizeChart,
   summarizeErrors,
+  supplementPlan,
+  mergeTranscription,
+  revalidateChart,
+  toStandardReport,
   REPORT_CONTRACT,
   天干,
   地支,

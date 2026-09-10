@@ -1,6 +1,7 @@
 const zones = require('./zones');
 const patterns = require('./patterns');
 const center = require('./center');
+const residence = require('./residence');
 
 function format(result) {
   if (result && Array.isArray(result.破格项)) {
@@ -25,4 +26,4 @@ function format(result) {
   return JSON.stringify(result, null, 2);
 }
 
-module.exports = { ...zones, ...patterns, ...center, format };
+module.exports = { ...zones, ...patterns, ...center, ...residence, format };

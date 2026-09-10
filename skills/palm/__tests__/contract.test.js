@@ -22,6 +22,7 @@ const {
   VISUAL_TRAITS,
   VISUAL_TRAITS_BY_FEATURE,
   validatePalmContract,
+  reviewPalmSession,
 } = contract;
 
 const clearImage = hand => ({
@@ -162,14 +163,32 @@ function validInput(hands = ['left'], includeReport = true) {
 }
 
 describe('受控公开契约', () => {
+  test('二次复核保留稳定 observation ID 并报告新增与变更', () => {
+    const first = validInput(['left'], false);
+    const second = {
+      images: [clearImage('right')],
+      observations: completeObservations('right'),
+      coverageManifest: { right: handCoverage() },
+    };
+    const result = reviewPalmSession(first, second);
+    expect(result.status).toBe('complete');
+    expect(result.review.newObservationIds.length).toBeGreaterThan(0);
+    expect(result.review.reusedObservationIds.length).toBeGreaterThan(0);
+    expect(result.review.validationMode).toMatch(/full-safety/);
+  });
   test('健康文本与免责声明只别名共享安全常量', () => {
     expect(SAFE_HEALTH_TEXT).toBe(sharedSafety.PALM_SAFE_HEALTH_TEXT);
     expect(REQUIRED_DISCLAIMER).toBe(sharedSafety.PALM_REQUIRED_DISCLAIMER);
   });
-  test('唯一公开函数是 validatePalmContract，其余公开项都是构造输入所需常量', () => {
+  test('公开函数只包含校验、复核和统一报告入口', () => {
     expect(Object.entries(contract)
       .filter(([, value]) => typeof value === 'function')
-      .map(([name]) => name)).toEqual(['validatePalmContract']);
+      .map(([name]) => name)).toEqual([
+        'mergePalmSession',
+        'reviewPalmSession',
+        'toStandardReport',
+        'validatePalmContract',
+      ]);
     expect(SAFE_HEALTH_TEXT).toMatch(/体质倾向.*不构成医疗诊断.*就医/);
     expect(REQUIRED_DISCLAIMER).toMatch(/传统文化.*娱乐.*不保证/);
   });

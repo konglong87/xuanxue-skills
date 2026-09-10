@@ -44,7 +44,9 @@ function runBaziCli(input) {
 
 function verifyCore() {
   const core = require('../core');
-  check('core', () => assert.deepEqual(Object.keys(core), ['ganzhi', 'calendar', 'direction', 'naqi']));
+  check('core', () => assert.deepEqual(Object.keys(core), [
+    'ganzhi', 'calendar', 'direction', 'naqi', 'gua',
+  ]));
   check('core', () => assert.equal(typeof core.ganzhi.tenGodStructure, 'function'));
   check('core', () => assert.equal(typeof core.ganzhi.marriageSignals, 'function'));
   check('core', () => assert.equal(typeof core.calendar.baziChart, 'function'));

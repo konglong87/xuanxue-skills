@@ -6,6 +6,7 @@ const {
 } = require('../../qimen/lib/chart');
 const { EVIDENCE_RULES, REDLINES, disclaimerFor, FORBIDDEN_CLAIMS } = require('../../_shared/safety');
 const { INDUSTRY_SYMBOL_SEEDS, OPEN_MAPPING_NOTE } = require('./industry');
+const { standardReport } = require('../../_shared/report');
 const { deepFreeze, isPlainObject } = require('../../_shared/lib/objects');
 
 const REPORT_SECTIONS = Object.freeze([
@@ -432,6 +433,19 @@ function analyze(input, options) {
   };
 }
 
+function toStandardReport(result) {
+  if (!result || result.status !== 'ready') return standardReport({ status: result?.status });
+  return standardReport({
+    input: result.bazi.input,
+    calculated: [result.wealthCareerSignals, result.alternateWealthCareerSignals].filter(Boolean),
+    evidence: [result.analysisContext.报告契约.evidenceRules],
+    interpretation: ['事业与财运信号只形成待核验假设，不代表职位、收益或必然适职。'],
+    actions: ['结合工作反馈、项目结果和收支记录逐项核验。'],
+    boundaries: result.analysisContext.报告契约.disclaimer,
+    extra: { legacy: result },
+  });
+}
+
 module.exports = {
   CAREER_COMBINATIONS,
   REPORT_CONTRACT,
@@ -439,4 +453,5 @@ module.exports = {
   TEN_GOD_GROUPS,
   TEN_GOD_MEANINGS,
   analyze,
+  toStandardReport,
 };

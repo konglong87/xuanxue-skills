@@ -2,7 +2,9 @@ const {
   ERROR_LIMITS,
   INPUT_LIMITS,
   normalizeChart,
+  revalidateChart,
   summarizeErrors,
+  supplementPlan,
 } = require('../skills/qimen/lib/chart');
 const { analyze: analyzeLove } = require('../skills/love-marriage/lib/analyze');
 const { analyze: analyzeWealth } = require('../skills/wealth-career/lib/analyze');
@@ -83,6 +85,21 @@ describe('奇门未知 key 的公共错误隔离', () => {
       errors: [{ path: '九宫', code: 'palace_count', message: '九宫不完整' }],
       request: expect.stringContaining('一次性'),
     });
+  });
+
+  test('补录计划按错误路径生成，补录后只合并对应宫位再完整过安全门', () => {
+    const incomplete = {
+      来源: { 类型: '外部APP', 名称: 'fixture' },
+      月令: '寅',
+      值符: '天蓬',
+      值使: '开',
+      九宫: [],
+    };
+    const first = normalizeChart(incomplete);
+    expect(supplementPlan(first.errors).status).toBe('needs_input');
+    const second = revalidateChart(incomplete, { 九宫: [] });
+    expect(second.input.九宫).toEqual([]);
+    expect(second.supplement.fields).toContain('九宫');
   });
   test.each(LAYERS.flatMap(([layer, mutate]) => (
     PAYLOADS.map(([payloadName, payload]) => [layer, payloadName, mutate, payload])

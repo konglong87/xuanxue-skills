@@ -1,6 +1,7 @@
 'use strict';
 
 const { deepFreeze } = require('../../_shared/lib/objects');
+const { standardReport } = require('../../_shared/report');
 
 function buildReport(result) {
   if (!result || result.status !== 'ready') return result;
@@ -54,4 +55,18 @@ function buildReport(result) {
   });
 }
 
-module.exports = { buildReport };
+function toStandardReport(result) {
+  if (!result || result.status !== 'ready') return standardReport({ status: result?.status });
+  const report = buildReport(result);
+  return standardReport({
+    input: report.输入与口径,
+    calculated: [report.综合.算出, report.阶段趋势.算出],
+    evidence: [report.综合.依据, report.性格与资源.依据],
+    interpretation: [report.综合.可供判读, report.事业财运概览.可供判读],
+    actions: [report.阶段趋势.建议行动, report.婚恋概览.建议行动],
+    boundaries: report.免责声明,
+    extra: { legacy: report },
+  });
+}
+
+module.exports = { buildReport, toStandardReport };

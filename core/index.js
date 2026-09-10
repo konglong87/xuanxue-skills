@@ -3,4 +3,5 @@ module.exports = {
   calendar: require('./calendar'),
   direction: require('./direction'),
   naqi: require('./naqi'),
+  gua: require('./gua'),
 };

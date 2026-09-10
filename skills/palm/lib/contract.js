@@ -3,6 +3,7 @@ const {
   PALM_SAFE_HEALTH_TEXT: SAFE_HEALTH_TEXT,
 } = require('../../_shared/safety');
 const { deepFreeze } = require('../../_shared/lib/objects');
+const { standardReport } = require('../../_shared/report');
 const {
   assertAllowedKeys,
   assertBoolean,
@@ -990,6 +991,70 @@ function validatePalmContract(input = {}) {
   });
 }
 
+function mergeById(previous = [], patch = []) {
+  const merged = new Map(previous.map(item => [item.id, item]));
+  patch.forEach(item => merged.set(item.id, item));
+  return [...merged.values()];
+}
+
+function mergePalmSession(previous = {}, patch = {}) {
+  assertPlainObject(previous, 'previous');
+  assertPlainObject(patch, 'patch');
+  const merged = {
+    ...previous,
+    ...patch,
+    images: mergeById(previous.images || [], patch.images || []),
+    observations: mergeById(previous.observations || [], patch.observations || []),
+    coverageManifest: {
+      ...(previous.coverageManifest || {}),
+      ...(patch.coverageManifest || {}),
+    },
+  };
+  if (patch.report === undefined && previous.report !== undefined) merged.report = previous.report;
+  return merged;
+}
+
+function reviewPalmSession(previous, patch) {
+  const merged = mergePalmSession(previous, patch);
+  const result = validatePalmContract(merged);
+  const oldIds = new Set((previous.observations || []).map(item => item.id));
+  const changedIds = new Set((patch.observations || []).map(item => item.id));
+  const newObservationIds = [...changedIds].filter(id => !oldIds.has(id));
+  const changedObservationIds = [...changedIds].filter(id => oldIds.has(id));
+  return deepFreeze({
+    ...result,
+    review: {
+      ...result.review,
+      newObservationIds,
+      changedObservationIds,
+      reusedObservationIds: (merged.observations || [])
+        .map(item => item.id)
+        .filter(id => oldIds.has(id) && !changedIds.has(id)),
+      validationMode: 'full-safety-gate-with-diff-summary',
+    },
+  });
+}
+
+function toStandardReport(result) {
+  if (!result || result.status === 'needs_input') {
+    return standardReport({
+      status: 'needs_input',
+      input: result?.quality,
+      boundaries: [result?.notice || '图片质量未通过，停止判读。'],
+    });
+  }
+  const rendered = result.renderedReport;
+  return standardReport({
+    input: result.quality,
+    calculated: rendered?.observations || result.observations,
+    evidence: rendered?.domains || [],
+    interpretation: ['只引用通过契约校验的观察证据。'],
+    actions: ['补充清晰图片或现实记录进行复核。'],
+    boundaries: [rendered?.healthText, rendered?.disclaimer].filter(Boolean),
+    extra: { legacy: rendered },
+  });
+}
+
 module.exports = deepFreeze({
   ACTION_CODES,
   AUXILIARY_LINES,
@@ -1021,5 +1086,8 @@ module.exports = deepFreeze({
   VISUAL_TRAITS,
   VISUAL_TRAITS_BY_FEATURE,
   VISIBILITY_LEVELS,
+  mergePalmSession,
+  reviewPalmSession,
+  toStandardReport,
   validatePalmContract,
 });
