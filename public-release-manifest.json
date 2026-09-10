@@ -8,6 +8,11 @@
       "bytes": 745
     },
     {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "ac8deb645928674db2f11de42cf6d2307a91dade433812e85f9f9995a43e054c",
+      "bytes": 854
+    },
+    {
       "path": ".gitignore",
       "sha256": "6113ab20615c934dc0ae0a57713a8db1d768c6bd15f3c03bcd8852a21fc021e6",
       "bytes": 160
@@ -324,8 +329,8 @@
     },
     {
       "path": "package.json",
-      "sha256": "0f329379ba02c306d161c407d89bdedaa8a03259d4a11e0286990005687e12da",
-      "bytes": 740
+      "sha256": "44361cb03f9f1fb451bfb2330060b05993d0c0b9267e3ac6b1fab97869e0035c",
+      "bytes": 867
     },
     {
       "path": "plugin.json",
@@ -408,6 +413,11 @@
       "bytes": 4652
     },
     {
+      "path": "skills/_shared/lib/objects.js",
+      "sha256": "3f65ea04d05857aa9c4c44d25e453d658cab13e0afac1a32f831c9e2a50d00e5",
+      "bytes": 552
+    },
+    {
       "path": "skills/_shared/safety.js",
       "sha256": "3bbaff4bb50c324a1bcb9356530ef31037a30b4bc4ee01542a8df61c9122c4b5",
       "bytes": 4096
@@ -424,8 +434,8 @@
     },
     {
       "path": "skills/bazi/lib/analyze.js",
-      "sha256": "d49941d99d06e21557dd3e878368bcb597929626c863e2df36719080be2d0a3a",
-      "bytes": 10140
+      "sha256": "b18233ccd3ae5ba9c6b9009020f1c92f4a524f6c400b85c1eadd677a18d016d9",
+      "bytes": 9789
     },
     {
       "path": "skills/bazi/methodology.md",
@@ -454,8 +464,8 @@
     },
     {
       "path": "skills/love-marriage/lib/analyze.js",
-      "sha256": "c7d5af6499913703f2cabbcfe7e8594d91478641924b336dc2ed1de31e253f8c",
-      "bytes": 7165
+      "sha256": "26630041c33f35ea204c3933a3e6a8cb844487d9cd004251265df40b737f4cee",
+      "bytes": 6813
     },
     {
       "path": "skills/love-marriage/methodology.md",
@@ -479,8 +489,8 @@
     },
     {
       "path": "skills/palm/lib/contract.js",
-      "sha256": "8c9201264919e427d4a6317a3bc62b882acf6b6d929ab7f16a7a55c71d8b3aac",
-      "bytes": 42000
+      "sha256": "290e438f986d30088a757345820abe747d083c6585107b0c61ff739141dd2f9d",
+      "bytes": 41587
     },
     {
       "path": "skills/palm/methodology.md",
@@ -504,8 +514,8 @@
     },
     {
       "path": "skills/qimen/lib/chart.js",
-      "sha256": "4fa350674f33f2b13c24c260bd70ded4c46d0878b1eb52f540b7e6bac15c691b",
-      "bytes": 16456
+      "sha256": "8b71b629ad4837bb6cc45cc635ebaf302e063d4b1d0d1b842d165c1bac286499",
+      "bytes": 16105
     },
     {
       "path": "skills/qimen/methodology.md",
@@ -529,8 +539,8 @@
     },
     {
       "path": "skills/wealth-career/lib/analyze.js",
-      "sha256": "1db914979cfa0dcfcf62d7593f967b21da8e2f9361642c3fb227d2968ac2c572",
-      "bytes": 16860
+      "sha256": "057e5c0960eeb7db2b7f5ce39f3c83136a1d1a94456798718ac4d4b2f38e73a6",
+      "bytes": 16509
     },
     {
       "path": "skills/wealth-career/lib/industry.js",
