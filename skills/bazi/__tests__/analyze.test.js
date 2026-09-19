@@ -74,6 +74,9 @@ describe('八字综合判读上下文', () => {
 
   test.each([
     ['unknown field', { mode: 'research', unsupportedRule: true }, /未声明字段/],
+    ['disabled day comparison', { compareDayBoundaries: false }, /未声明字段/],
+    ['disabled luck comparison', { compareLuckMethods: false }, /未声明字段/],
+    ['disabled consistency verification', { verifyConsistency: false }, /未声明字段/],
     ['wrong mode', { mode: 'standard' }, /只能是 research/],
     ['wrong boundary', { dayBoundary: '22:00' }, /dayBoundary/],
     ['wrong flag type', { useTrueSolar: 'yes' }, /useTrueSolar.*boolean/],

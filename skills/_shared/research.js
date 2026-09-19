@@ -6,14 +6,16 @@ const { TIANGAN, DIZHI } = require('../../core/ganzhi/constants');
 const RESEARCH_MODE = 'research';
 const RESEARCH_PLAN_VERSION = 1;
 const DAY_BOUNDARIES = Object.freeze(['23:00', '00:00']);
+const MANDATORY_RESEARCH_CHECKS = deepFreeze({
+  compareDayBoundaries: true,
+  compareLuckMethods: true,
+  verifyConsistency: true,
+});
 const ALLOWED_PLAN_FIELDS = Object.freeze([
   'mode',
   'version',
   'dayBoundary',
   'useTrueSolar',
-  'compareDayBoundaries',
-  'compareLuckMethods',
-  'verifyConsistency',
 ]);
 
 const DEFAULT_RESEARCH_PLAN = deepFreeze({
@@ -21,9 +23,7 @@ const DEFAULT_RESEARCH_PLAN = deepFreeze({
   version: RESEARCH_PLAN_VERSION,
   dayBoundary: '23:00',
   useTrueSolar: true,
-  compareDayBoundaries: true,
-  compareLuckMethods: true,
-  verifyConsistency: true,
+  ...MANDATORY_RESEARCH_CHECKS,
 });
 
 function own(source, key) {
@@ -36,9 +36,7 @@ function clonePlan(plan) {
     version: plan.version,
     dayBoundary: plan.dayBoundary,
     useTrueSolar: plan.useTrueSolar,
-    compareDayBoundaries: plan.compareDayBoundaries,
-    compareLuckMethods: plan.compareLuckMethods,
-    verifyConsistency: plan.verifyConsistency,
+    ...MANDATORY_RESEARCH_CHECKS,
   };
 }
 
@@ -61,12 +59,9 @@ function validatePlanObject(plan) {
   if (own(plan, 'dayBoundary') && !DAY_BOUNDARIES.includes(plan.dayBoundary)) {
     throw new Error(`researchPlan.dayBoundary 只能是 '23:00' 或 '00:00'`);
   }
-  ['useTrueSolar', 'compareDayBoundaries', 'compareLuckMethods', 'verifyConsistency']
-    .forEach(field => {
-      if (own(plan, field) && typeof plan[field] !== 'boolean') {
-        throw new Error(`researchPlan.${field} 必须是 boolean`);
-      }
-    });
+  if (own(plan, 'useTrueSolar') && typeof plan.useTrueSolar !== 'boolean') {
+    throw new Error('researchPlan.useTrueSolar 必须是 boolean');
+  }
 }
 
 function normalizeResearchPlan(requestedPlan, inputOptions = {}) {
@@ -102,9 +97,7 @@ function normalizeResearchPlan(requestedPlan, inputOptions = {}) {
     version: RESEARCH_PLAN_VERSION,
     dayBoundary: selectedOptions.dayBoundary,
     useTrueSolar: selectedOptions.useTrueSolar,
-    compareDayBoundaries: source.compareDayBoundaries ?? DEFAULT_RESEARCH_PLAN.compareDayBoundaries,
-    compareLuckMethods: source.compareLuckMethods ?? DEFAULT_RESEARCH_PLAN.compareLuckMethods,
-    verifyConsistency: source.verifyConsistency ?? DEFAULT_RESEARCH_PLAN.verifyConsistency,
+    ...MANDATORY_RESEARCH_CHECKS,
   });
 }
 
@@ -161,21 +154,19 @@ function buildChecks(calculation, alternateCalculation, plan) {
     },
     {
       id: 'day-boundary-comparison',
-      status: plan.compareDayBoundaries ? 'passed' : 'not_requested',
-      detail: plan.compareDayBoundaries
-        ? `已核对 ${calculation.四柱结果.采用规则.dayBoundary} 与 ${calculation.四柱结果.另一派.dayBoundary} 换日口径。`
-        : '研究计划未要求比较换日口径。',
+      status: 'passed',
+      detail: `已核对 ${calculation.四柱结果.采用规则.dayBoundary} 与 ${calculation.四柱结果.另一派.dayBoundary} 换日口径。`,
     },
     {
       id: 'luck-method-comparison',
-      status: plan.compareLuckMethods ? 'passed' : 'not_requested',
-      detail: plan.compareLuckMethods ? '已保留时辰级和分钟级两种起运折算。' : '研究计划未要求比较起运折算。',
+      status: 'passed',
+      detail: '已保留时辰级和分钟级两种起运折算。',
     },
   ];
-  if (plan.compareDayBoundaries && calculation.四柱结果.另一派.是否不同 && !alternateCalculation) {
+  if (calculation.四柱结果.另一派.是否不同 && !alternateCalculation) {
     throw new Error('研究模式校验失败：换日口径产生差异但缺少另一派完整命盘');
   }
-  if (plan.compareDayBoundaries && alternateCalculation) {
+  if (alternateCalculation) {
     assertChartSnapshot(alternateCalculation, {
       ...plan,
       dayBoundary: calculation.四柱结果.另一派.dayBoundary,
@@ -189,17 +180,18 @@ function buildChecks(calculation, alternateCalculation, plan) {
   return checks;
 }
 
+function assertMandatoryResearchChecks(plan) {
+  Object.entries(MANDATORY_RESEARCH_CHECKS).forEach(([field, requiredValue]) => {
+    if (plan[field] !== requiredValue) {
+      throw new Error(`研究模式校验失败：${field} 不允许关闭`);
+    }
+  });
+}
+
 function buildResearchContext({ input, calculation, alternateCalculation, plan }) {
-  if (plan.verifyConsistency) {
-    assertChartSnapshot(calculation, plan);
-  }
-  const checks = plan.verifyConsistency
-    ? buildChecks(calculation, alternateCalculation, plan)
-    : [{
-      id: 'consistency-verification',
-      status: 'not_requested',
-      detail: '研究计划关闭了计算一致性校验。',
-    }];
+  assertMandatoryResearchChecks(plan);
+  assertChartSnapshot(calculation, plan);
+  const checks = buildChecks(calculation, alternateCalculation, plan);
   const alternate = calculation.四柱结果.另一派;
   return deepFreeze({
     模式: RESEARCH_MODE,
@@ -229,7 +221,7 @@ function buildResearchContext({ input, calculation, alternateCalculation, plan }
       {
         id: 'luck-cycles',
         status: 'passed',
-        detail: plan.compareLuckMethods ? '时辰级和分钟级起运结果均已保留。' : '仅保留当前起运口径。',
+        detail: '时辰级和分钟级起运结果均已保留。',
       },
       {
         id: 'target-year',
@@ -259,7 +251,7 @@ function buildResearchContext({ input, calculation, alternateCalculation, plan }
       {
         id: 'bazi:cycles',
         source: 'calculation.起运大运',
-        status: plan.compareLuckMethods ? 'verified' : 'partial',
+        status: 'verified',
         fields: ['起运流派', '大运'],
         rule: '按性别、年干阴阳和节气方向计算，并列保留两种起运折算。',
       },
@@ -286,6 +278,7 @@ module.exports = {
   RESEARCH_PLAN_VERSION,
   DEFAULT_RESEARCH_PLAN,
   DAY_BOUNDARIES,
+  MANDATORY_RESEARCH_CHECKS,
   normalizeResearchPlan,
   assertChartSnapshot,
   buildResearchContext,

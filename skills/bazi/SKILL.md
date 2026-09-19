@@ -12,17 +12,14 @@ description: Use when the user supplies or wants to supply a 出生日期 and �
 ## 执行流程
 
 1. 把用户资料整理为 JSON：`birthDate`、`birthTime`、`longitude`、`utcOffsetMinutes` 或 `standardMeridian`、`gender`。`targetYear`（目标年份）可选，未提供时脚本按调用时当前干支年（立春为界）注入并在结果中披露。出生时间必须保留出生地当时的民用墙钟语义。
-2. 默认先形成简短结构化研究计划，再把计划和资料一起送入脚本。计划只允许选择 `dayBoundary`、`useTrueSolar` 以及换日、起运和一致性校验开关；不要输出长篇内部推理，也不要自定义公式：
+2. 默认先形成简短结构化研究计划，再把计划和资料一起送入脚本。计划只允许选择 `dayBoundary` 和 `useTrueSolar`；换日对照、起运对照和一致性校验是研究内核固定开启的门禁，模型不能关闭。不要输出长篇内部推理，也不要自定义公式：
 
 ```json
 {
   "mode": "research",
   "version": 1,
   "dayBoundary": "23:00",
-  "useTrueSolar": true,
-  "compareDayBoundaries": true,
-  "compareLuckMethods": true,
-  "verifyConsistency": true
+  "useTrueSolar": true
 }
 ```
 

@@ -108,7 +108,7 @@ const { analyze } = require('../../bazi/lib/analyze');
 
 领域技能在此之上**只做领域信号提取与领域报告契约**，不得重排四柱、不得改写 `analysisContext` 里已有的判读边界。确定性的领域信号（配偶宫、桃花、财官印食伤比劫结构等）落在 `core/ganzhi/domains.js`（Task 6 建，Task 7 复用其中通用部分）。
 
-默认研究流程允许模型提出 `researchPlan`，但只接受 `dayBoundary`、`useTrueSolar`、换日/起运/一致性校验开关。计算内核执行计划后，必须返回 `research.一致性校验.status: "passed"`；领域技能和宿主不得跳过该闸门，也不得用模型文本覆盖 `calculation`。
+默认研究流程允许模型提出 `researchPlan`，但只接受 `dayBoundary` 和 `useTrueSolar`。换日对照、起运对照和一致性校验由计算内核固定开启，模型、领域技能和宿主都不得跳过该闸门；计算内核执行计划后，必须返回 `research.一致性校验.status: "passed"`，也不得用模型文本覆盖 `calculation`。
 
 ### 5.2 Task 5 交付、Task 6 / 7 消费的奇门局盘契约
 

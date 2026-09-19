@@ -319,13 +319,13 @@
     },
     {
       "path": "docs/ROADMAP.md",
-      "sha256": "dba0e045d2345d821d13990892d8440ab4a4996bea2cdd4bc698b47f9add5b84",
-      "bytes": 31928
+      "sha256": "4b9c0de96923ad03ec0397792bcd7608713e951281b3c48e1bc35b083e0e060e",
+      "bytes": 32128
     },
     {
       "path": "docs/SKILL-CONTRACTS.md",
-      "sha256": "e814754a3c8b09f57a3af3d61aea20c0436a1162d2f744c775a5d92cf682dc95",
-      "bytes": 9377
+      "sha256": "5bc2dea64fd60ad79e49420704fb5b460e43c63cb9aa569dea4dcd34e8167a3e",
+      "bytes": 9428
     },
     {
       "path": "docs/SKILL-TAXONOMY.md",
@@ -334,8 +334,8 @@
     },
     {
       "path": "docs/TEST-CASES.md",
-      "sha256": "2a6f40a6ad6ff2003705910df2f74f54f230191d8b42785ed15f8e3e35ca2468",
-      "bytes": 10936
+      "sha256": "e9fde6304e90cc1343ae118dba5daa3e1f9e2a95d6c5a383b10b14ff89aca465",
+      "bytes": 11899
     },
     {
       "path": "docs/agent-compatibility.json",
@@ -449,8 +449,8 @@
     },
     {
       "path": "skills/_shared/research.js",
-      "sha256": "c72a5d249b20586df5676ef3f2b6b76bd41831f7d711329c77514fdabad23fbd",
-      "bytes": 11527
+      "sha256": "be9e174f15617291ba2dac335e28231630d1d3a8f4ff8a1d322f076d67f50a4c",
+      "bytes": 10762
     },
     {
       "path": "skills/_shared/safety.js",
@@ -459,18 +459,18 @@
     },
     {
       "path": "skills/bazi/SKILL.md",
-      "sha256": "926bc02c4239dba8b17fc9e3bd86ef9efe2fa85c9da6a23107de54cb65ed5145",
-      "bytes": 4239
+      "sha256": "63183b8cd66474f9a18a976ed1f99e05391259e77c562b19eb92f9a846309204",
+      "bytes": 4209
     },
     {
       "path": "skills/bazi/__tests__/analyze.test.js",
-      "sha256": "690897b51da0459388e8774525e0d8bedba54beb7f813ccd4699fb5c3bf1bf29",
-      "bytes": 16886
+      "sha256": "a0b55ab47ed4030da87d8bf79b43b523885504ece18e17647ce6723d163ee5fb",
+      "bytes": 17147
     },
     {
       "path": "skills/bazi/lib/analyze.js",
-      "sha256": "29c2451902f7d19f9dec72044419d5920dd355d3a69d3c019700196d61f88c44",
-      "bytes": 10489
+      "sha256": "d8ba9c9fd3761e581dff88eaf1010e8926baf7a7b0234c0ec25f45c20376aa90",
+      "bytes": 10487
     },
     {
       "path": "skills/bazi/lib/report.js",

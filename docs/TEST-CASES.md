@@ -96,3 +96,9 @@ DISCOVERED=bazi,love-marriage,palm,qimen,wealth-career; STATUS=ready; PILLARS=�
 ```
 
 结合前述婚恋、事业财运和修复后的双领域真实模型正文，Claude Code 的 install / discovery / runtime 三类证据齐全。Cursor Agent 3.13.21 返回 `Authentication required`，未进入发现；本机 Codex CLI 的 `--version`、`--help` 与 `exec` 均在输出前退出 137；本机未安装 Trae。WorkBuddy v5.3.8 应用包包含 `.workbuddy/skills/` 路径及本地技能导入逻辑，真机可进入“专家·技能·连接器”管理页，但 UI 自动化未能稳定切入技能子页，未向真实用户目录写入测试技能，也未取得宿主调用结果。详细状态以 [`agent-compatibility.json`](agent-compatibility.json) 为准。
+
+## 研究门禁修复后的复测（2026-09-19）
+
+本轮先用三个可靠出生资料案例复算：Barack Obama 得到 `辛丑 / 乙未 / 己巳 / 癸酉`，Steve Jobs 得到 `乙未 / 戊寅 / 丙辰 / 丁酉`，Albert Einstein 得到 `己卯 / 丁卯 / 丙申 / 甲午`；三例均返回 `ready`、研究模式和 `一致性校验.status: passed`。`2000-01-01 23:30` 边界案例得到主派日柱 `己未`、另一派日柱 `戊午`；非法日期和试图关闭一致性校验的研究计划均被拒绝。
+
+随后从当前工作区生成隔离插件副本，调用本机 Claude Router 做真实端到端验收。结构化验收返回 `researchMode=research`、`verificationStatus=passed`、Steve Jobs 四柱 `乙未/戊寅/丙辰/丁酉`、四个证据 ID 和空错误列表；短报告验收也未复现历史上的 `戊戌` 时柱错误，并保留现实核验建议与免责声明。离线回归为 `47 suites / 798 tests`，E2E smoke 为 `56/56`。
