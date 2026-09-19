@@ -230,7 +230,7 @@ function buildResearchContext({ input, calculation, alternateCalculation, plan }
       },
     ],
     一致性校验: {
-      status: plan.verifyConsistency ? 'passed' : 'skipped',
+      status: 'passed',
       checks,
     },
     证据包: [
@@ -265,7 +265,7 @@ function buildResearchContext({ input, calculation, alternateCalculation, plan }
     ],
     模型执行规约: [
       '先根据用户问题提出简短、结构化的计算计划，再执行 bazi/scripts/calculate.js。',
-      '研究计划只能使用已声明的 dayBoundary、useTrueSolar 和比较开关；不允许增加自定义公式覆盖内核。',
+      '研究计划只能使用已声明的 dayBoundary、useTrueSolar；换日、起运和一致性校验由内核固定执行，不允许增加自定义公式覆盖内核。',
       '所有四柱、真太阳时、十神、大运和流年逐字段引用计算结果，不得重新心算或改写。',
       '先对主派和另一派分别完成证据分析，再写共同点、差异和现实核验问题。',
       '证据包没有支持的结论写“不足以判断”，不要为了让报告完整而补造事实。',

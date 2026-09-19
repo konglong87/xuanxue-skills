@@ -449,8 +449,8 @@
     },
     {
       "path": "skills/_shared/research.js",
-      "sha256": "be9e174f15617291ba2dac335e28231630d1d3a8f4ff8a1d322f076d67f50a4c",
-      "bytes": 10762
+      "sha256": "ed35560bd04c931672a7511895f164cc0c2906242f274ebce578366be9688fa6",
+      "bytes": 10766
     },
     {
       "path": "skills/_shared/safety.js",
@@ -479,8 +479,8 @@
     },
     {
       "path": "skills/bazi/methodology.md",
-      "sha256": "96ece5792d5a1c2c2659e117a8b9437c4f74c8fd1a8d3b870f20b6a7026777e0",
-      "bytes": 4507
+      "sha256": "059738f72914497c3398b49042582d7ad84ea43fbc8a805cd84c36ae2a4df871",
+      "bytes": 4522
     },
     {
       "path": "skills/bazi/scripts/calculate.js",
