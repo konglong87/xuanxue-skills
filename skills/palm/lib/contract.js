@@ -1040,18 +1040,21 @@ function toStandardReport(result) {
     return standardReport({
       status: 'needs_input',
       input: result?.quality,
+      calculated: result?.quality?.issues || [],
       boundaries: [result?.notice || '图片质量未通过，停止判读。'],
     });
   }
   const rendered = result.renderedReport;
+  const evidence = rendered?.domains
+    ? Object.entries(rendered.domains).map(([domain, section]) => ({ domain, ...section }))
+    : [];
   return standardReport({
     input: result.quality,
     calculated: rendered?.observations || result.observations,
-    evidence: rendered?.domains || [],
+    evidence,
     interpretation: ['只引用通过契约校验的观察证据。'],
     actions: ['补充清晰图片或现实记录进行复核。'],
     boundaries: [rendered?.healthText, rendered?.disclaimer].filter(Boolean),
-    extra: { legacy: rendered },
   });
 }
 

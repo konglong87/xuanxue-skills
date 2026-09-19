@@ -476,18 +476,50 @@ function supplementPlan(errors = []) {
   };
 }
 
+function mergePlainObjects(base, patch) {
+  const merged = { ...(isPlainObject(base) ? base : {}) };
+  Object.entries(isPlainObject(patch) ? patch : {}).forEach(([key, value]) => {
+    merged[key] = isPlainObject(merged[key]) && isPlainObject(value)
+      ? mergePlainObjects(merged[key], value)
+      : value;
+  });
+  return merged;
+}
+
+function directionOf(palace) {
+  if (!isPlainObject(palace)) return null;
+  if (typeof palace.方向 === 'string') return palace.方向.trim() || null;
+  if (isPlainObject(palace.方向) && typeof palace.方向.value === 'string') {
+    return palace.方向.value;
+  }
+  return null;
+}
+
+function mergePalaces(base = [], patch = []) {
+  const merged = base.map(item => (isPlainObject(item) ? { ...item } : item));
+  patch.forEach((item, index) => {
+    const key = directionOf(item);
+    const targetIndex = key
+      ? merged.findIndex(candidate => directionOf(candidate) === key)
+      : index < merged.length ? index : -1;
+    if (targetIndex >= 0) {
+      merged[targetIndex] = mergePlainObjects(merged[targetIndex], item);
+    } else {
+      merged.push(item);
+    }
+  });
+  return merged;
+}
+
 function mergeTranscription(base, patch) {
   if (!isPlainObject(base) || !isPlainObject(patch)) {
     throw new TypeError('base 和 patch 必须是普通对象');
   }
-  const merged = { ...base, ...patch };
+  const merged = mergePlainObjects(base, patch);
   if (Array.isArray(base.九宫) || Array.isArray(patch.九宫)) {
     const left = Array.isArray(base.九宫) ? base.九宫 : [];
     const right = Array.isArray(patch.九宫) ? patch.九宫 : [];
-    merged.九宫 = Array.from({ length: Math.max(left.length, right.length) }, (_, index) => ({
-      ...(isPlainObject(left[index]) ? left[index] : {}),
-      ...(isPlainObject(right[index]) ? right[index] : {}),
-    }));
+    merged.九宫 = mergePalaces(left, right);
   }
   return merged;
 }
@@ -498,24 +530,38 @@ function revalidateChart(previous, patch) {
   return { ...result, input, supplement: supplementPlan(result.errors) };
 }
 
+function reportInputOf(safeChart, errors = []) {
+  return {
+    标准化状态: errors.length === 0 ? 'ready' : 'needs_input',
+    来源: safeChart?.来源
+      ? {
+        类型: safeChart.来源.类型.value,
+        名称: safeChart.来源.名称,
+      }
+      : null,
+    九宫数量: safeChart?.九宫?.length ?? null,
+  };
+}
+
 function toStandardReport(result) {
+  const errors = result?.errors || [];
+  const input = reportInputOf(result?.safeChart, errors);
   if (!result || result.errors?.length) {
     return standardReport({
       status: 'needs_input',
-      input: result?.input,
-      calculated: result?.errors || [],
-      boundaries: ['错误未清零前停止奇门判读。'],
-      extra: { supplement: supplementPlan(result?.errors || []) },
+      input,
+      calculated: errors,
+      boundaries: [...REPORT_CONTRACT.disclaimer, '错误未清零前停止奇门判读。'],
+      supplement: supplementPlan(errors),
     });
   }
   return standardReport({
-    input: result.input,
+    input,
     calculated: [result.safeChart],
-    evidence: ['只引用 safeChart 中 status=confirmed 的字段。'],
+    evidence: [...REPORT_CONTRACT.evidenceRules],
     interpretation: ['外部局盘只提供结构化证据，不自行起局或补造现实事件。'],
     actions: ['将确认字段与具体问题逐项核验。'],
-    boundaries: REPORT_CONTRACT.redlines,
-    extra: { legacy: result },
+    boundaries: REPORT_CONTRACT.disclaimer,
   });
 }
 

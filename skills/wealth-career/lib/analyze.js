@@ -434,15 +434,22 @@ function analyze(input, options) {
 }
 
 function toStandardReport(result) {
-  if (!result || result.status !== 'ready') return standardReport({ status: result?.status });
+  if (!result || result.status !== 'ready') {
+    return standardReport({
+      status: result?.status || 'needs_input',
+      input: result?.input,
+      missing: result?.missing || [],
+      questions: result?.questions || [],
+      boundaries: result?.analysisContext?.报告契约?.disclaimer || [],
+    });
+  }
   return standardReport({
     input: result.bazi.input,
     calculated: [result.wealthCareerSignals, result.alternateWealthCareerSignals].filter(Boolean),
-    evidence: [result.analysisContext.报告契约.evidenceRules],
+    evidence: [...result.analysisContext.报告契约.evidenceRules],
     interpretation: ['事业与财运信号只形成待核验假设，不代表职位、收益或必然适职。'],
     actions: ['结合工作反馈、项目结果和收支记录逐项核验。'],
     boundaries: result.analysisContext.报告契约.disclaimer,
-    extra: { legacy: result },
   });
 }
 

@@ -99,6 +99,32 @@ describe('qimen 外部局盘标准化', () => {
     expect(JSON.stringify(result.safeChart)).not.toContain('测试排盘 APP');
   });
 
+  test('补录合并保留顶层对象字段，并按方向合并九宫', () => {
+    const base = completeChart();
+    const patch = {
+      来源: { 名称: '补录来源' },
+      九宫: [{ 方向: '正南', 八门: '生' }],
+    };
+
+    const merged = qimen.mergeTranscription(base, patch);
+
+    expect(merged.来源).toEqual({ 类型: '外部APP', 名称: '补录来源' });
+    expect(merged.九宫.find(item => item.方向 === '正南')).toMatchObject({ 八门: '生' });
+    expect(merged.九宫.find(item => item.方向 === '正北')).toMatchObject({ 八门: '休' });
+  });
+
+  test('统一奇门报告只返回 safe DTO、完整共享边界和扁平依据', () => {
+    const input = completeChart();
+    input.来源.名称 = '审计名称不得进入报告';
+    const result = qimen.toStandardReport(qimen.normalizeChart(input));
+
+    expect(result).not.toHaveProperty('legacy');
+    expect(JSON.stringify(result)).not.toContain('审计名称不得进入报告');
+    expect(JSON.stringify(result)).not.toMatch(/"(?:raw|source|school)":/);
+    expect(result.依据).toEqual(qimen.REPORT_CONTRACT.evidenceRules);
+    expect(result.边界).toEqual(qimen.REPORT_CONTRACT.disclaimer);
+  });
+
   test('九宫方向重复或缺失时同时报错且不生成不存在的宫', () => {
     const input = completeChart();
     input.九宫[8].方向 = '正北';

@@ -1,6 +1,6 @@
 const lunar = require('../../vendor/lunar-javascript');
 const { TIANGAN, DIZHI } = require('../ganzhi/constants');
-const { addDateTimeDays, isValidDateTime } = require('./civil-time');
+const { addDateTimeDays, isValidDateTime, wallClockKey } = require('./civil-time');
 const { jieList } = require('./jieqi');
 const { trueSolarTime } = require('./truesolar');
 
@@ -18,14 +18,6 @@ function shichenIndex(hour) {
 
 function ziHourStemIndex(dayStem) {
   return (TIANGAN.indexOf(dayStem) % 5) * 2;
-}
-
-// 墙钟序数。历法库输出的节气时刻与出生时间都按墙钟分量比较，
-// 因此不受运行机器时区与历史夏令时影响。
-function wallClockKey(date) {
-  return ((((date.getFullYear() * 100 + date.getMonth() + 1) * 100
-    + date.getDate()) * 100 + date.getHours()) * 100
-    + date.getMinutes()) * 100 + date.getSeconds();
 }
 
 function jieBefore(referenceTime) {

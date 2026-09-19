@@ -52,6 +52,15 @@ function isValidDateTime(value) {
     && Number.isFinite(dateTimeValueOf(value));
 }
 
+function wallClockKey(value) {
+  if (!isValidDateTime(value)) {
+    throw new Error(`date 须为合法民用时间值，收到：${value}`);
+  }
+  return ((((value.getFullYear() * 100 + value.getMonth() + 1) * 100
+    + value.getDate()) * 100 + value.getHours()) * 100
+    + value.getMinutes()) * 100 + value.getSeconds();
+}
+
 function dateFromTimeValue(reference, timeValue) {
   return isCivilDateTime(reference)
     ? new CivilDateTime(timeValue)
@@ -119,4 +128,5 @@ module.exports = {
   isValidDateTime,
   parseCivilDateTime,
   standardMeridianOf,
+  wallClockKey,
 };

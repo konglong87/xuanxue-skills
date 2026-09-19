@@ -11,7 +11,7 @@ description: Use when the user supplies or wants to supply a 出生日期 and �
 
 ## 执行流程
 
-1. 把用户资料整理为 JSON：`birthDate`、`birthTime`、`longitude`、`utcOffsetMinutes` 或 `standardMeridian`、`gender`。`targetYear`（目标年份）可选，未提供时脚本按调用时当前公历年注入并在结果中披露。出生时间必须保留出生地当时的民用墙钟语义。
+1. 把用户资料整理为 JSON：`birthDate`、`birthTime`、`longitude`、`utcOffsetMinutes` 或 `standardMeridian`、`gender`。`targetYear`（目标年份）可选，未提供时脚本按调用时当前干支年（立春为界）注入并在结果中披露。出生时间必须保留出生地当时的民用墙钟语义。
 2. 将 JSON 送入脚本。所有宿主都必须从已安装的 `bazi` 技能目录取得脚本的绝对路径；不得依赖当前工作目录或 shell 工作目录猜测仓库位置。Claude Code 可以使用 `${CLAUDE_PLUGIN_ROOT}`，其他宿主使用其提供的技能真实路径：
 
 ```bash

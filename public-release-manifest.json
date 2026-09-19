@@ -59,8 +59,8 @@
     },
     {
       "path": "core/calendar/__tests__/cycles.test.js",
-      "sha256": "5e7085a203b11c56c52cfe9998155e4aefb24b131514387c9297d001c99c04c1",
-      "bytes": 6953
+      "sha256": "c9450cafd76c649bbd98e8a7efae8185df757a42867d5b3fa64e4f3137dfb4b6",
+      "bytes": 7726
     },
     {
       "path": "core/calendar/__tests__/fixtures/bazigo-golden.json",
@@ -89,8 +89,8 @@
     },
     {
       "path": "core/calendar/__tests__/lunar.test.js",
-      "sha256": "cf3bf2d61c6e40325a368d112ae0b458e49cbcc04751acac456a8e515cd9ed82",
-      "bytes": 926
+      "sha256": "0b6239c01e7972aa1e2b9786fbd34352b34586b65c21b367a41f51b20bb55d03",
+      "bytes": 1897
     },
     {
       "path": "core/calendar/__tests__/pillars.test.js",
@@ -109,13 +109,13 @@
     },
     {
       "path": "core/calendar/civil-time.js",
-      "sha256": "d7330f7a45edad7425fac4557155f713f92f6c313eef6e5bcd5d18ace634434a",
-      "bytes": 3745
+      "sha256": "bc6cf53800631cb87403281cd98bf554508a5438dcfe6f5e347862923010004a",
+      "bytes": 4087
     },
     {
       "path": "core/calendar/cycles.js",
-      "sha256": "569c21d54de918194112634badc9c0b8c226ce4ae907f90d39ab91562d8588c5",
-      "bytes": 7825
+      "sha256": "3709768d1908b06e73305c63fb99887a74c50006f699c260650e4d89b0a51bb4",
+      "bytes": 7816
     },
     {
       "path": "core/calendar/index.js",
@@ -129,13 +129,13 @@
     },
     {
       "path": "core/calendar/lunar.js",
-      "sha256": "65b5ba740fd4207697d1bdd5d5a3004ae5197d7aae0a0d98ebc3366844eca03a",
-      "bytes": 1152
+      "sha256": "dc09ddcc85ced560d46c678f7e55f6ec74b9178f0201533a968a1e72f3f2fc43",
+      "bytes": 2198
     },
     {
       "path": "core/calendar/pillars.js",
-      "sha256": "58414817e5f6aa786173415cb77d960574973409e8f6dfdf7a8b592ca03af562",
-      "bytes": 5332
+      "sha256": "6443754a617ea0d624eb51fdb30050ed38c62fbcb12fb3d7f03a975214bc7166",
+      "bytes": 4989
     },
     {
       "path": "core/calendar/truesolar.js",
@@ -319,8 +319,8 @@
     },
     {
       "path": "docs/ROADMAP.md",
-      "sha256": "6f0f83fedcf22a15539b198d0d29b52e1893ccce599ad9a50516a0ffd35b7a9f",
-      "bytes": 33261
+      "sha256": "7b60a59b49fbccd8b02cb54fde78051081b4a766f33d4a2345cafbf65ecdf199",
+      "bytes": 31696
     },
     {
       "path": "docs/SKILL-CONTRACTS.md",
@@ -444,8 +444,8 @@
     },
     {
       "path": "skills/_shared/report.js",
-      "sha256": "0c241425b89813e10c86f7d237023085e8be090cf1b5b088bc91b9f5f3e7ad20",
-      "bytes": 662
+      "sha256": "cb3f4eeba44deaf9232ae06c767bcfb762d99825b356c0651bd5b3862318e39d",
+      "bytes": 1326
     },
     {
       "path": "skills/_shared/safety.js",
@@ -454,8 +454,8 @@
     },
     {
       "path": "skills/bazi/SKILL.md",
-      "sha256": "f60eb4e6a4937990c771654f9524138e4f9e52fa3cbf7611ad7099e20fc21ba6",
-      "bytes": 3424
+      "sha256": "1ff8990ddc46a66122a9c76c38fde4bdfe48d7e4df45d3324da926d1983fe71b",
+      "bytes": 3442
     },
     {
       "path": "skills/bazi/__tests__/analyze.test.js",
@@ -469,8 +469,8 @@
     },
     {
       "path": "skills/bazi/lib/report.js",
-      "sha256": "25a962338768c685672b280711d9dd1bcb910a209ebac0ef9036077cdaddb2ef",
-      "bytes": 3385
+      "sha256": "08a862bee4a21b1175ec639ee155c6d11fc6924c70851a88b0763d6036fa4bb0",
+      "bytes": 3780
     },
     {
       "path": "skills/bazi/methodology.md",
@@ -499,8 +499,8 @@
     },
     {
       "path": "skills/love-marriage/lib/analyze.js",
-      "sha256": "b0bfdfb3a3f366338056975d72c1339782f0b3faedd3dd2aa5ec52e209dd8aac",
-      "bytes": 7507
+      "sha256": "b0f364682d7e251a129107a92f2679cce24323061f0b446e25a012f96bb9dbe7",
+      "bytes": 7700
     },
     {
       "path": "skills/love-marriage/methodology.md",
@@ -524,8 +524,8 @@
     },
     {
       "path": "skills/palm/lib/contract.js",
-      "sha256": "038fcbcd0e021eea50ac5faba849115a0a60549c8f87167496b28b5f7612a39c",
-      "bytes": 43420
+      "sha256": "e5e82c909fec71177c9774c3c47d92e3f9e187c2eacdae302cd4f0d3e7ac9ccf",
+      "bytes": 43550
     },
     {
       "path": "skills/palm/lib/validators.js",
@@ -549,13 +549,13 @@
     },
     {
       "path": "skills/qimen/__tests__/chart.test.js",
-      "sha256": "9e50bba9a075631b1d7a456555ff3347f3d3be0ee098c5860c6f0d7dec13f5b2",
-      "bytes": 20033
+      "sha256": "14af96d1235b2bde28d5a54864dac5c8dd50b62f610f0fee310991b7013c978e",
+      "bytes": 21236
     },
     {
       "path": "skills/qimen/lib/chart.js",
-      "sha256": "e710723459446f59c3f3ac40116a501d84c3f57b8423697d9878c5d46f01a659",
-      "bytes": 18668
+      "sha256": "be245befb2dfa32514114f3a4bcd70f26f5d16f9df03ed4a24f98ba896b96d4a",
+      "bytes": 19981
     },
     {
       "path": "skills/qimen/methodology.md",
@@ -579,8 +579,8 @@
     },
     {
       "path": "skills/wealth-career/lib/analyze.js",
-      "sha256": "0b10408aa29aa6a9bc3d127d112fe7d129fc853f33075fc0009d038c8c1058ed",
-      "bytes": 17244
+      "sha256": "7a597b7886e988091d5f0c15b0b47e2ccc18b757639b946a64aed689d4f54d8d",
+      "bytes": 17437
     },
     {
       "path": "skills/wealth-career/lib/industry.js",
@@ -659,8 +659,8 @@
     },
     {
       "path": "tests/report-contract.test.js",
-      "sha256": "54fc088e0640305ab4749739787a6cb452792bf9daf01ae7a9cb87929340b107",
-      "bytes": 1412
+      "sha256": "1fd6a72085b4ff875805c0a3ccad400fdd96ea212fd856acdb4334f13c467304",
+      "bytes": 3815
     },
     {
       "path": "tests/routing-contract.test.js",

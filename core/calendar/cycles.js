@@ -2,7 +2,7 @@ const lunar = require('../../vendor/lunar-javascript');
 const { TIANGAN, DIZHI, JIAZI } = require('../ganzhi/constants');
 const { shiShen } = require('../ganzhi/shishen');
 const { relation } = require('../ganzhi/relation');
-const { isValidDateTime, dateTimeValueOf } = require('./civil-time');
+const { isValidDateTime, wallClockKey } = require('./civil-time');
 const { jieList } = require('./jieqi');
 
 const GENDER_CODES = { male: 1, female: 0 };
@@ -195,7 +195,7 @@ function ganzhiYearOf(datetime) {
   const civilYear = datetime.getFullYear();
   const lichun = jieList(civilYear).find(item => item.名 === LICHUN);
   if (!lichun) throw new Error(`找不到 ${civilYear} 年的立春`);
-  return dateTimeValueOf(datetime) < dateTimeValueOf(lichun.时刻) ? civilYear - 1 : civilYear;
+  return wallClockKey(datetime) < wallClockKey(lichun.时刻) ? civilYear - 1 : civilYear;
 }
 
 function annualCycle(targetYear, dayStem, dayBranch) {

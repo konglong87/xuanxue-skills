@@ -19,9 +19,23 @@ function standardReport({
   actions = [],
   boundaries = [],
   status = 'ready',
-  extra = {},
+  missing = [],
+  questions = [],
+  supplement,
 } = {}) {
-  return deepFreeze({
+  [
+    ['calculated', calculated],
+    ['evidence', evidence],
+    ['interpretation', interpretation],
+    ['actions', actions],
+    ['boundaries', boundaries],
+  ].forEach(([name, value]) => {
+    if (!Array.isArray(value)) throw new TypeError(`${name} 必须是数组`);
+  });
+  if (!Array.isArray(missing)) throw new TypeError('missing 必须是数组');
+  if (!Array.isArray(questions)) throw new TypeError('questions 必须是数组');
+
+  const report = {
     status,
     stages: [...REPORT_STAGES],
     输入口径: input ?? {},
@@ -30,8 +44,13 @@ function standardReport({
     可供判读: interpretation,
     行动: actions,
     边界: boundaries,
-    ...extra,
-  });
+  };
+  if (status === 'needs_input') {
+    report.missing = [...missing];
+    report.questions = [...questions];
+  }
+  if (supplement !== undefined) report.supplement = supplement;
+  return deepFreeze(report);
 }
 
 module.exports = { REPORT_STAGES, standardReport };

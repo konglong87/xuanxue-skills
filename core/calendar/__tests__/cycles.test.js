@@ -1,3 +1,4 @@
+const { execFileSync } = require('child_process');
 const { parseCivilDateTime } = require('../civil-time');
 const { luckCycles, annualCycle, ganzhiYearOf } = require('../cycles');
 const { fourPillars } = require('../pillars');
@@ -180,7 +181,7 @@ describe('干支年归属（立春为界）', () => {
   test.each([
     ['立春前一天仍属上一干支年', '2026-02-02', '12:00', 2025],
     ['立春当天交节前仍属上一干支年', '2026-02-03', '19:00', 2025],
-    ['立春交节后进入本干支年', '2026-02-03', '21:00', 2026],
+    ['立春交节后进入本干支年', '2026-02-04', '05:00', 2026],
     ['年中属本干支年', '2026-08-12', '09:00', 2026],
     ['元旦属上一干支年', '2026-01-01', '00:30', 2025],
   ])('%s', (name, date, time, expected) => {
@@ -192,5 +193,22 @@ describe('干支年归属（立春为界）', () => {
     const year = ganzhiYearOf(datetime);
     expect(annualCycle(year, '丙', '辰').干支)
       .toBe(fourPillars({ datetime, options: { useTrueSolar: false } }).年);
+  });
+
+  test('民用墙钟输入跨宿主时区保持相同干支年', () => {
+    const script = [
+      "const { parseCivilDateTime } = require('./core/calendar/civil-time');",
+      "const { ganzhiYearOf } = require('./core/calendar/cycles');",
+      "const value = parseCivilDateTime({ date: '2026-02-04', time: '04:00' });",
+      'process.stdout.write(String(ganzhiYearOf(value)));',
+    ].join('\n');
+    const run = TZ => execFileSync(process.execPath, ['-e', script], {
+      cwd: require('path').join(__dirname, '../../..'),
+      env: { ...process.env, TZ },
+      encoding: 'utf8',
+    });
+
+    expect(run('UTC')).toBe(run('Asia/Shanghai'));
+    expect(run('America/Los_Angeles')).toBe(run('Asia/Shanghai'));
   });
 });
