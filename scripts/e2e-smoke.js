@@ -71,6 +71,8 @@ function verifyBaziCli() {
   check('baziCli', () => assert.equal(ready.status, 0));
   const result = JSON.parse(ready.stdout);
   check('baziCli', () => assert.equal(result.status, 'ready'));
+  check('baziCli', () => assert.equal(result.research.模式, 'research'));
+  check('baziCli', () => assert.equal(result.research.一致性校验.status, 'passed'));
   check('baziCli', () => assert.deepEqual({
     年: result.calculation.四柱结果.年,
     月: result.calculation.四柱结果.月,

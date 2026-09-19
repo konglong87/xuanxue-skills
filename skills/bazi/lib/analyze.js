@@ -1,6 +1,10 @@
 const { baziChart, ganzhiYearOf } = require('../../../core/calendar');
 const { DISCLAIMER_BASE, FORBIDDEN_CLAIMS } = require('../../_shared/safety');
 const { deepFreeze, isPlainObject } = require('../../_shared/lib/objects');
+const {
+  normalizeResearchPlan,
+  buildResearchContext,
+} = require('../../_shared/research');
 const { buildReport, toStandardReport } = require('./report');
 
 const REQUIRED_FIELDS = Object.freeze([
@@ -178,10 +182,17 @@ function analyze(input, { now = new Date(), currentYear } = {}) {
     return { status: 'needs_input', missing, questions: questionsFor(missing) };
   }
 
+  const { researchPlan: requestedResearchPlan, ...sourceInput } = input;
+  const researchPlan = normalizeResearchPlan(requestedResearchPlan, sourceInput.options);
   const targetYearInjected = isMissing(input.targetYear);
   const effectiveInput = {
-    ...input,
+    ...sourceInput,
     targetYear: targetYearInjected ? effectiveCurrentYear : input.targetYear,
+    options: {
+      ...(sourceInput.options || {}),
+      dayBoundary: researchPlan.dayBoundary,
+      useTrueSolar: researchPlan.useTrueSolar,
+    },
   };
   const calculation = baziChart(effectiveInput);
   const alternateCalculation = calculation.四柱结果.另一派.是否不同
@@ -193,11 +204,18 @@ function analyze(input, { now = new Date(), currentYear } = {}) {
       },
     })
     : null;
+  const research = buildResearchContext({
+    input,
+    calculation,
+    alternateCalculation,
+    plan: researchPlan,
+  });
   const analysisContext = buildAnalysisContext(
     calculation,
     alternateCalculation,
     targetYearInjected,
   );
+  analysisContext.研究模式 = research;
   return {
     status: 'ready',
     input: {
@@ -206,6 +224,7 @@ function analyze(input, { now = new Date(), currentYear } = {}) {
     },
     calculation,
     alternateCalculation,
+    research,
     analysisContext,
   };
 }

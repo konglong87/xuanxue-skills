@@ -89,7 +89,7 @@ If required information is missing, the skill asks for it together instead of gu
 
 ## More than prompts
 
-- **Code-backed calculation**: pillars, solar terms, true solar time, luck cycles, and stem-branch relations come from a shared calculation engine instead of model mental math.
+- **Code-backed calculation**: the model identifies ambiguities and proposes a constrained `researchPlan`; the shared engine executes it, compares boundary schools, and verifies the result instead of allowing mental math.
 - **Schools in parallel**: disagreements about day boundaries, luck-cycle starts, strength, structures, and useful elements remain visible with methods and evidence.
 - **Reality checks**: readings are framed as tendencies and questions you can check against reality, not invented life events.
 - **Safety boundaries**: no return guarantees, inevitable marriage or divorce claims, or medical diagnosis; cultural interpretations are not presented as certain facts.

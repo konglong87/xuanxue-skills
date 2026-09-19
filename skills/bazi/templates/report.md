@@ -1,6 +1,14 @@
 # 八字综合报告
 
-> 确定性闸门：本报告的四柱、真太阳时、十神、大运和流年只能原样引用 `scripts/calculate.js` 返回的 `calculation` / `alternateCalculation`。不得由模型重新排盘；脚本失败或字段缺失时停止输出判读。
+> 研究流程闸门：模型可以提出排盘口径，但必须把 `researchPlan` 交给 `scripts/calculate.js` 执行。本报告的四柱、真太阳时、十神、大运和流年只能原样引用 `calculation` / `alternateCalculation`；脚本失败、字段缺失或 `research.一致性校验.status` 不是 `passed` 时停止输出判读。
+
+## 零、计算核验
+
+- 研究模式：
+- 采用计划：
+- 已完成的计算步骤：
+- 一致性校验：
+- 证据包：
 
 ## 一、综合
 

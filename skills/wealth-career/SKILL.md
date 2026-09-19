@@ -7,14 +7,14 @@ description: Use when the user supplies 出生日期 and 出生时间 and explic
 
 ## 核心边界
 
-先执行 `../bazi/scripts/calculate.js`（通过 `bazi` 公共编排）取得完整命盘，再调用 `../bazi/lib/analyze.js` 和 `core/ganzhi` 公共入口的 `tenGodStructure`。本技能只组装已有命盘和确定性十神位置，不直接调用历法内核，不重复排盘。报告中的四柱和时间校正只能逐字段引用 `bazi.calculation` / `bazi.alternateCalculation`，不得根据出生资料自行换算；脚本失败、返回非 `ready` 或缺少四柱字段时必须停止判读并报告错误。奇门只接受用户提供的外部 APP 或手工转录盘，并交给 `../qimen/lib/chart.js` 的 `normalizeChart`；本技能不自行起局。
+默认走 `bazi` 的 `research` 研究流程：模型可以先提出换日、真太阳时和流派对照计划，再由 `../bazi/scripts/calculate.js`（通过 `bazi` 公共编排）执行并校验，随后调用 `../bazi/lib/analyze.js` 和 `core/ganzhi` 公共入口的 `tenGodStructure`。本技能只组装已有命盘和确定性十神位置，不直接调用历法内核，不重复排盘。报告中的四柱和时间校正只能逐字段引用 `bazi.calculation` / `bazi.alternateCalculation`，不得根据出生资料自行换算；脚本失败、返回非 `ready`、研究模式一致性校验失败或缺少四柱字段时必须停止判读并报告错误。奇门只接受用户提供的外部 APP 或手工转录盘，并交给 `../qimen/lib/chart.js` 的 `normalizeChart`；本技能不自行起局。
 
 运行资源必须从已安装本技能 `SKILL.md` 的真实路径解析，再定位同一安装包内的 `../bazi/`、`../qimen/`、`../_shared/` 与仓库 `core/`；不得依赖当前工作目录或 shell 工作目录。任一共享资源不可达时停止判读，不退化为模型心算。
 
 ## 执行流程
 
 1. 一次性收齐 `bazi` 所需出生字段。`status: needs_input` 时原样展示全部补充问题并停止。
-2. `status: ready` 时分别使用 `wealthCareerSignals` 与 `alternateWealthCareerSignals`。若 `alternateCalculation` 非空，换日两派必须各自从对应完整命盘生成信号，不得跨派拼接。
+2. `status: ready` 且 `bazi.analysisContext.研究模式.一致性校验.status` 为 `passed` 时，分别使用 `wealthCareerSignals` 与 `alternateWealthCareerSignals`；每个结论绑定 `bazi.analysisContext.研究模式.证据包` 中的来源。若 `alternateCalculation` 非空，换日两派必须各自从对应完整命盘生成信号，不得跨派拼接。
 3. 同时展示 `visibleOnly` 和 `allPositions`，只谈位置、数量和是否出现；不得用计数裁决旺衰、等级、收入或职业结果。
 4. `qimenEnhancement.status: ready` 时追加外部盘观察；每宫一次预计算共享 `同宫标记摘要表`，表项只含安全枚举 `名称` 与稳定 `provenanceRef`。每个 observation 只带常量大小的 `count + summaryRef`，标记 observation 再带 `excludedRef`；报告按 `summaryRef` 查表并排除自身，不嵌套复制标记 DTO。`errors` 非空导致 `degraded` 时只展示有界错误并继续八字报告；`not_provided` 时正常交付八字报告。
 5. 按 [methodology.md](methodology.md) 和 [templates/report.md](templates/report.md) 输出，并原样应用 `REPORT_CONTRACT.evidenceRules`、`REPORT_CONTRACT.redlines` 与 `REPORT_CONTRACT.disclaimer`。

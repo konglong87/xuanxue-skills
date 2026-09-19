@@ -19,6 +19,76 @@ const COMPLETE_INPUT = {
 };
 
 describe('八字综合判读上下文', () => {
+  test('默认进入研究模式并交付计算轨迹、证据包与一致性校验', () => {
+    const result = analyze(COMPLETE_INPUT);
+
+    expect(result.research).toMatchObject({
+      模式: 'research',
+      版本: 1,
+      计算计划: expect.objectContaining({
+        mode: 'research',
+        dayBoundary: '23:00',
+        useTrueSolar: true,
+        compareDayBoundaries: true,
+        compareLuckMethods: true,
+      }),
+      一致性校验: expect.objectContaining({ status: 'passed' }),
+    });
+    expect(result.research.计算轨迹.map(step => step.id)).toEqual([
+      'input-normalized',
+      'calendar-boundary',
+      'true-solar-time',
+      'day-pillar',
+      'luck-cycles',
+      'target-year',
+    ]);
+    expect(result.research.证据包).toEqual(expect.arrayContaining([
+      expect.objectContaining({ id: 'bazi:pillars', status: 'verified' }),
+      expect.objectContaining({ id: 'bazi:cycles', status: 'verified' }),
+    ]));
+    expect(result.analysisContext.研究模式).toEqual(result.research);
+  });
+
+  test('模型研究计划会进入真实排盘并保留计划来源', () => {
+    const result = analyze({
+      ...COMPLETE_INPUT,
+      researchPlan: {
+        mode: 'research',
+        version: 1,
+        dayBoundary: '00:00',
+        useTrueSolar: false,
+      },
+    });
+
+    expect(result.calculation.input.options).toEqual({
+      dayBoundary: '00:00',
+      useTrueSolar: false,
+    });
+    expect(result.research.计算计划).toMatchObject({
+      输入来源: 'model-plan',
+      dayBoundary: '00:00',
+      useTrueSolar: false,
+    });
+    expect(result.research.一致性校验.status).toBe('passed');
+  });
+
+  test.each([
+    ['unknown field', { mode: 'research', unsupportedRule: true }, /未声明字段/],
+    ['wrong mode', { mode: 'standard' }, /只能是 research/],
+    ['wrong boundary', { dayBoundary: '22:00' }, /dayBoundary/],
+    ['wrong flag type', { useTrueSolar: 'yes' }, /useTrueSolar.*boolean/],
+  ])('研究计划拒绝%s', (_label, plan, pattern) => {
+    expect(() => analyze({ ...COMPLETE_INPUT, researchPlan: plan })).toThrow(pattern);
+  });
+
+  test('研究计划与原始 options 冲突时停止而不是静默选一个', () => {
+    expect(() => analyze({
+      ...COMPLETE_INPUT,
+      options: { dayBoundary: '23:00' },
+      researchPlan: { dayBoundary: '00:00' },
+    })).toThrow(/冲突/);
+  });
+
   test('buildReport 生成可复核的结构化报告骨架', () => {
     const report = buildReport(analyze(COMPLETE_INPUT));
     expect(report.status).toBe('ready');
@@ -26,6 +96,10 @@ describe('八字综合判读上下文', () => {
       算出: expect.stringContaining('四柱为'),
       依据: expect.any(String),
       可供判读: expect.any(String),
+    });
+    expect(report.计算核验).toMatchObject({
+      模式: 'research',
+      一致性校验: expect.objectContaining({ status: 'passed' }),
     });
     expect(report.阶段趋势.建议行动).toEqual(expect.any(String));
     expect(Object.isFrozen(report)).toBe(true);

@@ -13,6 +13,12 @@ function buildReport(result) {
     status: 'ready',
     sections: [...(result.analysisContext?.报告契约?.章节 || [])],
     输入与口径: result.input,
+    计算核验: {
+      模式: result.research?.模式 || 'research',
+      版本: result.research?.版本 || 1,
+      计算计划: result.research?.计算计划 || null,
+      一致性校验: result.research?.一致性校验 || null,
+    },
     综合: {
       算出: `四柱为 ${pillars.年}、${pillars.月}、${pillars.日}、${pillars.时}`,
       依据: pillars.采用规则.说明,
@@ -75,7 +81,13 @@ function toStandardReport(result) {
   return standardReport({
     input: report.输入与口径,
     calculated: [report.综合.算出, report.阶段趋势.算出],
-    evidence: [...EVIDENCE_RULES, report.综合.依据, report.性格与资源.依据],
+    evidence: [
+      ...EVIDENCE_RULES,
+      report.计算核验,
+      ...(result.research?.证据包 || []),
+      report.综合.依据,
+      report.性格与资源.依据,
+    ],
     interpretation: [report.综合.可供判读, report.事业财运概览.可供判读],
     actions: [report.阶段趋势.建议行动, report.婚恋概览.建议行动],
     boundaries: report.免责声明,

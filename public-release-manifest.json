@@ -24,13 +24,13 @@
     },
     {
       "path": "README.md",
-      "sha256": "97b636244a1d28339215f16ee76e6f8d022c0f723b25f6b27aaee762efd97d7c",
-      "bytes": 8522
+      "sha256": "0a23b83ba9752d2c79e438fb00a1a94d51b453e70b4ea413eea9bf8e8631bfaf",
+      "bytes": 8591
     },
     {
       "path": "README_EN.md",
-      "sha256": "9fccea72c15b24ae9d4b0b06194cc12b34f331ef8d28bde024fcaec925be5e10",
-      "bytes": 9174
+      "sha256": "1e7fe90476c377e8ab5cb1af07abb8ff8d90a489b41fc9779eb8d294b83d74a9",
+      "bytes": 9219
     },
     {
       "path": "VERSION",
@@ -319,13 +319,13 @@
     },
     {
       "path": "docs/ROADMAP.md",
-      "sha256": "7b60a59b49fbccd8b02cb54fde78051081b4a766f33d4a2345cafbf65ecdf199",
-      "bytes": 31696
+      "sha256": "dba0e045d2345d821d13990892d8440ab4a4996bea2cdd4bc698b47f9add5b84",
+      "bytes": 31928
     },
     {
       "path": "docs/SKILL-CONTRACTS.md",
-      "sha256": "91de82d70c9ae11278e2d9ef27c8beb0238ca10ae2efe4759e2c633c13ac37fd",
-      "bytes": 8941
+      "sha256": "e814754a3c8b09f57a3af3d61aea20c0436a1162d2f744c775a5d92cf682dc95",
+      "bytes": 9377
     },
     {
       "path": "docs/SKILL-TAXONOMY.md",
@@ -419,8 +419,8 @@
     },
     {
       "path": "scripts/e2e-smoke.js",
-      "sha256": "640709d540b2721df61120106b1234a45a6d5bd041fea984c004c3df2511a053",
-      "bytes": 8965
+      "sha256": "aab28450bf8fd9e85d4571094c533e485c4a8f0f08653a9107d67385e5aec554",
+      "bytes": 9131
     },
     {
       "path": "scripts/gen-bazigo-golden.md",
@@ -448,34 +448,39 @@
       "bytes": 1326
     },
     {
+      "path": "skills/_shared/research.js",
+      "sha256": "c72a5d249b20586df5676ef3f2b6b76bd41831f7d711329c77514fdabad23fbd",
+      "bytes": 11527
+    },
+    {
       "path": "skills/_shared/safety.js",
       "sha256": "3bbaff4bb50c324a1bcb9356530ef31037a30b4bc4ee01542a8df61c9122c4b5",
       "bytes": 4096
     },
     {
       "path": "skills/bazi/SKILL.md",
-      "sha256": "1ff8990ddc46a66122a9c76c38fde4bdfe48d7e4df45d3324da926d1983fe71b",
-      "bytes": 3442
+      "sha256": "926bc02c4239dba8b17fc9e3bd86ef9efe2fa85c9da6a23107de54cb65ed5145",
+      "bytes": 4239
     },
     {
       "path": "skills/bazi/__tests__/analyze.test.js",
-      "sha256": "23af6b3ae81bf50281c7c0ba5705486a89afd79a121bbbf741206f5b3901d8d8",
-      "bytes": 14348
+      "sha256": "690897b51da0459388e8774525e0d8bedba54beb7f813ccd4699fb5c3bf1bf29",
+      "bytes": 16886
     },
     {
       "path": "skills/bazi/lib/analyze.js",
-      "sha256": "9144efc72f7b38225400b689e6c4e7d31ffcef80f44dad199caf5b8f24d8b12b",
-      "bytes": 9887
+      "sha256": "29c2451902f7d19f9dec72044419d5920dd355d3a69d3c019700196d61f88c44",
+      "bytes": 10489
     },
     {
       "path": "skills/bazi/lib/report.js",
-      "sha256": "08a862bee4a21b1175ec639ee155c6d11fc6924c70851a88b0763d6036fa4bb0",
-      "bytes": 3780
+      "sha256": "5c056c66c6093fe2ba545248c48ac44880a5993c23bd8577ef3bda47dadf21c7",
+      "bytes": 4125
     },
     {
       "path": "skills/bazi/methodology.md",
-      "sha256": "b1d8320c9e50d0823754a017475523d43f8e7dbc6755132bee7264f8be3360fc",
-      "bytes": 3992
+      "sha256": "96ece5792d5a1c2c2659e117a8b9437c4f74c8fd1a8d3b870f20b6a7026777e0",
+      "bytes": 4507
     },
     {
       "path": "skills/bazi/scripts/calculate.js",
@@ -484,13 +489,13 @@
     },
     {
       "path": "skills/bazi/templates/report.md",
-      "sha256": "e40ca55c83635926460f3422229de893009563ac07bcd303457636546292d69e",
-      "bytes": 1731
+      "sha256": "d3fedf82682bed1d3bb159590850f6744e9f2eee2775f03a34f577135c5a326e",
+      "bytes": 1951
     },
     {
       "path": "skills/love-marriage/SKILL.md",
-      "sha256": "6d382353e523ca68e46310f20333ceb5fdaf2419de33a3d2beaeebeaa870cf10",
-      "bytes": 3954
+      "sha256": "ac8154b7b590fe67316500993e05ddb0d902cb12805f1955cb9bc1e48be1252f",
+      "bytes": 4258
     },
     {
       "path": "skills/love-marriage/__tests__/analyze.test.js",
@@ -499,8 +504,8 @@
     },
     {
       "path": "skills/love-marriage/lib/analyze.js",
-      "sha256": "b0f364682d7e251a129107a92f2679cce24323061f0b446e25a012f96bb9dbe7",
-      "bytes": 7700
+      "sha256": "59cce6f58a18cf192bcdff1f1d22ddeda9e8652eca32755659d337e9dce303ae",
+      "bytes": 7832
     },
     {
       "path": "skills/love-marriage/methodology.md",
@@ -569,8 +574,8 @@
     },
     {
       "path": "skills/wealth-career/SKILL.md",
-      "sha256": "924c98d818fbf7dc4ee440a2b91cd6d056b62e21b6a59cbe57e86f3c53540cc6",
-      "bytes": 3982
+      "sha256": "e75dd285973fef7f1acf4d283bfcced11e75d73973610210ebaff16bc0b9c167",
+      "bytes": 4286
     },
     {
       "path": "skills/wealth-career/__tests__/analyze.test.js",
@@ -579,8 +584,8 @@
     },
     {
       "path": "skills/wealth-career/lib/analyze.js",
-      "sha256": "7a597b7886e988091d5f0c15b0b47e2ccc18b757639b946a64aed689d4f54d8d",
-      "bytes": 17437
+      "sha256": "7e6ea14938016902a6f15bb7e0a809971646bcf36538f43673134c788ab713b1",
+      "bytes": 17569
     },
     {
       "path": "skills/wealth-career/lib/industry.js",

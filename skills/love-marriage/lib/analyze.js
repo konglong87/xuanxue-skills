@@ -208,7 +208,11 @@ function toStandardReport(result) {
   return standardReport({
     input: result.bazi.input,
     calculated: [result.marriageSignals, result.alternateMarriageSignals].filter(Boolean),
-    evidence: [...result.analysisContext.报告契约.evidenceRules],
+    evidence: [
+      ...result.analysisContext.报告契约.evidenceRules,
+      result.bazi.research?.一致性校验 || null,
+      ...(result.bazi.research?.证据包 || []),
+    ].filter(Boolean),
     interpretation: ['婚恋信号只形成互动倾向与现实核验假设。'],
     actions: ['结合真实互动记录核对期待、边界和沟通方式。'],
     boundaries: result.analysisContext.报告契约.disclaimer,

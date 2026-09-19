@@ -7,7 +7,7 @@ description: Use when the user supplies 出生资料 and an explicit 婚恋问�
 
 ## 核心边界
 
-先执行 `../bazi/scripts/calculate.js`（通过 `bazi` 公共编排）取得完整命盘，再调用 `../bazi/lib/analyze.js` 和 `core/ganzhi/domains.js` 的 `marriageSignals` 提取确定性关系信号；不重排四柱。报告中的四柱和时间校正只能逐字段引用 `bazi.calculation` / `bazi.alternateCalculation`，不得根据出生资料自行换算。脚本失败、返回非 `ready` 或缺少四柱字段时必须停止判读并报告错误。若 `alternateCalculation` 非空，必须对另一派命盘再次独立调用，禁止把两派的日主、配偶宫或关系拼接。
+默认走 `bazi` 的 `research` 研究流程：模型可以先提出换日、真太阳时和流派对照计划，再由 `../bazi/scripts/calculate.js`（通过 `bazi` 公共编排）执行并校验，随后调用 `../bazi/lib/analyze.js` 和 `core/ganzhi/domains.js` 的 `marriageSignals` 提取确定性关系信号；不重排四柱。报告中的四柱和时间校正只能逐字段引用 `bazi.calculation` / `bazi.alternateCalculation`，不得根据出生资料自行换算。脚本失败、返回非 `ready`、研究模式一致性校验失败或缺少四柱字段时必须停止判读并报告错误。若 `alternateCalculation` 非空，必须对另一派命盘再次独立调用，禁止把两派的日主、配偶宫或关系拼接。
 
 运行资源必须从已安装本技能 `SKILL.md` 的真实路径解析，再定位同一安装包内的 `../bazi/`、`../qimen/`、`../_shared/` 与仓库 `core/`；不得依赖当前工作目录或 shell 工作目录。任一共享资源不可达时停止判读，不退化为模型心算。
 
@@ -17,7 +17,7 @@ description: Use when the user supplies 出生资料 and an explicit 婚恋问�
 
 1. 一次性收齐 `bazi` 所需出生字段；目标年未给时沿用 `bazi` 技能边界注入并披露来源。
 2. 调用本技能 `lib/analyze.js`。`status: needs_input` 时原样展示全部补充问题并停止。
-3. `status: ready` 时分别引用 `marriageSignals` 与 `alternateMarriageSignals`，按 [methodology.md](methodology.md) 组织八字侧证据。
+3. `status: ready` 且 `bazi.analysisContext.研究模式.一致性校验.status` 为 `passed` 时，分别引用 `marriageSignals` 与 `alternateMarriageSignals`，按 [methodology.md](methodology.md) 组织八字侧证据；每个结论绑定 `bazi.analysisContext.研究模式.证据包` 中的来源。
 4. `qimenEnhancement.status: ready` 时追加盘面观察；`degraded` 时只展示错误清单和八字侧概览；`not_provided` 时照常交付八字侧概览。
 5. 严格按 [templates/report.md](templates/report.md) 输出，并原样渲染 `REPORT_CONTRACT.evidenceRules`、`REPORT_CONTRACT.redlines` 与 `REPORT_CONTRACT.disclaimer`。
 

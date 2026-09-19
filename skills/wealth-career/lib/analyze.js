@@ -446,7 +446,11 @@ function toStandardReport(result) {
   return standardReport({
     input: result.bazi.input,
     calculated: [result.wealthCareerSignals, result.alternateWealthCareerSignals].filter(Boolean),
-    evidence: [...result.analysisContext.报告契约.evidenceRules],
+    evidence: [
+      ...result.analysisContext.报告契约.evidenceRules,
+      result.bazi.research?.一致性校验 || null,
+      ...(result.bazi.research?.证据包 || []),
+    ].filter(Boolean),
     interpretation: ['事业与财运信号只形成待核验假设，不代表职位、收益或必然适职。'],
     actions: ['结合工作反馈、项目结果和收支记录逐项核验。'],
     boundaries: result.analysisContext.报告契约.disclaimer,
