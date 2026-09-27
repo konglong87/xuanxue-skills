@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <a href="https://github.com/konglong87/xuanxue-skills/tree/v0.3.0"><img alt="Version v0.3.0" src="https://img.shields.io/badge/version-v0.3.0-2563eb?style=flat-square"></a>
+  <a href="https://github.com/konglong87/xuanxue-skills/tree/v0.3.1"><img alt="Version v0.3.1" src="https://img.shields.io/badge/version-v0.3.1-2563eb?style=flat-square"></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-16a34a?style=flat-square"></a>
   <a href="package.json"><img alt="Node.js 18 or newer" src="https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white"></a>
   <img alt="Zero runtime dependencies" src="https://img.shields.io/badge/runtime_dependencies-0-7c3aed?style=flat-square">
@@ -146,7 +146,7 @@ claude --plugin-dir /absolute/path/to/xuanxue-skills
 
 | Agent | Status | Current evidence |
 |---|---|---|
-| `claude-code` | `verified` | All six skills were discovered; Bazi, relationships, career and wealth, and dual-domain routing passed real-model acceptance |
+| `claude-code` | `experimental` | Historical host evidence covers the original five skills; Zi Wei host discovery and invocation are not yet verified |
 | `codex` | `experimental` | Official paths and installer probes pass; the test machine's CLI exited abnormally before host discovery |
 | `cursor` | `experimental` | Installer lifecycle and runtime probe pass; real discovery was blocked by the test machine's authentication state |
 | `trae` | `experimental` | Path mapping and installer lifecycle pass; no Trae host was available on the test machine |

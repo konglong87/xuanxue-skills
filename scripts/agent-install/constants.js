@@ -1,13 +1,25 @@
 'use strict';
 
-const PUBLISHED_SKILLS = Object.freeze([
+const LEGACY_PUBLISHED_SKILLS = Object.freeze([
   'bazi',
   'palm',
   'qimen',
   'love-marriage',
   'wealth-career',
-  'ziwei',
 ]);
+
+const ZIWEI_RELEASE_SKILLS = Object.freeze([...LEGACY_PUBLISHED_SKILLS, 'ziwei']);
+const PUBLISHED_SKILLS = ZIWEI_RELEASE_SKILLS;
+
+// Explicit release history; 0.1.1 is retained for installer migration fixtures.
+const PUBLISHED_SKILLS_BY_VERSION = Object.freeze({
+  '0.1.0': LEGACY_PUBLISHED_SKILLS,
+  '0.1.1': LEGACY_PUBLISHED_SKILLS,
+  '0.2.0': LEGACY_PUBLISHED_SKILLS,
+  '0.2.1': LEGACY_PUBLISHED_SKILLS,
+  '0.3.0': ZIWEI_RELEASE_SKILLS,
+  '0.3.1': ZIWEI_RELEASE_SKILLS,
+});
 
 const TARGETS = Object.freeze([
   'claude-code',
@@ -56,6 +68,27 @@ const BAZI_PROBE_PILLARS = Object.freeze({
   时: '丁酉',
 });
 
+const ZIWEI_PROBE_INPUT = Object.freeze({
+  birthDate: '2024-02-10',
+  birthTime: '00:30',
+  longitude: 120,
+  utcOffsetMinutes: 480,
+  gender: 'male',
+  options: Object.freeze({ useTrueSolar: false }),
+});
+const ZIWEI_PROBE_EXPECTED = Object.freeze({
+  lunarMonth: 1,
+  lunarDay: 1,
+  timeBranch: '子',
+  yearPillar: '甲辰',
+  lifePalace: '寅',
+  bodyPalace: '寅',
+  lifePalaceStem: '丙',
+  fiveElementsClass: '火六局',
+  fiveElementsValue: 6,
+  useTrueSolar: false,
+});
+
 module.exports = {
   BAZI_PROBE_INPUT,
   BAZI_PROBE_PILLARS,
@@ -63,6 +96,7 @@ module.exports = {
   MANIFEST_SCHEMA_VERSION,
   INSTALL_LOCK_TIMEOUT_MS,
   PUBLISHED_SKILLS,
+  PUBLISHED_SKILLS_BY_VERSION,
   PROJECT_NAME,
   RUNTIME_ENTRIES,
   SCOPES,
@@ -70,4 +104,6 @@ module.exports = {
   SUPPORT_STATES,
   STALE_INSTALL_ARTIFACT_MS,
   TARGETS,
+  ZIWEI_PROBE_INPUT,
+  ZIWEI_PROBE_EXPECTED,
 };

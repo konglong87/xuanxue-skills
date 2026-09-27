@@ -193,17 +193,24 @@ function verifyPalm() {
 }
 
 function verifyZiwei() {
-  const { analyze } = require('../skills/ziwei/lib/analyze');
-  const result = analyze({
-    birthDate: '1990-01-01',
-    birthTime: '12:00',
-    longitude: 121.47,
-    utcOffsetMinutes: 480,
-    gender: 'male',
+  const script = path.join(ROOT, 'skills/ziwei/scripts/calculate.js');
+  const execution = spawnSync(process.execPath, [script], {
+    input: JSON.stringify({ birthDate: '2024-02-10', birthTime: '00:30', longitude: 120,
+      utcOffsetMinutes: 480, gender: 'male', options: { useTrueSolar: false } }),
+    encoding: 'utf8', cwd: path.dirname(ROOT), timeout: 10_000,
   });
+  check('ziwei', () => assert.equal(execution.status, 0));
+  check('ziwei', () => assert.equal(execution.stderr, ''));
+  const result = JSON.parse(execution.stdout);
+  const chart = result.supplement.calculation;
   check('ziwei', () => assert.equal(result.status, 'ready'));
-  check('ziwei', () => assert.equal(result.supplement.calculation.宫位.length, 12));
-  check('ziwei', () => assert.equal(result.supplement.calculation.安星.四化.length, 4));
+  check('ziwei', () => assert.deepEqual(chart.命身, { 命宫: '寅', 身宫: '寅', 命宫天干: '丙' }));
+  check('ziwei', () => assert.equal(chart.五行局.name, '火六局'));
+  check('ziwei', () => assert.equal(chart.宫位.length, 12));
+  check('ziwei', () => assert.equal(chart.宫位.flatMap(p => p.星曜).filter(s => s.四化).length, 4));
+  check('ziwei', () => assert.equal(chart.verification.status, 'passed'));
+  check('ziwei', () => assert.equal(result.supplement.verification.status, 'passed'));
+  check('ziwei', () => assert.equal(result.supplement.alternatives.length, 3));
   check('ziwei', () => assert.match(result.边界.join(''), /传统术数/));
 }
 

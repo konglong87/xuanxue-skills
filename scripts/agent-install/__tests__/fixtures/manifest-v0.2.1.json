@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "project": "xuanxue-skills",
+  "version": "0.2.1",
+  "target": "codex",
+  "scope": "user",
+  "repoRoot": ".xuanxue-skills/runtime/v0.2.1",
+  "links": [
+    { "skill": "bazi", "path": "bazi", "target": "skills/bazi" },
+    { "skill": "palm", "path": "palm", "target": "skills/palm" },
+    { "skill": "qimen", "path": "qimen", "target": "skills/qimen" },
+    { "skill": "love-marriage", "path": "love-marriage", "target": "skills/love-marriage" },
+    { "skill": "wealth-career", "path": "wealth-career", "target": "skills/wealth-career" }
+  ]
+}

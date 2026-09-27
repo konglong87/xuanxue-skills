@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "version": "0.3.0",
+  "version": "0.3.1",
   "files": [
     {
       "path": ".claude-plugin/marketplace.json",
-      "sha256": "b50c8487bc2faf4e3ceb2be93a3fdfa672a0c2e6644ad8aabecae7e6c7a2ff99",
+      "sha256": "4d4d058bf10874cb4649c098eda96bfe5ec878fafd96a6ebe1ec836c11d61eea",
       "bytes": 777
     },
     {
       "path": ".github/workflows/ci.yml",
-      "sha256": "ac8deb645928674db2f11de42cf6d2307a91dade433812e85f9f9995a43e054c",
-      "bytes": 854
+      "sha256": "b1b95ead931a21f379780f2f15481396e6b155242827f3b7fe30f2405ee7f95f",
+      "bytes": 889
     },
     {
       "path": ".gitignore",
@@ -24,23 +24,28 @@
     },
     {
       "path": "README.md",
-      "sha256": "c16fb917571d7b3fea186044f551ba26eda1e9b941c808a290dea03fb5279a71",
-      "bytes": 8976
+      "sha256": "5c02755fc6f91da9a328c89bff97c232c075d34163f943d5f596963ca1bac03b",
+      "bytes": 8996
     },
     {
       "path": "README_EN.md",
-      "sha256": "99881d25a495ce01b2d88e26ed65ee575be8d9db153899d1ef46f2c134014dcd",
-      "bytes": 9613
+      "sha256": "4366bc59b65a2dcddbd8131f86b8b56dd4f37f84f73b50708c3e850fabf8b4ac",
+      "bytes": 9608
     },
     {
       "path": "VERSION",
-      "sha256": "d915cc95d6ca8f47ae297713ed46d4e5c5d99ddd29fc3c61e263bdf305f2b5b0",
+      "sha256": "79e3f22ca37c7fdf4c29ae3648d6b008c3cb6547260a453409275470919dc674",
       "bytes": 6
     },
     {
       "path": "core/__tests__/index.test.js",
       "sha256": "b25c5f31805c21ded0fe2bebc52e16c43595cbca5b6ca6a6c102440abf004ecb",
       "bytes": 2213
+    },
+    {
+      "path": "core/_shared/objects.js",
+      "sha256": "3f65ea04d05857aa9c4c44d25e453d658cab13e0afac1a32f831c9e2a50d00e5",
+      "bytes": 552
     },
     {
       "path": "core/calendar/__tests__/bazi.test.js",
@@ -318,9 +323,24 @@
       "bytes": 4264
     },
     {
+      "path": "core/ziwei/__tests__/calendar.test.js",
+      "sha256": "e74a000e55e5c0f1464fe7cdf1f09c632fbdc5c3badc8afec5e6768d30944051",
+      "bytes": 4374
+    },
+    {
       "path": "core/ziwei/__tests__/chart.test.js",
-      "sha256": "43deb5ebfb9fffa509f8907bd19fcd2864b5ee309bce05c0a59c94c84a02160f",
+      "sha256": "8bdd526fc74c8f58a342c92082c0836fc8811857d613cf7ebbde661db3602d13",
       "bytes": 2941
+    },
+    {
+      "path": "core/ziwei/__tests__/fixtures/golden.json",
+      "sha256": "bc4704523c340d14d5a8bf98c70129242394a8546c232e0aff5dace4d0fa7e3a",
+      "bytes": 212544
+    },
+    {
+      "path": "core/ziwei/__tests__/golden.test.js",
+      "sha256": "02bd79e6636032c486cb265e86b1d0aeb98f5687985670b916122b909d170c69",
+      "bytes": 1375
     },
     {
       "path": "core/ziwei/__tests__/index.test.js",
@@ -328,24 +348,59 @@
       "bytes": 409
     },
     {
+      "path": "core/ziwei/__tests__/layering.test.js",
+      "sha256": "e483c188af523df5f46ea829a0e107d99dd85e510e49c20b44556008e63d0eb7",
+      "bytes": 860
+    },
+    {
+      "path": "core/ziwei/__tests__/regressions.test.js",
+      "sha256": "87196a075d27cbaa762982d31b56136248698739643027ebc17f213bcbe0e8f5",
+      "bytes": 1796
+    },
+    {
+      "path": "core/ziwei/birth-input.js",
+      "sha256": "76c1307e4bca14184f56fafba782a82f4a9452a63f517f53b2584c40d7decde5",
+      "bytes": 2879
+    },
+    {
+      "path": "core/ziwei/calendar.js",
+      "sha256": "2c5f4ecbd40f521adc4e7744a9900d2a0c56aef49f107c680125bca0e7f4c7a1",
+      "bytes": 3733
+    },
+    {
       "path": "core/ziwei/chart.js",
-      "sha256": "18bbf80fe8040c643b33c93372a126224f50c600f3b5843072bc375620e63f11",
-      "bytes": 9419
+      "sha256": "74f82e73af7899754edd776a9dd475dfdb6e4599948d6f7b8d1b89df03b434c6",
+      "bytes": 8101
     },
     {
       "path": "core/ziwei/constants.js",
-      "sha256": "d5979dcb95b4edf8e606772954d6112eec392473da29e2cadde15e54ea602413",
-      "bytes": 2955
+      "sha256": "6b3cc2c86d7a9dbd77e9927865dd5204ee08c51366af070acc6d4061b38f9218",
+      "bytes": 3307
     },
     {
       "path": "core/ziwei/index.js",
-      "sha256": "692e1bd53d0940e868321c9c4281899cd3056f8f38718dacb750861a652eca9a",
-      "bytes": 239
+      "sha256": "adffc13c31c47ad834e0ec46ce2bb0e27cd0628226145e0fa07799d7221684d4",
+      "bytes": 335
+    },
+    {
+      "path": "core/ziwei/input.js",
+      "sha256": "5161542d7ec64e3cdef69930f4af2cd33c3e2bfdc59c16c4812bafafab03f2dc",
+      "bytes": 1587
+    },
+    {
+      "path": "core/ziwei/policy.js",
+      "sha256": "56b7d16be29cae200b7662f911bbae8596bc96ecf4654b13a2a318bdc643f8f7",
+      "bytes": 1730
+    },
+    {
+      "path": "core/ziwei/verify.js",
+      "sha256": "46e4a3efdeaaf572cbb157542e48c05963642ee20eeeac708e68c142be27d72d",
+      "bytes": 3457
     },
     {
       "path": "docs/ROADMAP.md",
-      "sha256": "2f4e330bfe183cc79dc6a58db9ef9471f86e98c2511b3711bd240c220831f3d2",
-      "bytes": 32725
+      "sha256": "8b4a3a21729abb5d154133f62265652123a81ef0461cc765a9ee323070b00473",
+      "bytes": 32238
     },
     {
       "path": "docs/SKILL-CONTRACTS.md",
@@ -354,18 +409,28 @@
     },
     {
       "path": "docs/SKILL-TAXONOMY.md",
-      "sha256": "2103c0c66aa1c9e40b3ece7d6302e8d4c778e82e4df3759176d583608aec5d29",
-      "bytes": 11612
+      "sha256": "1c6d04fe5d724ca492ebe99aeabc15d82801e1df8f8406b33baeac45ed096d22",
+      "bytes": 10608
     },
     {
       "path": "docs/TEST-CASES.md",
-      "sha256": "e9fde6304e90cc1343ae118dba5daa3e1f9e2a95d6c5a383b10b14ff89aca465",
-      "bytes": 11899
+      "sha256": "359eb10ed4cca63223106662161b70cd11d6459023c8fd0705d5376af57a9d08",
+      "bytes": 12230
+    },
+    {
+      "path": "docs/ZIWEI-REVIEW.md",
+      "sha256": "f8d4b64155ffdbc1fffe18304d59bf091949dd30f730d3bbeab6fb2e98f25c83",
+      "bytes": 4454
     },
     {
       "path": "docs/agent-compatibility.json",
-      "sha256": "3ee9c4454ef67a5d30af08f9040cf94ab147364061b7183f12105664eab401ce",
-      "bytes": 5806
+      "sha256": "4c3e0c05ae2608c55dc715fd15d2083a09bddee7f8eeb778b21f674fd12e4992",
+      "bytes": 6136
+    },
+    {
+      "path": "docs/plans/ziwei-review.md",
+      "sha256": "fce8a9ea1b3b4130473107d9909433e36ead5de558535a05af4c8d679ef21901",
+      "bytes": 1792
     },
     {
       "path": "jest.config.js",
@@ -374,23 +439,33 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "2c24b091ec2d4f62ee16016110d3c9936fbb39cf74a84b21796d2a6e4d6189e6",
+      "sha256": "f1cf2be6b1e3d6b7a7baf445c146d5f0ea6ce1e5f02ea673e11141f2078e6144",
       "bytes": 161627
     },
     {
       "path": "package.json",
-      "sha256": "c1c1f9e8b030697ab7d89e8abc7433948dadb8d22b42dbc894cb87685e5292e5",
+      "sha256": "de179d026949508d7aa83358db20f7f384e538f278c0c930b8124679441c57d2",
       "bytes": 882
     },
     {
       "path": "plugin.json",
-      "sha256": "cd0158ecfd369dd601bb60329d6307763fe9275f66f9d0366c03c0b275a0a7bf",
+      "sha256": "85452f4708fcb6dd3cf1b301aa9cfa99dc1fbda995fff2e41afe22f08832e0a6",
       "bytes": 1171
     },
     {
+      "path": "scripts/agent-install/__tests__/fixtures/legacy-install.js",
+      "sha256": "1becb72b9d3b3fb89ffd561939ba506d3793b01ffd25febd4b749662435fd300",
+      "bytes": 2704
+    },
+    {
+      "path": "scripts/agent-install/__tests__/fixtures/manifest-v0.2.1.json",
+      "sha256": "734a10b56eb6727c2ae5a2a7ac090b82607ece6ba3395d52e55f4fc0ca279651",
+      "bytes": 570
+    },
+    {
       "path": "scripts/agent-install/__tests__/install.test.js",
-      "sha256": "c30bd32b2a965df5f100a3815177b2900af64670d53cdd5ae7709795778e778d",
-      "bytes": 7098
+      "sha256": "4111511097d90615a4ee99c423aba7e4aa0d07b47614bef0c81b45a14fa4e1a1",
+      "bytes": 7103
     },
     {
       "path": "scripts/agent-install/__tests__/lifecycle.test.js",
@@ -398,9 +473,24 @@
       "bytes": 7594
     },
     {
+      "path": "scripts/agent-install/__tests__/manifest.test.js",
+      "sha256": "66bed01ba584ff9d021adb6b03ad87591873a841eda0cda79d7b536ae909cef5",
+      "bytes": 3639
+    },
+    {
       "path": "scripts/agent-install/__tests__/paths.test.js",
       "sha256": "7694b56d56d976098ae66e8c2413cc6c9e0c6f2f36d03b843fac988d8d010a6e",
       "bytes": 4052
+    },
+    {
+      "path": "scripts/agent-install/__tests__/upgrade.test.js",
+      "sha256": "3117ab7be589a62b95b1eb1cc355bc6a3f9d4d1086ee615333ddedcc04b50419",
+      "bytes": 11704
+    },
+    {
+      "path": "scripts/agent-install/__tests__/verify.test.js",
+      "sha256": "62c44bb38e2594dcbd491b9d844a286541138a7b34d4f53027cdb4c190e2b33f",
+      "bytes": 4633
     },
     {
       "path": "scripts/agent-install/cli.js",
@@ -409,18 +499,18 @@
     },
     {
       "path": "scripts/agent-install/constants.js",
-      "sha256": "7d7885dcff4d62abf8c8fb9fece2d3b0979cd3a6594e84c4f145639de0ef4ba8",
-      "bytes": 1797
+      "sha256": "7d6e28b26050ed67d6204aa7ff9b96e96cae25c49c18f4113c1b2e8029234e70",
+      "bytes": 2830
     },
     {
       "path": "scripts/agent-install/install.js",
-      "sha256": "a72b700cde5b2483334ec372e3b182e189574a36fba9485dd1c289c429e98698",
-      "bytes": 8496
+      "sha256": "4e902bff96382593dee11ba4827dfe4058bc433ae9adb6382972c5b699338009",
+      "bytes": 9382
     },
     {
       "path": "scripts/agent-install/manifest.js",
-      "sha256": "c3638f66f880e19bcf7638280cf9f8294a19e2e495c1690220a74a4ff4d7c4d8",
-      "bytes": 4500
+      "sha256": "d1ba0b1fe7152163c7eabd1b768b4e231f677a2530aa1061ac093472c750d8f8",
+      "bytes": 5167
     },
     {
       "path": "scripts/agent-install/paths.js",
@@ -434,8 +524,8 @@
     },
     {
       "path": "scripts/agent-install/verify.js",
-      "sha256": "7712e0cf21a3f16ffa1bf6e6dd102e2f9440c6174be61798624e2439c8898bca",
-      "bytes": 2967
+      "sha256": "e4dcf2108391b1d88364d01708c12a89dabbbee830c5f97961df986126057314",
+      "bytes": 4553
     },
     {
       "path": "scripts/build-public-tree.js",
@@ -444,8 +534,8 @@
     },
     {
       "path": "scripts/e2e-smoke.js",
-      "sha256": "fdc75b5a5e0a1f3519e8ea8b696b7dc711ea289a173169520700eb0637a251a7",
-      "bytes": 9814
+      "sha256": "cfd33b543a4e7e62b6854d19f77c04d2b31fb7b9e1d7c4f5ab51165b537af3e4",
+      "bytes": 10597
     },
     {
       "path": "scripts/gen-bazigo-golden.md",
@@ -458,14 +548,24 @@
       "bytes": 3410
     },
     {
+      "path": "scripts/gen-ziwei-golden.js",
+      "sha256": "5b9cc42cb1c5e18bc02a6262ea9b95d4fe80c0638c5d9c5f1707a44089ea8d7b",
+      "bytes": 3051
+    },
+    {
       "path": "skills/_shared/__tests__/safety.test.js",
       "sha256": "e3b5608c6f6e0eab76b5b71d807a9ef82206342941fbb48401e2f3f06c5bdd0b",
       "bytes": 4716
     },
     {
+      "path": "skills/_shared/json-cli.js",
+      "sha256": "2a23dc0e8c040a9a07f175666bc9756d4f72df04fcc32228b88d39bb74e65bdf",
+      "bytes": 755
+    },
+    {
       "path": "skills/_shared/lib/objects.js",
-      "sha256": "3f65ea04d05857aa9c4c44d25e453d658cab13e0afac1a32f831c9e2a50d00e5",
-      "bytes": 552
+      "sha256": "aabd870ca69efaac5e03630cf0a4d6a78c06206a710124f7dbe94c9761c22805",
+      "bytes": 151
     },
     {
       "path": "skills/_shared/report.js",
@@ -629,8 +729,8 @@
     },
     {
       "path": "skills/ziwei/SKILL.md",
-      "sha256": "f16e9496531b9f0f018892ce4789c7308dec94f0d568ddcb2c901b2ff73bd9c6",
-      "bytes": 2797
+      "sha256": "c07e9b68a08372631aae242963225c514342830ac2b884eed01489d7bc63641d",
+      "bytes": 3460
     },
     {
       "path": "skills/ziwei/__tests__/analyze.test.js",
@@ -638,24 +738,29 @@
       "bytes": 1474
     },
     {
+      "path": "skills/ziwei/__tests__/input-cli.test.js",
+      "sha256": "b3f54cb773e11a873a0456d04bcd7d6f6c610f9530f3f1e6bb0349ccbf45ac51",
+      "bytes": 3279
+    },
+    {
       "path": "skills/ziwei/lib/analyze.js",
-      "sha256": "206cdc397e2ad041575cbd8238a44946fdcf2dc0c1a59ef2534475573587fc0d",
-      "bytes": 6618
+      "sha256": "24628806d8e28c9889ec1ddc6a3149757098b9b3c28fe9e5fc27b71590a5b229",
+      "bytes": 4598
     },
     {
       "path": "skills/ziwei/methodology.md",
-      "sha256": "fd43560c7ed473dc43733ccca65734bd62d38fbd8d661cc22be8de2d812d1fe7",
-      "bytes": 1283
+      "sha256": "b88315a8eeac87c25698782c7978b0ae1390012240cdfbe411bc690fdb49024c",
+      "bytes": 2555
     },
     {
       "path": "skills/ziwei/scripts/calculate.js",
-      "sha256": "f7d2b08c922bad9de29b9f7873bc4d58c4e16546763b52654fafcc4e39097a2c",
-      "bytes": 368
+      "sha256": "06dc93e02a0f301ee65749abe23dd75802f03576289046ccbaf4a0f133c59586",
+      "bytes": 136
     },
     {
       "path": "skills/ziwei/templates/report.md",
-      "sha256": "79ead962980a90e7f3214e08818af8cc1ef02aea5299414b429d7caa39faaa54",
-      "bytes": 458
+      "sha256": "8ece68a96f408b8cc0c9ae7eb2d7f3546e7708204186f204a2cf3d7a6143a019",
+      "bytes": 784
     },
     {
       "path": "tests/contracts/bazi.test.js",
@@ -684,8 +789,8 @@
     },
     {
       "path": "tests/e2e-smoke.test.js",
-      "sha256": "379355ae12e85d6e3add14ea325817e0c2cb37602aa7a78ad0a1671890d14cde",
-      "bytes": 3214
+      "sha256": "e8e2426a3058832ea68cfb2ee54d268fd0d5980ff3b0d79f2ef589884c5f59d7",
+      "bytes": 3155
     },
     {
       "path": "tests/fixtures/celebrity-bazi.json",

@@ -1,6 +1,8 @@
 'use strict';
 
-const { DIZHI, TIANGAN } = require('../ganzhi/constants');
+const ganzhi = require('../ganzhi/constants');
+const DIZHI = Object.freeze([...ganzhi.DIZHI]);
+const TIANGAN = Object.freeze([...ganzhi.TIANGAN]);
 
 const BRANCH_ORDER = Object.freeze(['寅', '卯', '辰', '巳', '午', '未', '申', '酉', '戌', '亥', '子', '丑']);
 const PALACE_NAMES = Object.freeze([
@@ -11,6 +13,9 @@ const MAIN_STARS = Object.freeze([
   '紫微', '天机', '太阳', '武曲', '天同', '廉贞', '天府', '太阴',
   '贪狼', '巨门', '天相', '天梁', '七杀', '破军',
 ]);
+const AUXILIARY_STARS = Object.freeze(['禄存', '擎羊', '陀罗', '天马', '文昌', '文曲', '左辅', '右弼']);
+const ALL_STARS = Object.freeze([...MAIN_STARS, ...AUXILIARY_STARS]);
+const DECADE_YEARS = 10;
 const STAR_SYSTEM = Object.freeze({
   紫微系: Object.freeze(['紫微', '天机', null, '太阳', '武曲', '天同', null, null, '廉贞']),
   天府系: Object.freeze(['天府', '太阴', '贪狼', '巨门', '天相', '天梁', '七杀', null, null, null, '破军']),
@@ -45,6 +50,9 @@ const FIVE_ELEMENTS_CLASSES = Object.freeze({
 const YANG_STEMS = Object.freeze(['甲', '丙', '戊', '庚', '壬']);
 
 module.exports = {
+  ALL_STARS,
+  AUXILIARY_STARS,
+  DECADE_YEARS,
   BRANCH_ORDER,
   DIZHI,
   FIVE_ELEMENTS_CLASSES,

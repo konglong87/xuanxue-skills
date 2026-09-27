@@ -15,8 +15,8 @@ describe('紫微斗数基础排盘内核', () => {
   test('按命身、五行局、主星和十二宫输出稳定结构', () => {
     const chart = ziweiChart(INPUT);
 
-    expect(chart.命身).toEqual(expect.objectContaining({ 命宫: '辰', 身宫: '子', 命宫天干: '戊' }));
-    expect(chart.五行局).toEqual(expect.objectContaining({ name: '木三局', value: 3 }));
+    expect(chart.命身).toEqual(expect.objectContaining({ 命宫: '寅', 身宫: '寅', 命宫天干: '丙' }));
+    expect(chart.五行局).toEqual(expect.objectContaining({ name: '火六局', value: 6 }));
     expect(chart.宫位).toHaveLength(12);
     expect(chart.宫位.filter(palace => palace.命宫)).toHaveLength(1);
     expect(chart.宫位.filter(palace => palace.身宫)).toHaveLength(1);
@@ -28,7 +28,7 @@ describe('紫微斗数基础排盘内核', () => {
       '紫微', '天机', '太阳', '武曲', '天同', '廉贞', '天府', '太阴',
       '贪狼', '巨门', '天相', '天梁', '七杀', '破军', '禄存', '擎羊', '陀罗', '天马',
     ]));
-    expect(new Set(stars).size).toBe(18);
+    expect(new Set(stars).size).toBe(22);
   });
 
   test('四化随生年天干挂到对应星曜，并保留流派提示', () => {
@@ -49,7 +49,7 @@ describe('紫微斗数基础排盘内核', () => {
   test('五行局取数和格式化输出可独立复用', () => {
     expect(fiveElementsClass('丙', '子')).toEqual(expect.objectContaining({ name: '水二局' }));
     expect(fiveElementsClass('庚', '申')).toEqual(expect.objectContaining({ name: '木三局' }));
-    expect(format(ziweiChart(INPUT))).toMatch(/命宫：戊辰[\s\S]*十二宫：/);
+    expect(format(ziweiChart(INPUT))).toMatch(/命宫：丙寅[\s\S]*十二宫：/);
   });
 
   test('结果深冻结，避免宿主修改计算证据', () => {

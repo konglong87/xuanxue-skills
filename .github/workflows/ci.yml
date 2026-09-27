@@ -42,4 +42,5 @@ jobs:
           git archive HEAD | tar -x -C "$archive_dir"
           cd "$archive_dir"
           npm ci
-          npm run test:ci
+          npm test -- --runInBand
+          npm run test:e2e

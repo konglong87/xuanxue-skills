@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <a href="https://github.com/konglong87/xuanxue-skills/tree/v0.3.0"><img alt="Version v0.3.0" src="https://img.shields.io/badge/version-v0.3.0-2563eb?style=flat-square"></a>
+  <a href="https://github.com/konglong87/xuanxue-skills/tree/v0.3.1"><img alt="Version v0.3.1" src="https://img.shields.io/badge/version-v0.3.1-2563eb?style=flat-square"></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-16a34a?style=flat-square"></a>
   <a href="package.json"><img alt="Node.js 18 or newer" src="https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white"></a>
   <img alt="Zero runtime dependencies" src="https://img.shields.io/badge/runtime_dependencies-0-7c3aed?style=flat-square">
@@ -82,7 +82,7 @@
 | `love-marriage` 婚恋情感 | 已开放 | 分析倾向和相处模式，不断言必婚、必离或他人的隐私事实 |
 | `wealth-career` 事业财运 | 已开放 | 分析方向、节奏和风险，不保证收益，不替代投资或职业建议 |
 | `palm` 手相 | 已开放 | 宿主 Agent 负责多模态观察（看图），代码负责验证观察结构；结论必须对应照片中的实际特征 |
-| `ziwei` 紫微斗数 | 已开放 | 代码生成命宫、身宫、五行局、十四主星、四化和大限骨架；保留流派差异 |
+| `ziwei` 紫微斗数 | 已开放 | 基础排盘与CLI已验证；年界/日界有完整对照盘；闰月、四化仅支持声明口径，宿主验收待完成 |
 | `qimen` 外部奇门局盘 | 已开放 | 只判读可信外部 APP 已起好的局盘，当前不自行起局 |
 | `face-reading` 面相 | 规划中，暂不开放 | **因人脸隐私暂不开放** |
 | `fengshui-naqi` 风水纳气 | future | 计算内核已有部分能力，完整用户技能尚未开放 |
@@ -145,7 +145,7 @@ claude --plugin-dir /absolute/path/to/xuanxue-skills
 
 | Agent | 状态 | 当前证据 |
 |---|---|---|
-| `claude-code` | `verified` | 已发现六个技能；八字、婚恋、事业财运和双领域路由通过真实模型验收 |
+| `claude-code` | `experimental` | 原五技能有历史宿主证据；新增紫微尚未完成宿主发现与真实调用 |
 | `codex` | `experimental` | 官方路径和安装器探针通过；当前测试机的 CLI 异常退出，未完成宿主发现 |
 | `cursor` | `experimental` | 安装生命周期和运行探针通过；真实发现受测试机登录状态阻塞 |
 | `trae` | `experimental` | 路径映射和安装生命周期通过；当前没有可用的 Trae 真机 |
@@ -164,7 +164,7 @@ core/calendar -> core/ziwei -> skills/ziwei
 host vision -> skills/palm contract
 ```
 
-`core/` 不依赖 skills。六个宿主共享同一份计算内核和运行时，运行时零外部依赖；内联的 `lunar-javascript` 保留 MIT 许可证与来源。
+`core/` 不依赖 skills。五个宿主共享同一份计算内核和运行时，运行时零外部依赖；内联的 `lunar-javascript` 保留 MIT 许可证与来源。
 
 开发验证：
 

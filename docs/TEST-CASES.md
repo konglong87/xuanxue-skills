@@ -102,3 +102,8 @@ DISCOVERED=bazi,love-marriage,palm,qimen,wealth-career; STATUS=ready; PILLARS=�
 本轮先用三个可靠出生资料案例复算：Barack Obama 得到 `辛丑 / 乙未 / 己巳 / 癸酉`，Steve Jobs 得到 `乙未 / 戊寅 / 丙辰 / 丁酉`，Albert Einstein 得到 `己卯 / 丁卯 / 丙申 / 甲午`；三例均返回 `ready`、研究模式和 `一致性校验.status: passed`。`2000-01-01 23:30` 边界案例得到主派日柱 `己未`、另一派日柱 `戊午`；非法日期和试图关闭一致性校验的研究计划均被拒绝。
 
 随后从当前工作区生成隔离插件副本，调用本机 Claude Router 做真实端到端验收。结构化验收返回 `researchMode=research`、`verificationStatus=passed`、Steve Jobs 四柱 `乙未/戊寅/丙辰/丁酉`、四个证据 ID 和空错误列表；短报告验收也未复现历史上的 `戊戌` 时柱错误，并保留现实核验建议与免责声明。离线回归为 `47 suites / 798 tests`，E2E smoke 为 `56/56`。
+
+
+## 紫微修复与独立对照（v0.3.1）
+
+见 [修复验收记录](ZIWEI-REVIEW.md)。黄金fixture位于 `core/ziwei/__tests__/fixtures/golden.json`，固定计算器版本和口径，测试时完全离线。新增升级回归不依赖Git历史。原先五技能的历史宿主验证不代表新增紫微已获宿主验证。

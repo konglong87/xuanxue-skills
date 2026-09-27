@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "projectVersion": "0.3.0",
+  "projectVersion": "0.3.1",
   "currentSkills": [
     "bazi",
     "palm",
@@ -17,7 +17,7 @@
   "hosts": [
     {
       "id": "claude-code",
-      "status": "verified",
+      "status": "experimental",
       "installRoots": {
         "user": "~/.claude/skills",
         "project": ".claude/skills"
@@ -30,7 +30,7 @@
           "type": "install",
           "status": "passed",
           "checkedAt": "2026-08-12",
-          "detail": "npx 安装器在 user/project 两种隔离范围完成完整运行时、六个入口、固定八字探针及卸载生命周期。"
+          "detail": "npx 安装器在 user/project 两种隔离范围完成完整运行时、五个入口、固定八字探针及卸载生命周期。"
         },
         {
           "type": "discovery",
@@ -43,6 +43,12 @@
           "status": "passed",
           "checkedAt": "2026-08-12",
           "detail": "ccsd 真机从安装后的 bazi 脚本返回 ready 与乙未、戊寅、丙辰、丁酉；同日独立归档验收已覆盖婚恋、事业财运和修复后的双领域路由。"
+        },
+        {
+          "type": "limitation",
+          "status": "not-run",
+          "checkedAt": "2026-09-28",
+          "detail": "历史通过记录只涵盖原五技能；新增 ziwei 尚无宿主内发现和真实调用证据，当前六技能整体标 experimental。离线计算或截图不是宿主验收。"
         }
       ]
     },

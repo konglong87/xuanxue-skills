@@ -6,12 +6,13 @@ const {
   INSTALL_LOCK_TIMEOUT_MS,
   MANIFEST_SCHEMA_VERSION,
   PROJECT_NAME,
-  PUBLISHED_SKILLS,
   RUNTIME_ENTRIES,
   STALE_INSTALL_ARTIFACT_MS,
 } = require('./constants');
 const {
+  assertManifestInstallation,
   listManifestRecords,
+  publishedSkillsForVersion,
   manifestPath,
   readManifest,
   writeManifestAtomic,
@@ -28,12 +29,12 @@ function exists(pathname) {
   }
 }
 
-function assertSourceRoot(sourceRoot) {
+function assertSourceRoot(sourceRoot, skills) {
   if (!path.isAbsolute(sourceRoot)) throw new Error('sourceRoot 必须是绝对路径');
   RUNTIME_ENTRIES.forEach(entry => {
     if (!exists(path.join(sourceRoot, entry))) throw new Error(`运行时源缺少 ${entry}`);
   });
-  PUBLISHED_SKILLS.forEach(skill => {
+  skills.forEach(skill => {
     if (!exists(path.join(sourceRoot, 'skills', skill, 'SKILL.md'))) {
       throw new Error(`运行时源缺少 skill: ${skill}`);
     }
@@ -169,8 +170,8 @@ function createDirectoryLink(target, linkPath) {
   fs.symlinkSync(target, linkPath, directoryLinkType());
 }
 
-function expectedLinks(skillsRoot, runtimeRoot) {
-  return PUBLISHED_SKILLS.map(skill => ({
+function expectedLinks(skillsRoot, runtimeRoot, skills) {
+  return skills.map(skill => ({
     skill,
     path: path.join(skillsRoot, skill),
     target: path.join(runtimeRoot, 'skills', skill),
@@ -188,32 +189,21 @@ function sameInstallation(manifest, expected) {
     });
 }
 
-function existingManifest(filePath) {
+function existingManifest(filePath, options) {
   if (!exists(filePath)) return null;
-  return readManifest(filePath);
+  return assertManifestInstallation(readManifest(filePath), options);
 }
 
-function ownedDestination(link, owned) {
-  if (!owned) return null;
-  const stored = owned.links.find(candidate => candidate.path === link.path);
-  if (!stored || !linkPointsTo(stored.path, stored.target)) return null;
-  return stored;
+function ownedDestination(link, owners) {
+  return owners.flatMap(owner => owner.links).find(stored => (
+    stored.path === link.path && linkPointsTo(stored.path, stored.target)
+  )) || null;
 }
 
-function sharedDestination(link, records) {
-  return records
-    .flatMap(record => record.manifest.links)
-    .find(stored => (
-      stored.path === link.path
-      && stored.target === link.target
-      && linkPointsTo(stored.path, stored.target)
-    )) || null;
-}
-
-function assertDestinationsAvailable(links, owned, records) {
+function assertDestinationsAvailable(links, owners) {
   links.forEach(link => {
     if (!exists(link.path)) return;
-    if (!ownedDestination(link, owned) && !sharedDestination(link, records)) {
+    if (!ownedDestination(link, owners)) {
       throw new Error(`不会覆盖非本项目拥有的路径: ${link.path}`);
     }
   });
@@ -229,18 +219,30 @@ function installSkills(options) {
     lockTimeoutMs,
     staleArtifactMs,
   } = options;
-  assertSourceRoot(sourceRoot);
+  const skills = publishedSkillsForVersion(version);
+  assertSourceRoot(sourceRoot, skills);
   const runtimeRoot = resolveRuntimeRoot(options);
   const skillsRoot = resolveSkillsRoot(options);
   const filePath = manifestPath(options);
-  const links = expectedLinks(skillsRoot, runtimeRoot);
-  const owned = existingManifest(filePath);
+  const links = expectedLinks(skillsRoot, runtimeRoot, skills);
+  const owned = existingManifest(filePath, options);
   const records = listManifestRecords(options).filter(record => record.filePath !== filePath);
 
-  if (owned && owned.version === version && owned.repoRoot === runtimeRoot && sameInstallation(owned, links)) {
+  const sharedOwners = records.filter(record => (
+    resolveSkillsRoot({ ...options, target: record.manifest.target }) === skillsRoot
+  ));
+  if (owned && owned.version === version && owned.repoRoot === runtimeRoot
+      && sameInstallation(owned, links)
+      && sharedOwners.every(record => record.manifest.version === version
+        && sameInstallation(record.manifest, links))) {
     return { status: 'already-installed', ...owned, runtimeRoot };
   }
-  assertDestinationsAvailable(links, owned, records);
+  const owners = [owned, ...sharedOwners.map(record => record.manifest)].filter(Boolean);
+  // Never downgrade an owner by silently dropping its additional skills.
+  if (owners.some(owner => owner.links.some(link => !skills.includes(link.skill)))) {
+    throw new Error('不会移除已有或共享 owner 的技能');
+  }
+  assertDestinationsAvailable(links, owners);
 
   const manifest = {
     schemaVersion: MANIFEST_SCHEMA_VERSION,
@@ -251,6 +253,14 @@ function installSkills(options) {
     repoRoot: runtimeRoot,
     links,
   };
+  const updates = [
+    ...sharedOwners.map(record => ({
+      ...record,
+      next: { ...manifest, target: record.manifest.target },
+    })),
+    { filePath, manifest: owned, next: manifest },
+  ];
+  const committed = [];
   const createdLinks = [];
   const replacedLinks = [];
   try {
@@ -258,7 +268,7 @@ function installSkills(options) {
     fs.mkdirSync(skillsRoot, { recursive: true });
     links.forEach(link => {
       if (sameLink(link)) return;
-      const previous = ownedDestination(link, owned);
+      const previous = ownedDestination(link, owners);
       if (previous) {
         fs.rmSync(link.path);
         replacedLinks.push(previous);
@@ -267,14 +277,21 @@ function installSkills(options) {
       createdLinks.push(link.path);
       if (onLinkCreated) onLinkCreated(link);
     });
-    writeManifestAtomic(filePath, manifest);
-    cleanupOldRuntimes(options, runtimeRoot);
+    updates.forEach(update => {
+      writeManifestAtomic(update.filePath, update.next);
+      committed.push(update);
+    });
   } catch (error) {
+    committed.reverse().forEach(update => {
+      if (update.manifest) writeManifestAtomic(update.filePath, update.manifest);
+      else fs.rmSync(update.filePath, { force: true });
+    });
     createdLinks.reverse().forEach(linkPath => fs.rmSync(linkPath, { force: true }));
     replacedLinks.reverse().forEach(link => createDirectoryLink(link.target, link.path));
     throw error;
   }
 
+  cleanupOldRuntimes(options, runtimeRoot);
   return { status: 'installed', ...manifest, runtimeRoot };
 }
 

@@ -5,7 +5,7 @@ const path = require('path');
 const {
   MANIFEST_SCHEMA_VERSION,
   PROJECT_NAME,
-  PUBLISHED_SKILLS,
+  PUBLISHED_SKILLS_BY_VERSION,
   SCOPES,
   TARGETS,
 } = require('./constants');
@@ -29,9 +29,17 @@ function manifestPath(options) {
   );
 }
 
-function validateLink(link) {
+function publishedSkillsForVersion(version) {
+  if (typeof version !== 'string'
+      || !Object.prototype.hasOwnProperty.call(PUBLISHED_SKILLS_BY_VERSION, version)) {
+    throw new Error(`manifest version 不受支持: ${version}`);
+  }
+  return PUBLISHED_SKILLS_BY_VERSION[version];
+}
+
+function validateLink(link, skills) {
   if (!link || typeof link !== 'object') throw new Error('manifest link 必须是对象');
-  if (!PUBLISHED_SKILLS.includes(link.skill)) throw new Error(`manifest skill 无效: ${link.skill}`);
+  if (!skills.includes(link.skill)) throw new Error(`manifest skill 无效: ${link.skill}`);
   if (!path.isAbsolute(link.path)) throw new Error('manifest link path 必须是绝对路径');
   if (!path.isAbsolute(link.target)) throw new Error('manifest link target 必须是绝对路径');
 }
@@ -43,14 +51,15 @@ function validateManifest(value) {
   if (value.schemaVersion !== MANIFEST_SCHEMA_VERSION) throw new Error('manifest schemaVersion 不受支持');
   if (value.project !== PROJECT_NAME) throw new Error('manifest project 不匹配');
   if (typeof value.version !== 'string' || value.version.length === 0) throw new Error('manifest version 无效');
+  const skills = publishedSkillsForVersion(value.version);
   if (!TARGETS.includes(value.target)) throw new Error('manifest target 无效');
   if (!SCOPES.includes(value.scope)) throw new Error('manifest scope 无效');
   if (!path.isAbsolute(value.repoRoot)) throw new Error('manifest repoRoot 必须是绝对路径');
-  if (!Array.isArray(value.links) || value.links.length !== PUBLISHED_SKILLS.length) {
-    throw new Error(`manifest 必须记录 ${PUBLISHED_SKILLS.length} 个链接`);
+  if (!Array.isArray(value.links) || value.links.length !== skills.length) {
+    throw new Error(`manifest 必须记录 ${skills.length} 个链接`);
   }
-  value.links.forEach(validateLink);
-  if (new Set(value.links.map(link => link.skill)).size !== PUBLISHED_SKILLS.length) {
+  value.links.forEach(link => validateLink(link, skills));
+  if (new Set(value.links.map(link => link.skill)).size !== skills.length) {
     throw new Error('manifest skill 不得重复');
   }
   return value;
@@ -64,7 +73,7 @@ function assertManifestInstallation(manifest, options) {
 
   const runtimeRoot = resolveRuntimeRoot({ ...options, version: manifest.version });
   const skillsRoot = resolveSkillsRoot(options);
-  const expected = new Map(PUBLISHED_SKILLS.map(skill => [skill, {
+  const expected = new Map(publishedSkillsForVersion(manifest.version).map(skill => [skill, {
     path: path.join(skillsRoot, skill),
     target: path.join(runtimeRoot, 'skills', skill),
   }]));
@@ -83,18 +92,22 @@ function readManifest(filePath) {
 
 function listManifestRecords(options) {
   const directory = path.join(installStateRoot(options), 'manifests');
+  let names;
   try {
-    return fs.readdirSync(directory)
-      .filter(name => name.endsWith('.json'))
-      .sort()
-      .map(name => {
-        const filePath = path.join(directory, name);
-        return { filePath, manifest: readManifest(filePath) };
-      });
+    names = fs.readdirSync(directory);
   } catch (error) {
     if (error.code === 'ENOENT') return [];
     throw error;
   }
+  return names.filter(name => name.endsWith('.json')).sort().map(name => {
+    const filePath = path.join(directory, name);
+    const manifest = readManifest(filePath);
+    const ownerOptions = { ...options, target: manifest.target };
+    if (filePath !== manifestPath(ownerOptions)) {
+      throw new Error('manifest 文件名与 agent/scope 不匹配');
+    }
+    return { filePath, manifest: assertManifestInstallation(manifest, ownerOptions) };
+  });
 }
 
 function writeManifestAtomic(filePath, manifest) {
@@ -119,6 +132,7 @@ module.exports = {
   listManifestRecords,
   manifestPath,
   readManifest,
+  publishedSkillsForVersion,
   validateManifest,
   writeManifestAtomic,
 };

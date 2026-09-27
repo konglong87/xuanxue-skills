@@ -110,17 +110,17 @@ describe('owned multi-agent installation', () => {
 
   test('upgrades links that are still owned by the previous manifest', () => {
     const roots = temporaryRoots();
-    const original = installSkills(installOptions(roots));
-    const upgraded = installSkills(installOptions(roots, { version: '0.1.1' }));
+    const original = installSkills(installOptions(roots, { version: '0.2.1' }));
+    const upgraded = installSkills(installOptions(roots));
 
     expect(upgraded.status).toBe('installed');
-    expect(upgraded.version).toBe('0.1.1');
+    expect(upgraded.version).toBe(VERSION);
     upgraded.links.forEach(link => {
       expect(fs.realpathSync(link.path)).toBe(fs.realpathSync(link.target));
-      expect(link.target).toContain(`${path.sep}v0.1.1${path.sep}`);
+      expect(link.target).toContain(`${path.sep}v${VERSION}${path.sep}`);
     });
     expect(fs.existsSync(original.runtimeRoot)).toBe(false);
-    expect(readManifest(manifestPath(installOptions(roots))).version).toBe('0.1.1');
+    expect(readManifest(manifestPath(installOptions(roots))).version).toBe(VERSION);
 
     fs.rmSync(roots.base, { recursive: true, force: true });
   });
