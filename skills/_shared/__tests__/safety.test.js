@@ -96,6 +96,7 @@ describe('共用安全措辞', () => {
     expect(Object.isFrozen(safety.DISCLAIMER_BASE)).toBe(true);
     expect(Object.isFrozen(safety.REDLINES)).toBe(true);
     expect(Object.isFrozen(safety.REDLINES.健康)).toBe(true);
+    expect(Object.isFrozen(safety.REDLINES.命理)).toBe(true);
     expect(Object.isFrozen(safety.FORBIDDEN_CLAIMS[0])).toBe(true);
   });
 });

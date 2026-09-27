@@ -2,7 +2,7 @@
 
 <h1>xuanxue-skills</h1>
 
-<p><strong>让你的 AI Agent 读懂八字、婚恋、事业财运、手相与奇门局盘</strong></p>
+<p><strong>让你的 AI Agent 读懂八字、紫微斗数、婚恋、事业财运、手相与奇门局盘</strong></p>
 
 <p>
   简体中文 · <a href="README_EN.md">English</a> ·
@@ -11,7 +11,7 @@
 </p>
 
 <p>
-  <a href="https://github.com/konglong87/xuanxue-skills/tree/v0.2.1"><img alt="Version v0.2.1" src="https://img.shields.io/badge/version-v0.2.1-2563eb?style=flat-square"></a>
+  <a href="https://github.com/konglong87/xuanxue-skills/tree/v0.3.0"><img alt="Version v0.3.0" src="https://img.shields.io/badge/version-v0.3.0-2563eb?style=flat-square"></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/license-MIT-16a34a?style=flat-square"></a>
   <a href="package.json"><img alt="Node.js 18 or newer" src="https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white"></a>
   <img alt="Zero runtime dependencies" src="https://img.shields.io/badge/runtime_dependencies-0-7c3aed?style=flat-square">
@@ -49,6 +49,7 @@
 | 婚恋情感 | `请分析我的婚恋情感倾向、相处模式和阶段变化，不要下必婚必离的结论。` | 完整出生资料 + 具体问题 |
 | 事业财运 | `请分析我的事业方向、工作特点和财运节奏，不要承诺收益。` | 完整出生资料 + 具体问题 |
 | 手相 | `请根据这两张手掌照片分析手型、掌丘、主线和特殊纹路。` | 清晰的双手掌心照片 |
+| 紫微斗数 | `请根据我的出生资料排一张紫微斗数命盘，并说明命宫、身宫、十四主星和四化。` | 出生日期、时间、地点、性别 |
 | 奇门局盘 | `请判读这张奇门局盘，并逐宫说明判断依据。` | 外部奇门 APP 已排好的完整局盘 |
 
 八字提问示例：
@@ -69,7 +70,7 @@
 
 | 场景 | 最好提供什么 |
 |---|---|
-| 八字、婚恋、事业财运 | 公历出生日期、尽量准确的出生时间、出生城市、性别；海外或历史出生记录最好补充当时的时区 |
+| 八字、紫微斗数、婚恋、事业财运 | 公历出生日期、尽量准确的出生时间、出生城市、性别；海外或历史出生记录最好补充当时的时区 |
 | 手相 | 左右手分别拍摄，掌心朝上，自然光，画面清晰，不开美颜，不遮挡掌纹 |
 | 奇门 | 可信 APP 已生成的完整局盘截图，或逐宫文字转录；本项目当前不自行起局 |
 
@@ -81,6 +82,7 @@
 | `love-marriage` 婚恋情感 | 已开放 | 分析倾向和相处模式，不断言必婚、必离或他人的隐私事实 |
 | `wealth-career` 事业财运 | 已开放 | 分析方向、节奏和风险，不保证收益，不替代投资或职业建议 |
 | `palm` 手相 | 已开放 | 宿主 Agent 负责多模态观察（看图），代码负责验证观察结构；结论必须对应照片中的实际特征 |
+| `ziwei` 紫微斗数 | 已开放 | 代码生成命宫、身宫、五行局、十四主星、四化和大限骨架；保留流派差异 |
 | `qimen` 外部奇门局盘 | 已开放 | 只判读可信外部 APP 已起好的局盘，当前不自行起局 |
 | `face-reading` 面相 | 规划中，暂不开放 | **因人脸隐私暂不开放** |
 | `fengshui-naqi` 风水纳气 | future | 计算内核已有部分能力，完整用户技能尚未开放 |
@@ -143,7 +145,7 @@ claude --plugin-dir /absolute/path/to/xuanxue-skills
 
 | Agent | 状态 | 当前证据 |
 |---|---|---|
-| `claude-code` | `verified` | 已发现五个技能；八字、婚恋、事业财运和双领域路由通过真实模型验收 |
+| `claude-code` | `verified` | 已发现六个技能；八字、婚恋、事业财运和双领域路由通过真实模型验收 |
 | `codex` | `experimental` | 官方路径和安装器探针通过；当前测试机的 CLI 异常退出，未完成宿主发现 |
 | `cursor` | `experimental` | 安装生命周期和运行探针通过；真实发现受测试机登录状态阻塞 |
 | `trae` | `experimental` | 路径映射和安装生命周期通过；当前没有可用的 Trae 真机 |
@@ -158,10 +160,11 @@ core/ganzhi <- core/calendar <- skills/bazi
 
 core/direction <- core/naqi
 core/ganzhi + core/direction <- skills/qimen
+core/calendar -> core/ziwei -> skills/ziwei
 host vision -> skills/palm contract
 ```
 
-`core/` 不依赖 skills。五个宿主共享同一份计算内核和运行时，运行时零外部依赖；内联的 `lunar-javascript` 保留 MIT 许可证与来源。
+`core/` 不依赖 skills。六个宿主共享同一份计算内核和运行时，运行时零外部依赖；内联的 `lunar-javascript` 保留 MIT 许可证与来源。
 
 开发验证：
 

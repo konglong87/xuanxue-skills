@@ -36,7 +36,7 @@ describe('installation verification', () => {
       target: 'codex',
       scope: 'user',
       version: VERSION,
-      linkCount: 5,
+      linkCount: 6,
       probe: {
         status: 'ready',
         pillars: { 年: '乙未', 月: '戊寅', 日: '丙辰', 时: '丁酉' },
@@ -116,7 +116,7 @@ describe('safe uninstall', () => {
 
     const result = uninstallSkills(fixture.options);
 
-    expect(result).toMatchObject({ status: 'uninstalled', removedLinks: 5, skippedLinks: [] });
+    expect(result).toMatchObject({ status: 'uninstalled', removedLinks: 6, skippedLinks: [] });
     fixture.installed.links.forEach(link => expect(fs.existsSync(link.path)).toBe(false));
     expect(fs.statSync(unrelated).isDirectory()).toBe(true);
     expect(fs.existsSync(manifestPath(fixture.options))).toBe(false);
@@ -135,7 +135,7 @@ describe('safe uninstall', () => {
 
     const result = uninstallSkills(fixture.options);
 
-    expect(result.removedLinks).toBe(4);
+    expect(result.removedLinks).toBe(5);
     expect(result.skippedLinks).toEqual([link.path]);
     expect(fs.realpathSync(link.path)).toBe(fs.realpathSync(foreign));
     expect(fs.statSync(foreign).isDirectory()).toBe(true);
@@ -164,13 +164,13 @@ describe('safe uninstall', () => {
     expect(cursor.links).toEqual(fixture.installed.links);
     expect(uninstallSkills(fixture.options)).toMatchObject({
       removedLinks: 0,
-      retainedSharedLinks: 5,
+      retainedSharedLinks: 6,
     });
     cursor.links.forEach(link => expect(fs.realpathSync(link.path)).toBe(fs.realpathSync(link.target)));
     expect(verifyInstallation(cursorOptions).status).toBe('verified');
 
     expect(uninstallSkills(cursorOptions)).toMatchObject({
-      removedLinks: 5,
+      removedLinks: 6,
       retainedSharedLinks: 0,
     });
     cursor.links.forEach(link => expect(fs.existsSync(link.path)).toBe(false));

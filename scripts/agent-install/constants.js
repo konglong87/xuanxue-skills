@@ -6,6 +6,7 @@ const PUBLISHED_SKILLS = Object.freeze([
   'qimen',
   'love-marriage',
   'wealth-career',
+  'ziwei',
 ]);
 
 const TARGETS = Object.freeze([

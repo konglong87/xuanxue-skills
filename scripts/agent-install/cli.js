@@ -5,7 +5,7 @@
 const HELP = `Usage: xuanxue-skills <command> [options]
 
 Commands:
-  install    Install the complete runtime bundle and link its five skills
+  install    Install the complete runtime bundle and link its six skills
   verify     Verify an existing installation
   uninstall  Remove links owned by this installer
 

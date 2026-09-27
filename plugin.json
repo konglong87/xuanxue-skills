@@ -1,7 +1,7 @@
 {
   "name": "xuanxue-skills",
-  "version": "0.2.1",
-  "description": "五个当前可用的传统术数技能：bazi 用完整出生资料做综合命理，love-marriage 深入婚恋，wealth-career 深入事业财运，palm 接收双手照片并验证宿主多模态观察，qimen 只判读外部 APP 已起局盘、不自行起局。确定性八字计算由仓库内核完成，流派差异并列呈现。",
+  "version": "0.3.0",
+  "description": "六个当前可用的传统术数技能：bazi 用完整出生资料做综合命理，ziwei 生成紫微斗数基础命盘，love-marriage 深入婚恋，wealth-career 深入事业财运，palm 接收双手照片并验证宿主多模态观察，qimen 只判读外部 APP 已起局盘、不自行起局。确定性八字计算由仓库内核完成，流派差异并列呈现。",
   "author": {
     "name": "恐龙创新部",
     "url": "https://github.com/konglong87"
@@ -33,6 +33,11 @@
     "qimen",
     "奇门遁甲",
     "外部局盘",
-    "九宫盘"
+    "九宫盘",
+    "ziwei",
+    "紫微斗数",
+    "十二宫",
+    "十四主星",
+    "四化"
   ]
 }

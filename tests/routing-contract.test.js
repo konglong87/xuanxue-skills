@@ -11,6 +11,7 @@ const AVAILABLE_SKILLS = Object.freeze([
   'qimen',
   'love-marriage',
   'wealth-career',
+  'ziwei',
 ]);
 const FUTURE_SKILLS = Object.freeze(['fengshui-naqi', 'divination']);
 const RETIRED_NAMES = Object.freeze([
@@ -47,6 +48,7 @@ describe('当前发布技能目录与发现契约', () => {
     ['qimen', /APP.*局盘|局盘截图|转录文本/, /奇门遁甲|看局/, /not for|不用于/i],
     ['love-marriage', /出生资料|出生日期/, /婚恋|姻缘|正缘|复合/, /not for|不用于/i],
     ['wealth-career', /出生日期.*出生时间/, /事业|财运|跳槽|创业/, /not for|不用于/i],
+    ['ziwei', /出生日期|出生时间/, /紫微斗数|命盘|十四主星/, /not for|不用于/i],
   ])('%s description 同时说明输入、口语触发和反向排除', (name, input, trigger, exclusion) => {
     const { description } = skills[name];
     expect(description).toMatch(/^Use when/);
@@ -130,7 +132,7 @@ describe('README、路线图与发布元数据', () => {
     JSON.stringify(marketplace),
   ].join('\n');
 
-  test('README 第一屏列出五个当前技能、输入和五条用户入口', () => {
+  test('README 第一屏列出六个当前技能、输入和用户入口', () => {
     const firstScreen = readme.split('\n').slice(0, 90).join('\n');
     AVAILABLE_SKILLS.forEach(name => expect(firstScreen).toContain(`\`${name}\``));
     expect(firstScreen).toMatch(/出生.*综合/);
@@ -197,8 +199,8 @@ describe('README、路线图与发布元数据', () => {
   });
 
   test('taxonomy 的领域示例明确八字必需、外部奇门仅可选', () => {
-    const section = taxonomy.match(/\*\*⑥⑦ 与 ③ 的触发边界\*\*[\s\S]*?(?=### 解法层)/)[0];
-    expect(section).toMatch(/⑥[\s\S]*八字.*必需[\s\S]*奇门.*可选/);
+    const section = taxonomy.match(/\*\*⑦⑧ 与 ③ 的触发边界\*\*[\s\S]*?(?=### 解法层)/)[0];
+    expect(section).toMatch(/⑦[\s\S]*八字.*必需[\s\S]*奇门.*可选/);
     expect(section).not.toMatch(/内部取用八字与奇门/);
   });
 
@@ -223,15 +225,15 @@ describe('README、路线图与发布元数据', () => {
     RETIRED_NAMES.forEach(name => expect(publishedSurface).not.toContain(name));
   });
 
-  test('taxonomy 保留七技能设计但显著区分 current 5 与 future 2', () => {
-    expect(taxonomy).toMatch(/当前已交付[\s\S]*5/);
+  test('taxonomy 保留长期技能设计并显著区分 current 6 与 future 2', () => {
+    expect(taxonomy).toMatch(/当前已交付[\s\S]*6/);
     AVAILABLE_SKILLS.forEach(name => expect(taxonomy).toMatch(new RegExp(`${name}[\\s\\S]{0,100}(?:已交付|current)|(?:已交付|current)[\\s\\S]{0,100}${name}`)));
     FUTURE_SKILLS.forEach(name => expect(taxonomy).toMatch(new RegExp(`${name}[\\s\\S]{0,100}(?:future|未交付)|(?:future|未交付)[\\s\\S]{0,100}${name}`)));
     expect(taxonomy).toMatch(/miexiang\.md[\s\S]{0,100}(?:future|未交付)/);
     expect(taxonomy).toMatch(/core\/wanwu[\s\S]{0,100}(?:future|未交付)/);
   });
 
-  test('manifest 与 marketplace 版本一致且仅陈述五个能力', () => {
+  test('manifest 与 marketplace 版本一致且仅陈述六个能力', () => {
     expect(plugin.version).toBe(packageJson.version);
     expect(marketplace.description).toEqual(expect.any(String));
     expect(marketplace.description.length).toBeGreaterThan(10);

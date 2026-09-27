@@ -2,7 +2,7 @@ const core = require('../index');
 
 describe('core 汇总导出', () => {
   test('四层命名空间和 format 全部可达', () => {
-    ['ganzhi', 'calendar', 'direction', 'naqi'].forEach(namespace => {
+    ['ganzhi', 'calendar', 'direction', 'naqi', 'ziwei'].forEach(namespace => {
       expect(core[namespace]).toBeDefined();
       expect(typeof core[namespace].format).toBe('function');
     });
@@ -14,6 +14,7 @@ describe('core 汇总导出', () => {
     ['fourPillars', 'solarToLunar', 'lunarToSolar', 'luckCycles', 'annualCycle', 'baziChart']
       .forEach(name => expect(typeof core.calendar[name]).toBe('function'));
     ['shanFromDegree', 'flyStars', 'declination'].forEach(name => expect(typeof core.direction[name]).toBe('function'));
+    ['ziweiChart', 'fiveElementsClass', 'soulAndBody'].forEach(name => expect(typeof core.ziwei[name]).toBe('function'));
     ['auditHouse', 'longhu', 'houseCenter'].forEach(name => expect(typeof core.naqi[name]).toBe('function'));
   });
 

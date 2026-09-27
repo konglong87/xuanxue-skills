@@ -38,7 +38,7 @@ afterEach(() => {
 });
 
 describe('owned multi-agent installation', () => {
-  test('copies one complete stable runtime and links all five published skills', () => {
+  test('copies one complete stable runtime and links all six published skills', () => {
     const roots = temporaryRoots();
     const result = installSkills(installOptions(roots));
 
@@ -75,7 +75,7 @@ describe('owned multi-agent installation', () => {
     fs.rmSync(roots.base, { recursive: true, force: true });
   });
 
-  test('writes an ownership manifest with stable schema and five links', () => {
+  test('writes an ownership manifest with stable schema and six links', () => {
     const roots = temporaryRoots();
     const options = installOptions(roots, { target: 'cursor', scope: 'project' });
     const result = installSkills(options);

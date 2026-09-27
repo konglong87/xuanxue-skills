@@ -18,13 +18,14 @@ const HOME = path.join(path.sep, 'tmp', 'home with spaces');
 const PROJECT = path.join(path.sep, 'tmp', 'project with spaces');
 
 describe('agent installer constants', () => {
-  test('publishes exactly five frozen skills', () => {
+  test('publishes exactly six frozen skills', () => {
     expect(PUBLISHED_SKILLS).toEqual([
       'bazi',
       'palm',
       'qimen',
       'love-marriage',
       'wealth-career',
+      'ziwei',
     ]);
     expect(Object.isFrozen(PUBLISHED_SKILLS)).toBe(true);
   });

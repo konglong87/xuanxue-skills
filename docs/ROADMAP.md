@@ -3,7 +3,7 @@
 > 这份文档的目标：**换台电脑、换个人，读完这一篇就能接着做。**
 > 每完成一项就勾掉复选框并更新"当前状态"。
 
-**当前状态（2026-09-19）**：`core` 与五个已交付技能已完成统一报告、安全 DTO、跨时区民用时间和历法边界修复；奇门审计字段不再进入标准报告，八字换日分歧会输出两派完整命盘，补录合并按稳定身份定位。默认 `research` 研究流程已落地：模型可提出受控排盘计划，内核执行并返回计算轨迹、证据包和一致性校验；换日对照、起运对照和一致性校验已提升为不可关闭的内核门禁。当前为 `47 suites / 798 tests`，离线 E2E smoke 为 `56/56`；Obama、Steve Jobs、Albert Einstein 三个可靠出生资料案例和 23:00 子时边界均已复算通过，Claude Router 真实短报告也已验证研究模式、校验状态和四柱逐字段引用。手相图片仍需宿主登录态和可复现图片环境，不能用离线测试替代。
+**当前状态（2026-09-27）**：`core` 与六个已交付技能已完成统一报告、安全 DTO、跨时区民用时间和历法边界修复；奇门审计字段不再进入标准报告，八字换日分歧会输出两派完整命盘，补录合并按稳定身份定位。默认 `research` 研究流程已落地：模型可提出受控排盘计划，内核执行并返回计算轨迹、证据包和一致性校验；换日对照、起运对照和一致性校验已提升为不可关闭的内核门禁。当前为 `51 suites / 815 tests`，离线 E2E smoke 为 `61/61`；Obama、Steve Jobs、Albert Einstein 三个可靠出生资料案例和 23:00 子时边界均已复算通过，Claude Router 真实短报告也已验证研究模式、校验状态和四柱逐字段引用。手相图片仍需宿主登录态和可复现图片环境，不能用离线测试替代。
 
 **开源发布进度（2026-08-12）**：正在实施 GitHub `npx` 多 Agent 安装器、中英文 README、兼容证据与清洁公开根历史。面相 `face-reading` 列入 future/TODO，**因人脸隐私暂不开放**；当前不实现 skill、不进入路由与 manifest，也不增加额外隐私门禁。
 
@@ -13,7 +13,7 @@
 
 **方案开头有「并行执行」一节** —— 14 个任务里 **7 个零依赖可 t=0 同时开工**，关键路径只有 3 层（Task 1 → 10 → 12），任务间文件零重叠，可直接在 `main` 上并行提交。一个人做也建议先打 `1 → 10 → 12` 关键路径。
 
-**技能划分已定稿** 👉 [SKILL-TAXONOMY.md](SKILL-TAXONOMY.md)：5 体系 + 2 领域 + 1 共享解法层。
+**技能划分已定稿** 👉 [SKILL-TAXONOMY.md](SKILL-TAXONOMY.md)：6 体系 + 2 领域 + 1 共享解法层。
 
 **资料带来的三处路线变更**（依据见私有归档的判据文档）：
 1. **「以磁北为准」被否决**，改用卫星地图取天文真北；风水主线是**纳气法**，不是玄空/八宅。注意：**罗盘这个工具仍在用**（R1 把「八寸罗盘测向」与卫星地图并列），故磁偏角校正保留（方案 Task 14）。
@@ -44,11 +44,11 @@ npm test
 
 ## 分期路线
 
-✅ **技能划分已定稿** —— 见 [SKILL-TAXONOMY.md](SKILL-TAXONOMY.md)：5 体系（`qimen` / `fengshui-naqi` / `bazi` / `palm` / `divination`）+ 2 领域（`wealth-career` / `love-marriage`）+ 1 共享解法层（`_shared/miexiang`）。
+✅ **技能划分已定稿** —— 见 [SKILL-TAXONOMY.md](SKILL-TAXONOMY.md)：6 体系（`qimen` / `fengshui-naqi` / `bazi` / `palm` / `ziwei` / `divination`）+ 2 领域（`wealth-career` / `love-marriage`）+ 1 共享解法层（`_shared/miexiang`）。
 
 `core/` 一次建全，后续技能只写业务逻辑，不再动地基。
 
-下方 Phase 5~8 已按新命名对齐。`qimen` / `wealth-career` / `love-marriage` 已完成当前发布范围。
+下方 Phase 5~8 已按新命名对齐。`qimen` / `ziwei` / `wealth-career` / `love-marriage` 已完成当前发布范围。
 
 ### Phase 0 — 仓库骨架 ✅ 已完成（`2f2a7c6`）
 
@@ -92,7 +92,7 @@ npm test
 - [x] 换日点双实现：`'23:00'` 与 `'00:00'` 分别复算
 - [x] `format()`
 
-五个必须由测试锁死的正确性点：
+六个必须由测试锁死的正确性点：
 
 | # | 规则 | 常见错法 |
 |---|---|---|
@@ -166,7 +166,7 @@ npm test
 
 **不新建"路由技能"** —— Claude Code 靠每个 `SKILL.md` 的 `description` frontmatter 触发，路由能力就写在那里面。多建一层调度技能是画蛇添足（见决策 #10）。
 
-- [x] 当前五个 `SKILL.md` 的 `description` 写全触发信号：输入形态 + 口语措辞 + 反向排除
+- [x] 当前六个 `SKILL.md` 的 `description` 写全触发信号：输入形态 + 口语措辞 + 反向排除
 - [x] 歧义消解：出生综合 / 婚恋 / 事业财运 / 手掌图片 / 外部奇门盘入口互斥；事业与婚恋同时询问先回 `bazi` 概览
 - [x] 显式点名覆盖自动路由，但不覆盖输入、证据和安全边界
 - [x] 信息不足时一次性问全缺项后停止，不猜测；奇门只接外部既有盘，不自行起局
@@ -245,7 +245,7 @@ npm test
 
 1. **新仓库从零建，不迁移任何已有代码。**
 2. ~~**技能按术数体系分，不按提问领域分。**~~ **此条已撤回**，理由见开放问题 #1。
-   领域技能通过公共接口复用 `bazi`、`core/ganzhi` 与可选 `qimen`，不重复排盘。**已由 [SKILL-TAXONOMY.md](SKILL-TAXONOMY.md) 定稿取代**：混合划分，5 体系 + 2 领域 + 1 共享解法层。
+   领域技能通过公共接口复用 `bazi`、`core/ganzhi` 与可选 `qimen`，不重复排盘。**已由 [SKILL-TAXONOMY.md](SKILL-TAXONOMY.md) 定稿取代**：混合划分，6 体系 + 2 领域 + 1 共享解法层。
 3. **Node.js + jest；全仓库单一 `package.json`，不用 npm workspaces。** 唯一需求是 skills 能调 core、依赖装在一处；Node 的模块解析天然满足。以后真要独立发包，改造是 20 分钟的机械工作。
 4. **交付顺序 A′**：`core/` 四层一次建全，再交付第一个技能。理由：命理是唯一能把历法地基压到极限的载荷（四柱 + 节气交界 + 真太阳时 + 大运起运），且有 `BaziGo` 可作对照；先做风水则历法深水区无人验证。
    「`core/` 先行」已锁定；第一个技能定为 `bazi`（八字），见 [SKILL-TAXONOMY.md](SKILL-TAXONOMY.md) 七期优先级。
@@ -270,11 +270,11 @@ npm test
 
 **#1 技能如何划分？** ✅ **已定稿 —— 见 [SKILL-TAXONOMY.md](SKILL-TAXONOMY.md)**
 
-R1 的 CSV 完整版到手后结论清楚了：**R1 不是一张技能清单，是一张四层结构表**（哲学层 / 基础层 / 体系层 / 领域层 + 解法层）。定稿为**混合划分：5 个体系技能 + 2 个领域技能 + 1 个共享解法层**。
+R1 的 CSV 完整版到手后结论清楚了：**R1 不是一张技能清单，是一张四层结构表**（哲学层 / 基础层 / 体系层 / 领域层 + 解法层）。定稿为**混合划分：6 个体系技能 + 2 个领域技能 + 1 个共享解法层**。
 
 ```
-体系层  ①qimen  ②fengshui-naqi  ③bazi  ④palm  ⑤divination
-领域层  ⑥wealth-career   ⑦love-marriage      （八字必需，外部奇门可选增强）
+体系层  ①qimen  ②fengshui-naqi  ③bazi  ④palm  ⑤ziwei  ⑥divination
+领域层  ⑦wealth-career   ⑧love-marriage      （八字必需，外部奇门可选增强）
 解法层  _shared/miexiang 灭相·造相·方位迁移    （被所有技能调用，不独立成技能）
 ```
 
@@ -330,9 +330,16 @@ R1 CSV 把「**八寸罗盘测向**」与「卫星地图分析」**并列**为�
 ## 收尾 todo（`core/` 完成后再做）
 
 - [ ] `face-reading` 面相技能：因人脸隐私暂不开放；当前仅保留 future 状态，不实现技能或额外隐私门禁
-- [x] `plugin.json` / `.claude-plugin/marketplace.json` 只发布五个当前已交付技能；future 两技能不进入 manifest
-- [x] `README.md` 第一屏对齐五个当前能力、真实输入、限制和路由
-- [x] 公开架构文档对齐“当前目录职责”的逐项依赖表：`bazi -> calendar`，`love-marriage / wealth-career -> bazi + ganzhi`，`qimen -> ganzhi + direction`，`palm` 不依赖 `core`，`naqi -> direction`；future 组件明确未交付
+- [x] `plugin.json` / `.claude-plugin/marketplace.json` 只发布六个当前已交付技能；future 两技能不进入 manifest
+- [x] `README.md` 第一屏对齐六个当前能力、真实输入、限制和路由
+- [x] 公开架构文档对齐“当前目录职责”的逐项依赖表：`bazi -> calendar + ganzhi`，`ziwei -> calendar + ziwei`，`love-marriage / wealth-career -> bazi + ganzhi`，`qimen -> ganzhi + direction`，`palm` 不依赖 `core`，`naqi -> direction`；future 组件明确未交付
 - [x] 为 `qimen` / `wealth-career` / `love-marriage` 补实施任务（见用户判读技能方案 Task 5~7）
 - [ ] `core/wanwu/` 万物类象表（十天干 / 地支 / 八卦 → 颜色、材质、功能、物品）—— 灭相与造相都依赖它，另立方案
 - [ ] `skills/_shared/miexiang.md` 灭相 · 造相 · 方位迁移，被所有技能引用
+
+### Phase 10 — `core/ziwei/` 与 `skills/ziwei/` ✅ 已完成（2026-09-27）
+
+- [x] 复用统一历法内核，完成命宫、身宫、五行局、十二宫、十四主星、三方四正、四化和大限骨架
+- [x] 使用结构化报告契约，禁止模型心算和确定性断语
+- [x] 加入独立单元、技能契约与离线 E2E 验收；未引入参考项目代码、原文、案例或品牌化命名
+- [ ] 后续再评估流派配置、辅星亮度、小限/流年和六爻/梅花易数，不与本次 MVP 耦合

@@ -4,4 +4,5 @@ module.exports = {
   direction: require('./direction'),
   naqi: require('./naqi'),
   gua: require('./gua'),
+  ziwei: require('./ziwei'),
 };

@@ -16,6 +16,7 @@ const checks = {
   qimen: 0,
   palm: 0,
   safety: 0,
+  ziwei: 0,
 };
 
 function check(category, assertion) {
@@ -45,13 +46,14 @@ function runBaziCli(input) {
 function verifyCore() {
   const core = require('../core');
   check('core', () => assert.deepEqual(Object.keys(core), [
-    'ganzhi', 'calendar', 'direction', 'naqi', 'gua',
+    'ganzhi', 'calendar', 'direction', 'naqi', 'gua', 'ziwei',
   ]));
   check('core', () => assert.equal(typeof core.ganzhi.tenGodStructure, 'function'));
   check('core', () => assert.equal(typeof core.ganzhi.marriageSignals, 'function'));
   check('core', () => assert.equal(typeof core.calendar.baziChart, 'function'));
   check('core', () => assert.equal(typeof core.direction.declination, 'function'));
   check('core', () => assert.equal(typeof core.naqi.zoneOf, 'function'));
+  check('core', () => assert.equal(typeof core.ziwei.ziweiChart, 'function'));
 }
 
 function verifyBaziCli() {
@@ -190,6 +192,21 @@ function verifyPalm() {
   check('palm', () => assert.ok(isDeepFrozen(result)));
 }
 
+function verifyZiwei() {
+  const { analyze } = require('../skills/ziwei/lib/analyze');
+  const result = analyze({
+    birthDate: '1990-01-01',
+    birthTime: '12:00',
+    longitude: 121.47,
+    utcOffsetMinutes: 480,
+    gender: 'male',
+  });
+  check('ziwei', () => assert.equal(result.status, 'ready'));
+  check('ziwei', () => assert.equal(result.supplement.calculation.宫位.length, 12));
+  check('ziwei', () => assert.equal(result.supplement.calculation.安星.四化.length, 4));
+  check('ziwei', () => assert.match(result.边界.join(''), /传统术数/));
+}
+
 function verifySafety() {
   const safety = require('../skills/_shared/safety');
   const love = require('../skills/love-marriage/lib/analyze');
@@ -212,6 +229,7 @@ function main() {
   verifyQimen();
   verifyPalm();
   verifySafety();
+  verifyZiwei();
   const total = Object.values(checks).reduce((sum, count) => sum + count, 0);
   process.stdout.write(`${JSON.stringify({ status: 'ok', targetYear: TARGET_YEAR, total, checks })}\n`);
 }

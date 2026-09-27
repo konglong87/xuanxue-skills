@@ -11,6 +11,7 @@ const CURRENT_SKILLS = [
   'qimen',
   'love-marriage',
   'wealth-career',
+  'ziwei',
 ];
 const HOSTS = ['claude-code', 'codex', 'cursor', 'trae', 'workbuddy'];
 const STATES = ['verified', 'experimental', 'unverified'];
@@ -25,7 +26,7 @@ function readText(relative) {
 }
 
 describe('agent compatibility facts', () => {
-  test('declares exactly five current skills and five target hosts', () => {
+  test('declares exactly six current skills and five target hosts', () => {
     const facts = readJson('docs/agent-compatibility.json');
 
     expect(facts.schemaVersion).toBe(1);
@@ -86,6 +87,7 @@ describe('bilingual open-source onboarding', () => {
     'wealth-career',
     'palm',
     'qimen',
+    'ziwei',
     'face-reading',
     'fengshui-naqi',
     'divination',
@@ -109,7 +111,7 @@ describe('bilingual open-source onboarding', () => {
     });
   });
 
-  test('both READMEs state four differentiators and all eight capability rows', () => {
+  test('both READMEs state four differentiators and capability rows', () => {
     const chinese = readText('README.md');
     const english = readText('README_EN.md');
 
@@ -124,7 +126,7 @@ describe('bilingual open-source onboarding', () => {
     });
   });
 
-  test('both READMEs mirror five host states from the machine-readable facts', () => {
+  test('both READMEs mirror host states from the machine-readable facts', () => {
     const facts = readJson('docs/agent-compatibility.json');
     const chinese = readText('README.md');
     const english = readText('README_EN.md');

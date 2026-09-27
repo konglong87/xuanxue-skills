@@ -1,12 +1,13 @@
 {
   "schemaVersion": 1,
-  "projectVersion": "0.2.1",
+  "projectVersion": "0.3.0",
   "currentSkills": [
     "bazi",
     "palm",
     "qimen",
     "love-marriage",
-    "wealth-career"
+    "wealth-career",
+    "ziwei"
   ],
   "supportStates": [
     "verified",
@@ -29,7 +30,7 @@
           "type": "install",
           "status": "passed",
           "checkedAt": "2026-08-12",
-          "detail": "npx 安装器在 user/project 两种隔离范围完成完整运行时、五个入口、固定八字探针及卸载生命周期。"
+          "detail": "npx 安装器在 user/project 两种隔离范围完成完整运行时、六个入口、固定八字探针及卸载生命周期。"
         },
         {
           "type": "discovery",

@@ -30,6 +30,7 @@ describe('仓库外 cwd E2E smoke', () => {
         qimen: expect.any(Number),
         palm: expect.any(Number),
         safety: expect.any(Number),
+        ziwei: expect.any(Number),
       },
     }));
     expect(summary.total).toBe(Object.values(summary.checks)
@@ -40,6 +41,8 @@ describe('仓库外 cwd E2E smoke', () => {
     expect(summary.checks.qimen).toBeGreaterThanOrEqual(7);
     expect(summary.checks.palm).toBeGreaterThanOrEqual(9);
     expect(summary.checks.safety).toBeGreaterThanOrEqual(7);
+    expect(summary.checks.ziwei).toBeGreaterThanOrEqual(4);
+    expect(summary.checks.ziwei).toBeGreaterThanOrEqual(4);
   });
 
   test('脚本限用 Node 内置模块与仓内相对 require，且不依赖网络和当前日期', () => {
