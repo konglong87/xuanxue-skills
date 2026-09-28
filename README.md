@@ -179,3 +179,5 @@ node scripts/e2e-smoke.js
 ## 许可证
 
 [MIT](LICENSE) - 可以免费下载、使用、修改和分发，请保留许可证声明。
+
+第三方许可证及必要署名保留；发布门禁不能代替权利审查。见 [内容治理](docs/CONTENT-POLICY.md) 与 [发布审计](docs/RELEASE-AUDIT.md)。开发者可运行 `npm run audit:release` 核查实际安装包范围和必需许可证。

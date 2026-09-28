@@ -10,3 +10,7 @@ docs/xuanxue-refs
 .workbuddy/
 public-release/
 /CLAUDE.md
+
+# Temporary research/audit material is never project content.
+.research-*/
+.audit-*/

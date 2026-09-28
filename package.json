@@ -24,9 +24,31 @@
     "test:core": "jest core/",
     "test:watch": "jest --watch",
     "test:e2e": "node scripts/e2e-smoke.js",
-    "test:ci": "npm test -- --runInBand && npm run test:e2e && git diff --check"
+    "test:ci": "npm test -- --runInBand && npm run test:e2e && npm run audit:release && git diff --check",
+    "audit:release": "node scripts/audit-release.js"
   },
   "devDependencies": {
     "jest": "^30.3.0"
-  }
+  },
+  "files": [
+    "core/",
+    "skills/",
+    "vendor/",
+    "scripts/agent-install/",
+    ".claude-plugin/",
+    "LICENSE",
+    "VERSION",
+    "plugin.json",
+    "README.md",
+    "README_EN.md",
+    "docs/CONTENT-POLICY.md",
+    "docs/RELEASE-AUDIT.md",
+    "!**/__tests__/**",
+    "!**/tests/**",
+    "!**/.research-*/**",
+    "!**/.audit-*/**",
+    "!**/.git/**",
+    "!**/node_modules/**",
+    "!**/coverage/**"
+  ]
 }

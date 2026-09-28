@@ -180,3 +180,5 @@ See [test cases](docs/TEST-CASES.md) for reproducible fixtures and historical ti
 ## License
 
 [MIT](LICENSE) - free to download, use, modify, and distribute with the license notice preserved.
+
+Third-party license notices and required attribution are retained. Packaging checks do not replace rights clearance. See [content policy](docs/CONTENT-POLICY.md) and [release audit](docs/RELEASE-AUDIT.md); run `npm run audit:release` from the source checkout to check package boundaries and required licenses.

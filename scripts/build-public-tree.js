@@ -6,6 +6,7 @@ const crypto = require('crypto');
 const fs = require('fs');
 const path = require('path');
 const { execFileSync } = require('child_process');
+const { isPrivatePath, isApprovedRoot } = require('./release-policy');
 
 const PUBLIC_EXCLUSIONS = Object.freeze([
   '.git',
@@ -32,7 +33,7 @@ function normalized(relative) {
 
 function isPublicPath(relative) {
   const value = normalized(relative);
-  return !PUBLIC_EXCLUSIONS.some(exclusion => (
+  return isApprovedRoot(value) && !isPrivatePath(value) && !PUBLIC_EXCLUSIONS.some(exclusion => (
     value === exclusion
     || value.startsWith(`${exclusion}/`)
     || (exclusion.endsWith('-') && value.startsWith(exclusion))
